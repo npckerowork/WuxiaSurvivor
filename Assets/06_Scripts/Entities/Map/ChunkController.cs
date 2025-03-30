@@ -72,7 +72,6 @@ public class ChunkController : MonoBehaviour
                 //수직이동
                 transform.Translate(Vector3.up * Mathf.Sign(moveDir.y) * ChunkSize * 2);
             }
-
         }
     }
 }

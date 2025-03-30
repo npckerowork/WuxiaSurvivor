@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1642025813
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 21ad0db33ce445678f46ff78cff9260f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,9 +132,10 @@ GameObject:
   - component: {fileID: 1237194597514792546}
   - component: {fileID: 1013025316587378017}
   - component: {fileID: 3883522827012294255}
+  - component: {fileID: 6829672243739510734}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,3 +313,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 100
   MoveSpeed: 5
+--- !u!114 &6829672243739510734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794761715729117023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3faaea13af9bb4b4ab5e36a09d133b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetRange: 20
+  magnetDuration: 3
+  attractItemLayer:
+    serializedVersion: 2
+    m_Bits: 64
