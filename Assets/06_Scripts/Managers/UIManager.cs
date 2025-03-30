@@ -15,12 +15,6 @@ public enum UIType
 
 public class UIManager : Singleton<UIManager>
 {
-    public LobbyUI lobbyUI { get; private set; }
-    public UpgradeUI upgradeUI { get; private set; }
-    public OptionUI optionUI { get; private set; }
-    public InGameUI inGameUI { get; private set; }
-    public PauseUI pauseUI { get; private set; }
-
     private BaseUI[] uis;
 
     public BaseUI this[UIType type] => uis[(int)type];

@@ -118,10 +118,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobby UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4941446753799977718, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8159647120607400639, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

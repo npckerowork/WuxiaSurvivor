@@ -27,7 +27,7 @@ public class LobbyUI : BaseUI
     {
         base.HideUI();
 
-        uiManager.inGameUI.ShowUI();
+        uiManager[UIType.Ingame].ShowUI();
         SceneManager.LoadScene("01_Main");
     }
 
