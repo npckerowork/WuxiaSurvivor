@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public enum UIType
 {
@@ -47,5 +48,16 @@ public class UIManager : Singleton<UIManager>
         {
             ui?.InitUI(this);
         }
+    }
+
+    public T GetUI<T>()
+    {
+        foreach(BaseUI ui in uis)
+        {
+            if (ui is T result)
+                return (T)result;
+        }
+
+        return default;
     }
 }

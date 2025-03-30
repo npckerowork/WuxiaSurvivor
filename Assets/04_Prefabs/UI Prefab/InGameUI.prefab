@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 4744268896116615721}
   - component: {fileID: 8409147257608075180}
   m_Layer: 5
-  m_Name: HpbarCanvas
+  m_Name: HealthBarDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,8 +572,9 @@ GameObject:
   m_Component:
   - component: {fileID: 41100466175378318}
   - component: {fileID: 6132686830163088791}
+  - component: {fileID: 5843209922866079266}
   m_Layer: 5
-  m_Name: DamageCanvas
+  m_Name: DamageDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,6 +607,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7545902750850656206}
   m_CullTransparentMesh: 1
+--- !u!114 &5843209922866079266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545902750850656206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95bbee99e2e2514baa8282a04de4960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePrefab: {fileID: 1662882358954628194, guid: 52a27c06bd209d845a27a77f315e1af5, type: 3}
 --- !u!1 &8269603228486644235
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3682523470133583193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -793,6 +807,7 @@ MonoBehaviour:
   gameTimer: {fileID: 5021480241723940012}
   skillInventory: {fileID: 5692841646808646575}
   pauseButton: {fileID: 1734925312029323613}
+  damageUI: {fileID: 5843209922866079266}
 --- !u!1 &8925942442277492921
 GameObject:
   m_ObjectHideFlags: 0

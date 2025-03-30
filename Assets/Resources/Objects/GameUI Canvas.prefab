@@ -220,10 +220,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade UI
       objectReference: {fileID: 0}
-    - target: {fileID: 155912803034659696, guid: e43572d6371cb3f4295feacd85f6586f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6421020315761962548, guid: e43572d6371cb3f4295feacd85f6586f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -526,10 +522,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8367613991945134856}
     m_Modifications:
-    - target: {fileID: 2525675308468389890, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
-      propertyPath: m_Name
-      value: HealthBarDisplay
-      objectReference: {fileID: 0}
     - target: {fileID: 3682523470133583193, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -610,51 +602,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4224035692432284489, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.527
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224035692432284489, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7545902750850656206, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
-      propertyPath: m_Name
-      value: DamageDisplay
-      objectReference: {fileID: 0}
     - target: {fileID: 8436452179774374087, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
       propertyPath: m_Name
       value: InGameUI
       objectReference: {fileID: 0}
-    - target: {fileID: 8436452179774374087, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7545902750850656206, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7591658347743406856}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
---- !u!1 &1969056915602181872 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7545902750850656206, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
-  m_PrefabInstance: {fileID: 8352787832676690238}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7591658347743406856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969056915602181872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e978a452c023df84d9996b05bb366542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4679771981862663271 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3682523470133583193, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
