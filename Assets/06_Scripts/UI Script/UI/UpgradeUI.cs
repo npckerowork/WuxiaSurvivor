@@ -20,6 +20,7 @@ public class UpgradeUI : BaseUI
         base.HideUI();
 
         // Lobby UI
-        uiManager.lobbyUI.ShowUI();
+        //uiManager.lobbyUI.ShowUI();
+        uiManager[UIType.Lobby].ShowUI();
     }
 }

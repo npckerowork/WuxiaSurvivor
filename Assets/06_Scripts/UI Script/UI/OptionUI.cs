@@ -43,9 +43,6 @@ public class OptionUI : BaseUI
     {
         base.HideUI();
 
-        // Lobby UI
-        uiManager.lobbyUI.ShowUI();
-
         // 볼륨값 저장
         audioManager.SaveVolumes();
     }

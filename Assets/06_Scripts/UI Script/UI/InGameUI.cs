@@ -43,6 +43,6 @@ public class InGameUI : BaseUI
 
     private void OnPause()
     {
-        uiManager.pauseUI.ShowUI();
+        uiManager[UIType.Pause].ShowUI();
     }
 }

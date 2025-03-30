@@ -23,12 +23,6 @@ public class LobbyUI : BaseUI
         ShowUI();
     }
 
-    public override void ShowUI()
-    {
-        base.ShowUI();
-        UpdateLobbyTitle("로비");
-    }
-
     public override void HideUI()
     {
         base.HideUI();
@@ -39,20 +33,11 @@ public class LobbyUI : BaseUI
 
     private void OnUpgrade()
     {
-        // Upgrade UI ON
-        uiManager.upgradeUI.ShowUI();
-        UpdateLobbyTitle("강화");
+        uiManager[UIType.Upgrade].ShowUI();
     }
 
     private void OnOption()
     {
-        // Option UI ON
-        uiManager.optionUI.ShowUI();
-        UpdateLobbyTitle("설정");
-    }
-
-    public void UpdateLobbyTitle(string title)
-    {
-        uiTitle.text = title;
+        uiManager[UIType.Option].ShowUI();
     }
 }
