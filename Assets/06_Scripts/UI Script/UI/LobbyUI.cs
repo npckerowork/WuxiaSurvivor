@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LobbyUI : BaseUI
 {
     [Header("Lobby Data")]
-    [SerializeField] private TextMeshProUGUI uiTitle;
+    [SerializeField] private TextMeshProUGUI coinText;
 
     [Header("Button")]
     [SerializeField] private Button startButton;
@@ -17,6 +17,7 @@ public class LobbyUI : BaseUI
         base.InitUI(uiManager);
 
         startButton.onClick.AddListener(HideUI);
+        upgradeButton.onClick.AddListener(CoinUpdate);
         upgradeButton.onClick.AddListener(OnUpgrade);
         optionButton.onClick.AddListener(OnOption);
 
@@ -39,5 +40,10 @@ public class LobbyUI : BaseUI
     private void OnOption()
     {
         uiManager[UIType.Option].ShowUI();
+    }
+
+    public void CoinUpdate()
+    {
+        coinText.text = $"{DataManager.Instance.Coin.Current}";
     }
 }

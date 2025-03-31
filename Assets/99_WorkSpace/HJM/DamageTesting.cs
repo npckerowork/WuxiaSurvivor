@@ -25,6 +25,8 @@ public class DamageTesting : MonoBehaviour
 
             hp -= damage;
             gameUI.HealthUI.UpdateHealthBar(transform, maxHP, hp);
+
+            DataManager.Instance.Coin.Add(10000);
         }
     }
 }

@@ -25,6 +25,7 @@ public class DataManager
 
     //저장할 데이터---------------------------
     public Coin Coin = new();
+    public UpgradeData UpgradeData = new();
     //-------------------------------------
 
     //데이터 저장

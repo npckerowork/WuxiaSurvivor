@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: MoveSpeed
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeScriptable
+  type: 2
+  sprite: {fileID: 21300000, guid: adcf41d1c490b474a818a7244f974c93, type: 3}
+  price: 800
+  value: 1
+  priceRatio: 1.2
+  valueRatio: 1.1
