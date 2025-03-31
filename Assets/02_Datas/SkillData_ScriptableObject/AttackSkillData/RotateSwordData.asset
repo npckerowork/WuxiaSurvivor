@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: SwordAuraData
+  m_Name: RotateSwordData
   m_EditorClassIdentifier: Assembly-CSharp::AttackSkillData
-  skillName: SwordAura
+  skillName: 
   category: 0
-  damage: 0a0000000f00000014000000
+  damage: 

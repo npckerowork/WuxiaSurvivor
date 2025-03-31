@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 182679616}
-  - component: {fileID: 182679615}
   - component: {fileID: 182679617}
   - component: {fileID: 182679618}
   m_Layer: 0
@@ -141,21 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &182679615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182679614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbc3080d01698049bad5afb52d4e3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillList:
-  - {fileID: 7499794372559108621, guid: 9382e7a0475becf4f859bc9c424c181b, type: 3}
+  m_IsActive: 0
 --- !u!4 &182679616
 Transform:
   m_ObjectHideFlags: 0
@@ -195,11 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7425cb443fdf32f418791399b17f8fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSkillData: {fileID: 11400000, guid: 01e233ff938abc84ba73cc9af32d7ee3, type: 2}
+  attackSkillData: {fileID: 11400000, guid: ae0f19e9a51006d499f274a7dc78d964, type: 2}
   projectileObj: {fileID: 3055455285711186656, guid: a14462ad682ff6340989b6d33d7f5c3b, type: 3}
   attackRange: 5
   baseCoolTime: 2
-  countObj: 10
+  countObj: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 16
@@ -217,7 +202,7 @@ GameObject:
   m_Layer: 4
   m_Name: Enemy
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -319,6 +304,14 @@ PrefabInstance:
     - target: {fileID: 2794761715729117023, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794761715729117023, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829672243739510734, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
+      propertyPath: attractItemLayer.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8086924600789982559, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
       propertyPath: m_LocalPosition.x
@@ -457,6 +450,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1577226836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1577226838}
+  - component: {fileID: 1577226839}
+  m_Layer: 0
+  m_Name: RotateWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1577226838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577226836}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1577226839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577226836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f8c9293cc7dd843b9fef7103389bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefabs: {fileID: 8676878600826041228, guid: c33a8b35d1dcc3a49aa92ad2244db9ed, type: 3}
+  attackSkillData: {fileID: 11400000, guid: aadafa0ea4f0e504aabf8df6de71969a, type: 2}
+  speed: 5
+  distance: 2
+  weaponCount: 6
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -465,3 +510,4 @@ SceneRoots:
   - {fileID: 182679616}
   - {fileID: 1316384685}
   - {fileID: 1141342824}
+  - {fileID: 1577226838}
