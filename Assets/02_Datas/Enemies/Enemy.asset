@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928e360caf560a5458be0a2a939fa938, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  HeadIndex: 12
-  Head: Skeleton
-  EarsIndex: 0
-  Ears: 
-  EyesIndex: 12
-  Eyes: Skeleton
-  BodyIndex: 12
-  Body: Skeleton
+  HeadIndex: 7
+  Head: Goblin
+  EarsIndex: 5
+  Ears: Goblin
+  EyesIndex: 7
+  Eyes: Goblin
+  BodyIndex: 7
+  Body: Goblin
   HairIndex: 0
   Hair: 
-  ArmorIndex: 0
-  Armor: 
+  ArmorIndex: 7
+  Armor: Box
   HelmetIndex: 0
   Helmet: 
   WeaponIndex: 82

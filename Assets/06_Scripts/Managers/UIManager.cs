@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public enum UIType
 {
@@ -12,7 +11,6 @@ public enum UIType
     Ingame,
     Pause
 }
-
 
 public class UIManager : Singleton<UIManager>
 {
