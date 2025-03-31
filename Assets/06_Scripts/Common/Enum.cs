@@ -41,5 +41,6 @@ public enum UpgradeType
     ExpRatio,
     CoinRatio,
     MoveSpeed,
-    Damage
+    Damage,
+    HP
 }
