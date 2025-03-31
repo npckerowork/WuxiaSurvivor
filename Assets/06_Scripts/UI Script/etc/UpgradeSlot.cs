@@ -33,12 +33,12 @@ public class UpgradeSlot : MonoBehaviour
     {
         // 레벨 / 가격 업데이트
         upgradeLevel.text = $"LV {data.upgradeLevels[typeIndex]}";
-        upgradeValue.text = $"{data.upgradePrice[typeIndex]}";
+        upgradeValue.text = $"{data.upgradePrices[typeIndex]}";
     }
 
     private void UpgradeButton()
     {
-        int useCoin = data.upgradePrice[typeIndex];
+        int useCoin = data.upgradePrices[typeIndex];
         if(DataManager.Instance.Coin.IsCanUse(useCoin))
         {
             // coin 사용
@@ -53,8 +53,8 @@ public class UpgradeSlot : MonoBehaviour
 
             // 가격 / 수치 증가
             data.upgradeValues[typeIndex] *= valueRatio;
-            data.upgradePrice[typeIndex] = 
-                Mathf.RoundToInt(data.upgradePrice[typeIndex] * priceRatio);
+            data.upgradePrices[typeIndex] = 
+                Mathf.RoundToInt(data.upgradePrices[typeIndex] * priceRatio);
 
             // slot 업데이트
             UpdateSlot();

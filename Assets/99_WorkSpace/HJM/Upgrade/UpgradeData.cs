@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UpgradeData
@@ -9,8 +10,13 @@ public class UpgradeData
     public UpgradeScriptable[] upgradeDatas { get; private set; }
 
     public int[] upgradeLevels;     // 업그레이드 레벨
-    public int[] upgradePrice;      // 업그레이드 가격
+    public int[] upgradePrices;      // 업그레이드 가격
     public float[] upgradeValues;   // 업그레이드 수치
+
+    public float this[UpgradeType type]
+    {
+        get { return upgradeValues[(int)type]; }
+    }
 
     public UpgradeData()
     {
@@ -26,11 +32,11 @@ public class UpgradeData
 
         // 업그레이드 데이터 초기화
         upgradeLevels = new int[datalength];
-        upgradePrice = new int[datalength];
+        upgradePrices = new int[datalength];
         upgradeValues = new float[datalength];
         foreach (UpgradeScriptable data in upgradeDatas)
         {
-            upgradePrice[(int)data.type] = data.price;
+            upgradePrices[(int)data.type] = data.price;
             upgradeValues[(int)data.type] = data.value;
         }
     }
