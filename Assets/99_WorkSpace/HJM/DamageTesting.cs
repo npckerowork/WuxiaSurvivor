@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageTesting : MonoBehaviour
@@ -7,11 +5,17 @@ public class DamageTesting : MonoBehaviour
     SpriteRenderer sr;
     float topY;
 
+    public float maxHP;
+    public float hp;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
 
         topY = sr.bounds.max.y;
+
+        maxHP = 1000;
+        hp = maxHP;
     }
 
     void Update()
@@ -20,7 +24,13 @@ public class DamageTesting : MonoBehaviour
             float damage = Random.Range(1f, 100f);
             UIManager.Instance.GetUI<InGameUI>().OnDamagePopup
                 (damage, TopPosition());
+
+            hp -= damage;
+            UIManager.Instance.GetUI<InGameUI>().OnHealthBar
+                (transform, maxHP, hp);
         }
+
+
     }
 
     public Vector3 TopPosition()

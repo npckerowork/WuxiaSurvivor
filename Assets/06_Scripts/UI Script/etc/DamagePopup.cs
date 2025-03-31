@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamagePopup : MonoBehaviour
 {
-    private DamageUI ui;
+    private DamageUI damageUI;
     private TextMeshPro damageText;
     private Color defaultTextColor;
 
@@ -12,9 +12,9 @@ public class DamagePopup : MonoBehaviour
     [SerializeField] private float moveYDistance;   // 위로 올라가는 거리
     [SerializeField] private float fadeDuration;    // Fade 시간
 
-    public void InitPopup(DamageUI ui)
+    public void InitPopup(DamageUI damageUI)
     {
-        this.ui = ui;
+        this.damageUI = damageUI;
         damageText = GetComponent<TextMeshPro>();
 
         defaultTextColor = damageText.color;
@@ -43,7 +43,7 @@ public class DamagePopup : MonoBehaviour
 
     private void ReturnDamagePopup()
     {
-        ui.ReturnPopup(this);
+        damageUI.ReturnPopup(this);
         gameObject.SetActive(false);
     }
 }

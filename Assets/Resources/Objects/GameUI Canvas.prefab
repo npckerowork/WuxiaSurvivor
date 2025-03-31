@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobby UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4941446753799977718, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8159647120607400639, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -602,9 +606,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4224035692432284489, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.527
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224035692432284489, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034593038465785703, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
+      propertyPath: healthUI
+      value: 
+      objectReference: {fileID: 6727892737137781802}
     - target: {fileID: 8436452179774374087, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
       propertyPath: m_Name
       value: InGameUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436452179774374087, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -616,3 +636,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3682523470133583193, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
   m_PrefabInstance: {fileID: 8352787832676690238}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6727892737137781802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3365691451779384596, guid: fcc27c700b3e7244bb0dfe62244d6cc4, type: 3}
+  m_PrefabInstance: {fileID: 8352787832676690238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf86c442308a824781a4221673765db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

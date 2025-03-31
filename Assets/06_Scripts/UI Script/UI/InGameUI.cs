@@ -10,8 +10,8 @@ public class InGameUI : BaseUI
     [SerializeField] private GameTimer gameTimer;
     [SerializeField] private SkillInventory skillInventory;
     [SerializeField] private Button pauseButton;
-
     [SerializeField] private DamageUI damageUI;
+    [SerializeField] private HealthUI healthUI;
 
     public override void InitUI(UIManager uiManager)
     {
@@ -22,6 +22,7 @@ public class InGameUI : BaseUI
         gameTimer.InitTimer();
         skillInventory.InitSkillInventory();
         damageUI.InitDamageUI();
+        healthUI.InitHealthBar();
 
         // 버튼 버튼
         pauseButton.onClick.AddListener(
@@ -48,5 +49,10 @@ public class InGameUI : BaseUI
     public void OnDamagePopup(float damage, Vector3 pos)
     {
         damageUI.OnDamage(damage, pos);
+    }
+
+    public void OnHealthBar(Transform target, float maxHp, float hp)
+    {
+        healthUI.UpdateHealthBar(target, maxHp, hp);
     }
 }
