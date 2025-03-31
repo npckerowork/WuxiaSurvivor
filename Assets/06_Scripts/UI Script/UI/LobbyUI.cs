@@ -17,17 +17,17 @@ public class LobbyUI : BaseUI
         base.InitUI(uiManager);
 
         startButton.onClick.AddListener(HideUI);
-        upgradeButton.onClick.AddListener(CoinUpdate);
         upgradeButton.onClick.AddListener(OnUpgrade);
         optionButton.onClick.AddListener(OnOption);
 
         ShowUI();
+
+        DataManager.Instance.Coin.OnUpdateCoinAmountEvent += CoinUpdate;
     }
 
     public override void ShowUI()
     {
         base.ShowUI();
-        CoinUpdate();
     }
 
     public override void HideUI()
@@ -48,8 +48,8 @@ public class LobbyUI : BaseUI
         uiManager[UIType.Option].ShowUI();
     }
 
-    public void CoinUpdate()
+    public void CoinUpdate(long coin)
     {
-        coinText.text = $"{DataManager.Instance.Coin.Current}";
+        coinText.text = $"{coin}";
     }
 }
