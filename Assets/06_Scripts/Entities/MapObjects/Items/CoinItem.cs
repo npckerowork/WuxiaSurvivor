@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Coin : ItemBase
+public class CoinItem : ItemBase
 {
     [SerializeField] private int addBaseCoinAmount; //기본 코인획득수
 

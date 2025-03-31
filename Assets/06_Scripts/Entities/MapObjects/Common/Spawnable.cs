@@ -4,7 +4,7 @@ public class Spawnable : MonoBehaviour
 {
     public int Weight = 0; //확률 가중치
 
-    public void Spawn(Vector2 pos, Transform parent)
+    public void Spawn(Vector2Int pos, Transform parent)
     {
         if (Weight == 0)
         {
