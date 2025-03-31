@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class GameManager : Singleton<GameManager>
 {
     public PlayerController Player { get; private set; }
@@ -10,10 +12,16 @@ public class GameManager : Singleton<GameManager>
 
         Player = FindAnyObjectByType<PlayerController>();
         GameCoin = new();
+
+        Application.wantsToQuit += OnWantsToQuit;
     }
 
-    private void OnApplicationQuit()
+    private bool OnWantsToQuit()
     {
-        DataManager.Instance.SaveData(); // 게임 종료 시 게임 저장
+        DataManager.Instance.SaveData(); // 저장 요청
+#if UNITY_EDITOR
+        Debug.Log("게임 종료 전에 저장 완료!");
+#endif
+        return true; // false면 종료 취소됨
     }
 }
