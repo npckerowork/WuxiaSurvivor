@@ -1,9 +1,11 @@
+using Newtonsoft.Json;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "newUpgradeType", menuName = "Upgrade/Data")]
 public class UpgradeScriptable : ScriptableObject
 {
     public UpgradeType type;      // 업그레이드 타입
+    [JsonIgnore]
     public Sprite sprite;         // 업그레이드 이미지
     public int price;             // 기본 가격
     public float value;           // 기본 수치
