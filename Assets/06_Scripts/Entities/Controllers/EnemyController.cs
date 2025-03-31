@@ -47,13 +47,8 @@ public class EnemyController : BaseController
 
     private void Update()
     {
-        if (StatHandler.IsDead)
-        {
-            return;
-        }
-
         // TODO: 테스트 코드 -> Q 키를 누르면 모든 몬스터 HP가 50씩 감소됩니다.
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (StatHandler.IsDead == false && Input.GetKeyDown(KeyCode.Q))
         {
             StatHandler.Damage(50);
         }

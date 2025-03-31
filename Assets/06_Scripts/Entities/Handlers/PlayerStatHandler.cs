@@ -20,6 +20,18 @@ public class PlayerStatHandler : StatHandler
 
     public Action<int> OnLevelUpEvent = delegate { }; //레벨업 할때 호출되는 이벤트
 
+    public override void Damage(float damage)
+    {
+        base.Damage(damage);
+
+        if (IsDead)
+        {
+            PlayerStateMachine stateMachine = GetComponent<PlayerController>().StateMachine;
+            stateMachine.ChangeState(stateMachine.Death);
+            stateMachine.Controller.InputSystem.Disable();
+        }
+    }
+
     //체력 회복
     public void Heal(float amount)
     {
@@ -28,6 +40,7 @@ public class PlayerStatHandler : StatHandler
             Debug.Log("힐량이 0이거나 음수입니다");
             return;
         }
+
         hp = Mathf.Min(hp + amount, MaxHP);
     }
 
