@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 182679616}
   - component: {fileID: 182679615}
   - component: {fileID: 182679617}
+  - component: {fileID: 182679618}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182679614}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcbc3080d01698049bad5afb52d4e3f4, type: 3}
   m_Name: 
@@ -182,6 +183,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d7816e52f8cfb4899699ba95228934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &182679618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182679614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7425cb443fdf32f418791399b17f8fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSkillData: {fileID: 11400000, guid: 01e233ff938abc84ba73cc9af32d7ee3, type: 2}
+  projectileObj: {fileID: 3055455285711186656, guid: a14462ad682ff6340989b6d33d7f5c3b, type: 3}
+  attackRange: 5
+  baseCoolTime: 2
+  countObj: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!1 &1141342821
 GameObject:
   m_ObjectHideFlags: 0

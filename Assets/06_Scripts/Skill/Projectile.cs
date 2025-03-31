@@ -16,15 +16,16 @@ public class Projectile : MonoBehaviour
         get {  return usable; }
         set { usable = value; }
     }
-
-    private void Start()
+    private LayerMask monsterLayer;
+    public LayerMask MonsterLayer
     {
-        rigid = this.GetComponent<Rigidbody2D>();
+        get { return monsterLayer; }
+        set { monsterLayer = value; }
     }
 
     public void Init()
     {
-        
+        rigid = this.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -38,7 +39,6 @@ public class Projectile : MonoBehaviour
     // 발사할 때 호출
     public void SetProjectile(Vector2 startPos, Vector2 dir)
     {
-        gameObject.SetActive(true);
         startPosition = startPos;
         transform.position = startPosition;
         rigid.velocity = dir * speed;
@@ -56,13 +56,15 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 적 캐릭터라면 데미지를 가하는 동작 수행
-        // 지금은 레이어로 구분하는지 태그로 구분하는지도 모르니 잠시 비워둡니다
-        OffProjectile();
+        if (collision.gameObject.layer == monsterLayer)
+        {
+            OffProjectile();
+        }
     }
 
     private void OffProjectile()
     {
-        usable = false;
+        usable = true;
         rigid.velocity = Vector2.zero;
         gameObject.SetActive(false);
     }

@@ -34,6 +34,16 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
     private List<Projectile> projectileList = new List<Projectile>();
     private Collider2D[] hits = null;
 
+    private void Start()
+    {
+        Init();
+    }
+
+    private void Update()
+    {
+        ExecuteSkill();
+    }
+
     public void Init()
     {
         playerTrs = GameManager.Instance.Player.transform;
@@ -42,6 +52,7 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
         {
             GameObject obj = Instantiate(projectileObj);
             projectileList.Add(obj.GetComponent<Projectile>());
+            projectileList[i].MonsterLayer = layerMask;
             projectileList[i].Init();
             obj.SetActive(false);
         }
@@ -67,8 +78,7 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
     public void ExecuteSkill()
     {
         hits = Physics2D.OverlapCircleAll(playerTrs.position, attackRange, layerMask);
-        if (!CheckCoolTime() || hits == null) return;
-        Debug.Log("Skill");
+        if (!CheckCoolTime() || hits.Length == 0) return;
 
         int length = hits.Length;
         Collider2D target = hits[0];
@@ -88,6 +98,7 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
         {
             if (projectileList[i].Usabel)
             {
+                projectileList[i].gameObject.SetActive(true);
                 projectileList[i].SetProjectile(playerTrs.position, (target.transform.position - playerTrs.position).normalized);
                 break;
             }
