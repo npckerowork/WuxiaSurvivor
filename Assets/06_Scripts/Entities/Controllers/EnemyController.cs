@@ -23,6 +23,8 @@ public class EnemyController : BaseController
     public EnemyStatHandler StatHandler { get; private set; }
     public EnemyStateMachine StateMachine { get; private set; }
 
+    public ItemBase ExpGemPrefab;
+
     protected override void Initialize()
     {
         base.Initialize();
@@ -31,6 +33,7 @@ public class EnemyController : BaseController
 
         StatHandler = statHandler as EnemyStatHandler;
         StatHandler.SetData(Data);
+        OnDeath += DropExpGem;
 
         GetComponent<CharacterBuilder>().SetData(Data);
 
@@ -59,5 +62,26 @@ public class EnemyController : BaseController
     private void FixedUpdate()
     {
         StateMachine.FixedUpdate();
+    }
+
+    private void DropExpGem()
+    {
+        //경험지 젬 드롭
+        var gem = ResourceManager.Instance.Instantiate(ExpGemPrefab.name, null, transform.position, Vector2.zero);
+
+        //TODO: EffectManager로 옮기기..?
+        //팅기게 하는 이펙트
+        Vector2 dir = Random.insideUnitCircle.normalized * 1.0f; //랜덤한 방향성 부여
+        Vector3 targetPos = transform.position + (Vector3)dir;
+        
+        float duration = 0.2f;
+
+        //x축 이동
+        gem.transform.DOMove(targetPos, duration).SetEase(Ease.Linear); 
+
+        //y축 이동 (포물선 궤도)
+        gem.transform.DOMoveY(transform.position.y + 0.5f, duration / 2f)
+            .SetEase(Ease.OutQuad)
+            .SetLoops(2, LoopType.Yoyo);  //2번 튀어오르게
     }
 }
