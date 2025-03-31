@@ -5,7 +5,6 @@ public class ObjectSpawner : MonoBehaviour
     [Header("아이템")]
     [SerializeField] private float itemSpawnRate = 0.4f; //아이템이 생성될 확률
     [SerializeField] private float itemRespawnCooldown = 60f; //아이템이 재생성되는 쿨다운(초)
-    [SerializeField] private Transform spawnItemsParent;
     [SerializeField] private Spawnable[] spawnItemsPrefabs;
 
     private ChunkController chunkController;
@@ -61,11 +60,11 @@ public class ObjectSpawner : MonoBehaviour
     private void SpawnItem(Vector2Int pos)
     {
         var spawnItem = GetRandomWeightedObject(spawnItemsPrefabs);
-        Spawn(spawnItem, pos, spawnItemsParent);
+        Spawn(spawnItem, pos);
     }
 
-    private void Spawn(Spawnable spawnObject, Vector2Int pos, Transform parent)
+    private void Spawn(Spawnable spawnObject, Vector2Int pos)
     {
-        spawnObject.Spawn(pos, parent);
+        spawnObject.Spawn(pos, transform);
     }
 }
