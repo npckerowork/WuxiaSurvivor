@@ -4,7 +4,8 @@ public enum ActionState
 {
     Idle,
     Run,
-    Attack
+    Attack,
+    Hit
 }
 
 public class AnimationHandler : MonoBehaviour
@@ -13,7 +14,8 @@ public class AnimationHandler : MonoBehaviour
     {
         Animator.StringToHash(ActionState.Idle.ToString()),
         Animator.StringToHash(ActionState.Run.ToString()),
-        Animator.StringToHash(ActionState.Attack.ToString())
+        Animator.StringToHash(ActionState.Attack.ToString()),
+        Animator.StringToHash(ActionState.Hit.ToString()),
     };
 
     public Animator Animator { get; private set; }
@@ -30,7 +32,7 @@ public class AnimationHandler : MonoBehaviour
             Animator.SetBool(parameter, false);
         }
 
-        if (state == ActionState.Attack)
+        if (state == ActionState.Attack || state == ActionState.Hit)
         {
             Animator.SetTrigger(PARAMETERS[(int)state]);
             return;

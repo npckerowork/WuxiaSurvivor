@@ -22,6 +22,8 @@ public abstract class BaseController : MonoBehaviour
     public event Action OnDeath;
     public event Action OnDestoryed;
 
+    protected StatHandler statHandler;
+
     private BaseState state;
 
     private readonly SequenceHandler sequenceHandler = new();
@@ -34,8 +36,11 @@ public abstract class BaseController : MonoBehaviour
     {
         AnimationHandler = GetComponent<AnimationHandler>();
         Body = gameObject.FindComponent<SpriteRenderer>(nameof(Body));
+        statHandler = GetComponent<StatHandler>();
 
         sequenceHandler.Initialize();
+
+        Birth();
     }
 
     protected virtual void Deinitialize()

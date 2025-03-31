@@ -7,25 +7,16 @@ using UnityEngine;
 [CustomEditor(typeof(EnemyData))]
 public class EnemyDataEditor : Editor
 {
-    private SpriteCollection spriteCollection;
     private EnemyData enemyData;
 
-    private int[] selectedIndex;
+    private int index;
     private string[] selectedValue;
 
     public override void OnInspectorGUI()
     {
-        if (spriteCollection == null)
-        {
-            spriteCollection = Resources.Load<SpriteCollection>(nameof(SpriteCollection));
-            selectedIndex = new int[spriteCollection.Layers.Count + 1];
-        }
+        enemyData = (EnemyData)target;
 
-        if (enemyData == null)
-        {
-            enemyData = (EnemyData)target;
-        }
-
+        SpriteCollection spriteCollection = Resources.Load<SpriteCollection>(nameof(SpriteCollection));
         EditorGUILayout.LabelField(nameof(SpriteCollection), EditorStyles.boldLabel);
 
         var layers = spriteCollection.Layers;
@@ -39,11 +30,11 @@ public class EnemyDataEditor : Editor
             string[] textureNames = spriteCollection.Layers[i].Textures.Select(texture => texture.name).ToArray();
             selectedValue = new string[textureNames.Length + 1];
 
-            selectedValue[0] = "Empty";
+            selectedValue[0] = nameof(string.Empty);
             Array.Copy(textureNames, 0, selectedValue, 1, textureNames.Length);
 
-            selectedIndex[i] = EditorGUILayout.Popup(layers[i].Name, selectedIndex[i], selectedValue);
-            SetValue(i, selectedIndex[i]);
+            GetIndex(i) = EditorGUILayout.Popup(layers[i].Name, GetIndex(i), selectedValue);
+            SetValue(i, GetIndex(i));
         }
 
         GUILayout.Space(10);
@@ -56,10 +47,45 @@ public class EnemyDataEditor : Editor
         }
     }
 
+    private ref int GetIndex(int layerIndex)
+    {
+        switch (layerIndex)
+        {
+            case 0:
+                return ref enemyData.CapeIndex;
+            case 1:
+                return ref enemyData.BackIndex;
+            case 2:
+                return ref enemyData.ShieldIndex;
+            case 3:
+                return ref enemyData.BodyIndex;
+            case 4:
+                return ref enemyData.ArmorIndex;
+            case 5:
+                return ref enemyData.HeadIndex;
+            case 6:
+                return ref enemyData.HornsIndex;
+            case 7:
+                return ref enemyData.EyesIndex;
+            case 8:
+                return ref enemyData.MaskIndex;
+            case 9:
+                return ref enemyData.HairIndex;
+            case 10:
+                return ref enemyData.EarsIndex;
+            case 11:
+                return ref enemyData.HelmetIndex;
+            case 14:
+                return ref enemyData.WeaponIndex;
+            default:
+                return ref index;
+        }
+    }
+
     private void SetValue(int layerIndex, int selectedIndex)
     {
         string selectedValue = this.selectedValue[selectedIndex];
-        if (selectedValue == "Empty") selectedValue = string.Empty;
+        if (selectedValue == nameof(string.Empty)) selectedValue = string.Empty;
 
         switch (layerIndex)
         {
@@ -99,7 +125,7 @@ public class EnemyDataEditor : Editor
             case 11:
                 enemyData.Helmet = selectedValue;
                 break;
-            case 12:
+            case 14:
                 enemyData.Weapon = selectedValue;
                 break;
         }

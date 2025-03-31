@@ -12,5 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928e360caf560a5458be0a2a939fa938, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  selectedIndex: 0
-  selectedValue: 
+  HeadIndex: 12
+  Head: Skeleton
+  EarsIndex: 0
+  Ears: 
+  EyesIndex: 12
+  Eyes: Skeleton
+  BodyIndex: 12
+  Body: Skeleton
+  HairIndex: 0
+  Hair: 
+  ArmorIndex: 0
+  Armor: 
+  HelmetIndex: 0
+  Helmet: 
+  WeaponIndex: 82
+  Weapon: ShortDagger
+  ShieldIndex: 0
+  Shield: 
+  CapeIndex: 0
+  Cape: 
+  BackIndex: 0
+  Back: 
+  MaskIndex: 0
+  Mask: 
+  HornsIndex: 0
+  Horns: 
+  MaxHP: 100
+  MoveSpeed: 1
+  AttackDamage: 5
+  AttackDelay: 1
+  AttackRange: 1

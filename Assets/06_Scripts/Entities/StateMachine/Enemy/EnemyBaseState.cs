@@ -5,12 +5,12 @@ public abstract class EnemyBaseState : IState
     protected float targetDisatance = float.MaxValue;
     protected Vector2 moveDirection = Vector2.zero;
 
-    protected Transform transform;
-    protected Transform target;
-
     protected readonly EnemyStateMachine stateMachine;
     protected readonly EnemyStatHandler statHandler;
     protected readonly SpriteRenderer body;
+    protected readonly Transform transform;
+    protected readonly Transform target;
+    protected readonly PlayerController targetController;
 
     public EnemyBaseState(EnemyStateMachine stateMachine)
     {
@@ -18,12 +18,10 @@ public abstract class EnemyBaseState : IState
 
         transform = stateMachine.Controller.transform;
         target = GameManager.Instance.Player.transform;
+        targetController = target.GetComponent<PlayerController>();
 
         statHandler = stateMachine.Controller.StatHandler;
         body = stateMachine.Controller.Body;
-
-        // TEST CODE
-        stateMachine.Controller.GetComponent<BaseController>().Stand();
     }
 
     public virtual void Enter() { }
