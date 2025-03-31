@@ -8,4 +8,7 @@ public class Define
     public const string SFX_VOLUME_KEY = "sfxVolume";
 
     public const string CANVAS_KEY = "GameUI Canvas";
+    
+//SaveDataKey
+    public const string SAVEDATA_KEY = "SaveData";
 } 

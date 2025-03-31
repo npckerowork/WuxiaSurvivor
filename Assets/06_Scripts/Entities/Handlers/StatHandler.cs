@@ -7,7 +7,7 @@ public class StatHandler : MonoBehaviour
     public float MaxHP = 100.0f;
     public float MoveSpeed = 5.0f;
 
-    private float hp;
+    protected float hp;
 
     public void Damage(float damage)
     {
