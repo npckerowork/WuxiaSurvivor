@@ -5,8 +5,7 @@ public class PlayerController : BaseController
     public PlayerInputSystem InputSystem { get; private set; }
     public PlayerStatHandler StatHandler { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
-
-    private PlayerStateMachine stateMachine;
+    public PlayerStateMachine StateMachine { get; private set; }
 
     protected override void Initialize()
     {
@@ -16,12 +15,12 @@ public class PlayerController : BaseController
         Rigidbody = GetComponent<Rigidbody2D>();
 
         InputSystem = new();
-        stateMachine = new(this);
+        StateMachine = new(this);
     }
 
     private void Start()
     {
-        stateMachine.ChangeState(stateMachine.Idle);
+        StateMachine.ChangeState(StateMachine.Idle);
     }
 
     private void OnEnable()
@@ -36,11 +35,11 @@ public class PlayerController : BaseController
 
     private void Update()
     {
-        stateMachine.Update();
+        StateMachine.Update();
     }
 
     private void FixedUpdate()
     {
-        stateMachine.FixedUpdate();
+        StateMachine.FixedUpdate();
     }
 }

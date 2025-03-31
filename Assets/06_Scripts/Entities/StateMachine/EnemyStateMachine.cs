@@ -5,6 +5,7 @@ public class EnemyStateMachine : StateMachine
     public EnemyIdleState Idle { get; private set; }
     public EnemyRunState Run { get; private set; }
     public EnemyAttackState Attack { get; private set; }
+    public EnemyDeathState Death { get; private set; }
 
     public EnemyStateMachine(EnemyController controller)
     {
@@ -13,5 +14,6 @@ public class EnemyStateMachine : StateMachine
         Idle = new(this);
         Run = new(this);
         Attack = new(this);
+        Death = new(this);
     }
 }
