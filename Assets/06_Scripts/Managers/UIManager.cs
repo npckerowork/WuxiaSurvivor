@@ -4,16 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public enum UIType
-{
-    Lobby,
-    Upgrade,
-    Option,
-    Ingame,
-    Pause
-}
-
-
 public class UIManager : Singleton<UIManager>
 {
     private BaseUI[] uis;

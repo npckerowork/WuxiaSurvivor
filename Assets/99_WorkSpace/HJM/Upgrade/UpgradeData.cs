@@ -4,14 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum UpgradeType
-{
-    ExpRatio,
-    CoinRatio,
-    MoveSpeed,
-    Damage
-}
-
 public class UpgradeData
 {
     public UpgradeScriptable[] upgradeDatas { get; private set; }
