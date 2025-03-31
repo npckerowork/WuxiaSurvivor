@@ -822,7 +822,7 @@ MonoBehaviour:
   skillInventory: {fileID: 5692841646808646575}
   pauseButton: {fileID: 1734925312029323613}
   damageUI: {fileID: 5843209922866079266}
-  healthUI: {fileID: 0}
+  healthUI: {fileID: 3365691451779384596}
 --- !u!1 &8925942442277492921
 GameObject:
   m_ObjectHideFlags: 0

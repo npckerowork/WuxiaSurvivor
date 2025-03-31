@@ -44,9 +44,8 @@ public class HealthBar : MonoBehaviour
             return;
         }
 
-        // 타겟 따라가기
+        // 월드 좌표 → 스크린 좌표 변환
         Vector3 pos = Camera.main.WorldToScreenPoint(targetObject.transform.position);
         transform.position = pos;
-        Debug.Log(pos);
     }
 }

@@ -35,11 +35,6 @@ public class DamageTesting : MonoBehaviour
 
     public Vector3 TopPosition()
     {
-        return new Vector3
-            (
-            transform.position.x,
-            topY + 0.1f,
-            transform.position.z
-            );
+        return transform.position + new Vector3(0, (topY/2) + 0.1f, 0);
     }
 }

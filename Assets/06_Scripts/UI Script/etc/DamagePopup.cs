@@ -27,7 +27,7 @@ public class DamagePopup : MonoBehaviour
         gameObject.SetActive(true);
 
         // 위치 이동
-        transform.position = pos + new Vector3(0,0, 1);
+        transform.position = pos;
         
         // 텍스트 / 컬러 변경
         damageText.text = damage.ToString("#.#");
