@@ -9,6 +9,11 @@ public class StatHandler : MonoBehaviour
 
     protected float hp;
 
+    private void Awake()
+    {
+        hp = MaxHP;
+    }
+
     public void Damage(float damage)
     {
         hp = Mathf.Max(hp - damage, 0);
