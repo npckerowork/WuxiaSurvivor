@@ -12,7 +12,7 @@ public class PlayerController : BaseController
     {
         base.Initialize();
 
-        StatHandler = GetComponent<PlayerStatHandler>();
+        StatHandler = statHandler as PlayerStatHandler;
         Rigidbody = GetComponent<Rigidbody2D>();
 
         InputSystem = new();

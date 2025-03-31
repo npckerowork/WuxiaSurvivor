@@ -1,5 +1,10 @@
+using UnityEngine;
+
 public class EnemyController : BaseController
 {
+    [field: SerializeField]
+    public EnemyData Data { get; private set; }
+    public EnemyProjectileHandler ProjectileHandler { get; private set; }
     public EnemyStatHandler StatHandler { get; private set; }
 
     private EnemyStateMachine stateMachine;
@@ -8,7 +13,12 @@ public class EnemyController : BaseController
     {
         base.Initialize();
 
-        StatHandler = GetComponent<EnemyStatHandler>();
+        ProjectileHandler = GetComponent<EnemyProjectileHandler>();
+
+        StatHandler = statHandler as EnemyStatHandler;
+        StatHandler.SetData(Data);
+
+        GetComponent<CharacterBuilder>().SetData(Data);
 
         stateMachine = new(this);
     }

@@ -10,15 +10,17 @@ public class EnemyRunState : EnemyBaseState
         stateMachine.Controller.AnimationHandler.SetState(ActionState.Run);
     }
 
+    public override void Exit()
+    {
+        base.Exit();
+        stateMachine.Controller.AnimationHandler.Animator.speed = 1.0f;
+    }
+
     public override void Update()
     {
-        base.Update();
+        if (target == null) return;
 
-        if (target == null)
-        {
-            target = GameManager.Instance.Player.transform;
-            return;
-        }
+        base.Update();
 
         moveDirection = (target.position - transform.position).normalized;
         if (moveDirection.x != 0)
