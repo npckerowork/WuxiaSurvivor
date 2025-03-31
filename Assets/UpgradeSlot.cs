@@ -1,0 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UpgradeSlot : MonoBehaviour
+{
+    [SerializeField] private TextMeshProUGUI upgradeLevel;
+    [SerializeField] private Image upgradeImage;
+    [SerializeField] private TextMeshProUGUI upgradeValue;
+    [SerializeField] private Button upgradeButton;
+
+    private UpgradeData data;
+    private UpgradeType upgradeType;
+
+    private int typeIndex => (int)upgradeType;
+    public void InitSlot(UpgradeData data, UpgradeType type)
+    {
+        this.data   = data;
+        upgradeType = type;
+
+        // 이미지 초기화
+        upgradeImage.sprite = data.upgradeDatas[typeIndex].sprite;
+
+        // 업그레이드 버튼 함수 할당
+        upgradeButton.onClick.AddListener(UpgradeButton);
+
+        UpdateSlot();
+    }
+
+    public void UpdateSlot()
+    {
+        // 레벨 / 가격 업데이트
+        upgradeLevel.text = $"LV {data.upgradeLevels[typeIndex]}";
+        upgradeValue.text = $"{data.upgradePrice[typeIndex]}";
+    }
+
+    private void UpgradeButton()
+    {
+        int useCoin = data.upgradePrice[typeIndex];
+        if(DataManager.Instance.Coin.IsCanUse(useCoin))
+        {
+            // coin 사용
+            DataManager.Instance.Coin.Use(useCoin);
+
+            // 업그레이드 레벨 증가
+            data.upgradeLevels[typeIndex]++;
+
+            // 가격 / 수치 증가 배율
+            float valueRatio = data.upgradeDatas[typeIndex].valueRatio;
+            float priceRatio = data.upgradeDatas[typeIndex].priceRatio;
+
+            // 가격 / 수치 증가
+            data.upgradeValues[typeIndex] *= valueRatio;
+            data.upgradePrice[typeIndex] = 
+                Mathf.RoundToInt(data.upgradePrice[typeIndex] * priceRatio);
+
+            // slot 업데이트
+            UpdateSlot();
+
+            // 보유 코인 업데이트
+            UIManager.Instance.GetUI<LobbyUI>().CoinUpdate();
+        }
+    }
+}

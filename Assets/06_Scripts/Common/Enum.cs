@@ -26,3 +26,20 @@ public enum SfxName
     ButtonClick2,
 }
 #endregion
+
+public enum UIType
+{
+    Lobby,
+    Upgrade,
+    Option,
+    Ingame,
+    Pause
+}
+
+public enum UpgradeType
+{
+    ExpRatio,
+    CoinRatio,
+    MoveSpeed,
+    Damage
+}

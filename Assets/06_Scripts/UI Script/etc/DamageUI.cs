@@ -14,7 +14,7 @@ public class DamageUI : MonoBehaviour
         pool = new Queue<DamagePopup>();
     }
 
-    public void OnDamage(float damage, Vector3 pos)
+    public void OnDamage(float damage, Transform target)
     {
         if (!pool.TryDequeue(out DamagePopup popup))
         {
@@ -25,7 +25,7 @@ public class DamageUI : MonoBehaviour
             popup = newPopup.GetComponent<DamagePopup>();
             popup.InitPopup(this);
         }
-        popup.OnDamage(damage, pos);
+        popup.OnDamage(damage, target);
     }
 
     public void ReturnPopup(DamagePopup popup)

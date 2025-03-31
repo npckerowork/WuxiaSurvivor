@@ -1,35 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageTesting : MonoBehaviour
 {
-    SpriteRenderer sr;
-    float topY;
+    private InGameUI gameUI;
+    private SpriteRenderer sr;
+
+    public float maxHP;
+    public float hp;
 
     private void Start()
     {
+        gameUI = UIManager.Instance.GetUI<InGameUI>();
         sr = GetComponent<SpriteRenderer>();
 
-        topY = sr.bounds.max.y;
+        maxHP = 1000;
+        hp = maxHP;
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab)){
             float damage = Random.Range(1f, 100f);
-            UIManager.Instance.GetUI<InGameUI>().OnDamagePopup
-                (damage, TopPosition());
-        }
-    }
+            gameUI.DamageUI.OnDamage(damage, transform);
 
-    public Vector3 TopPosition()
-    {
-        return new Vector3
-            (
-            transform.position.x,
-            topY + 0.1f,
-            transform.position.z
-            );
+            hp -= damage;
+            gameUI.HealthUI.UpdateHealthBar(transform, maxHP, hp);
+
+            DataManager.Instance.Coin.Add(10000);
+
+            UpgradeData data = DataManager.Instance.UpgradeData;
+
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    Debug.Log($"{(UpgradeType)i}/{data.upgradeLevels[i]}/{data.upgradePrice[i]}/{data.upgradeValues[i]}");
+            //}
+        }
     }
 }

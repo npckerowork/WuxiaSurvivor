@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobby UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5530901078127288542, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 7527502183296074632}
     - target: {fileID: 8159647120607400639, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -203,6 +207,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
+--- !u!114 &7527502183296074632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7365346570028211420, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
+  m_PrefabInstance: {fileID: 1027375920420970324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9186528672564940267 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8159647120607400639, guid: e7fedd8ea6e80084ba4b42d48f3e5654, type: 3}
