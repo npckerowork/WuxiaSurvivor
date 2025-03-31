@@ -4,8 +4,11 @@ public enum ActionState
 {
     Idle,
     Run,
+    Die,
+
     Attack,
-    Hit
+
+    Hit,
 }
 
 public class AnimationHandler : MonoBehaviour
@@ -14,6 +17,7 @@ public class AnimationHandler : MonoBehaviour
     {
         Animator.StringToHash(ActionState.Idle.ToString()),
         Animator.StringToHash(ActionState.Run.ToString()),
+        Animator.StringToHash(ActionState.Die.ToString()),
         Animator.StringToHash(ActionState.Attack.ToString()),
         Animator.StringToHash(ActionState.Hit.ToString()),
     };

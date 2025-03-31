@@ -19,17 +19,17 @@ public class StatHandler : MonoBehaviour
         animationHandler = GetComponent<AnimationHandler>();
     }
 
-    public void Damage(float damage)
+    public virtual void Damage(float damage)
     {
-        if (IsInvincibility)
+        if (IsDead || IsInvincibility)
         {
             return;
         }
 
+        IsInvincibility = true;
         hp = Mathf.Max(hp - damage, 0);
         animationHandler.SetState(ActionState.Hit);
 
-        IsInvincibility = true;
         DOVirtual.DelayedCall(Define.INVINCIBILITY_TIME, () => IsInvincibility = false);
     }
 }

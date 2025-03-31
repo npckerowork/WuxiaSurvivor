@@ -13,4 +13,15 @@ public class EnemyStatHandler : StatHandler
         AttackDelay = data.AttackDelay;
         AttackRange = data.AttackRange;
     }
+
+    public override void Damage(float damage)
+    {
+        base.Damage(damage);
+
+        if (IsDead)
+        {
+            EnemyStateMachine stateMachine = GetComponent<EnemyController>().StateMachine;
+            stateMachine.ChangeState(stateMachine.Death);
+        }
+    }
 }
