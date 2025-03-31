@@ -23,7 +23,7 @@ public class DamageTesting : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab)){
             float damage = Random.Range(1f, 100f);
             UIManager.Instance.GetUI<InGameUI>().OnDamagePopup
-                (damage, TopPosition());
+                (damage, sr);
 
             hp -= damage;
             UIManager.Instance.GetUI<InGameUI>().OnHealthBar
@@ -31,10 +31,5 @@ public class DamageTesting : MonoBehaviour
         }
 
 
-    }
-
-    public Vector3 TopPosition()
-    {
-        return transform.position + new Vector3(0, (topY/2) + 0.1f, 0);
     }
 }

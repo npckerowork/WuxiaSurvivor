@@ -21,13 +21,13 @@ public class DamagePopup : MonoBehaviour
     }
 
 
-    public void OnDamage(float damage, Vector3 pos)
+    public void OnDamage(float damage, SpriteRenderer spriteRenderer)
     {
         // 활성화
         gameObject.SetActive(true);
 
         // 위치 이동
-        transform.position = pos;
+        transform.position = StartPosition(spriteRenderer);
         
         // 텍스트 / 컬러 변경
         damageText.text = damage.ToString("#.#");
@@ -45,5 +45,11 @@ public class DamagePopup : MonoBehaviour
     {
         damageUI.ReturnPopup(this);
         gameObject.SetActive(false);
+    }
+
+    public Vector3 StartPosition(SpriteRenderer spriteRenderer)
+    {
+        float topY = spriteRenderer.bounds.max.y;
+        return spriteRenderer.transform.position + new Vector3(0, (topY / 2) + 0.1f, 0);
     }
 }

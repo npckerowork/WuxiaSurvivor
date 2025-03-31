@@ -46,9 +46,9 @@ public class InGameUI : BaseUI
         gameTimer.EndTimer();
     }
 
-    public void OnDamagePopup(float damage, Vector3 pos)
+    public void OnDamagePopup(float damage, SpriteRenderer spriteRenderer)
     {
-        damageUI.OnDamage(damage, pos);
+        damageUI.OnDamage(damage, spriteRenderer);
     }
 
     public void OnHealthBar(Transform target, float maxHp, float hp)
