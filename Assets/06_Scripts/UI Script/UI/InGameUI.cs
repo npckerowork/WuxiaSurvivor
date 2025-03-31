@@ -45,7 +45,7 @@ public class InGameUI : BaseUI
         gameTimer.EndTimer();
     }
 
-    public void OnDamagePopup(float damage, Transform pos)
+    public void OnDamagePopup(float damage, Vector3 pos)
     {
         damageUI.OnDamage(damage, pos);
     }

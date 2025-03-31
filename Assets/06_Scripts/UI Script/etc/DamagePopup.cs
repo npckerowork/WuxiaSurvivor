@@ -1,10 +1,6 @@
-using Assets.PixelFantasy.PixelHeroes.Common.Scripts.UI;
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class DamagePopup : MonoBehaviour
 {
@@ -25,13 +21,13 @@ public class DamagePopup : MonoBehaviour
     }
 
 
-    public void OnDamage(float damage, Transform pos)
+    public void OnDamage(float damage, Vector3 pos)
     {
         // 활성화
         gameObject.SetActive(true);
 
         // 위치 이동
-        transform.position = pos.position + new Vector3(0,0, 1);
+        transform.position = pos + new Vector3(0,0, 1);
         
         // 텍스트 / 컬러 변경
         damageText.text = damage.ToString("#.#");

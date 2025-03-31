@@ -14,12 +14,12 @@ public class DamageUI : MonoBehaviour
         pool = new Queue<DamagePopup>();
     }
 
-    public void OnDamage(float damage, Transform pos)
+    public void OnDamage(float damage, Vector3 pos)
     {
         if (!pool.TryDequeue(out DamagePopup popup))
         {
             // 생성
-            GameObject newPopup = Instantiate(damagePrefab);
+            GameObject newPopup = Instantiate(damagePrefab, UIManager.Instance.transform);
 
             //초기화
             popup = newPopup.GetComponent<DamagePopup>();
