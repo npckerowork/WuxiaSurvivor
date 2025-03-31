@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     private Transform targetObject;
 
     [SerializeField] private Image healthFill;
-
+    [SerializeField] private Vector3 healthBarOffset;
     /// <summary>
     /// 체력바 초기화
     /// </summary>
@@ -29,6 +29,11 @@ public class HealthBar : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// 체력바 게이지 업데이트
+    /// </summary>
+    /// <param name="maxHp">최대체력</param>
+    /// <param name="hp">현재체력</param>
     public void UpdateHealthBar(float maxHp, float hp)
     {
         healthFill.fillAmount = hp / maxHp;
@@ -46,6 +51,6 @@ public class HealthBar : MonoBehaviour
 
         // 월드 좌표 → 스크린 좌표 변환
         Vector3 pos = Camera.main.WorldToScreenPoint(targetObject.transform.position);
-        transform.position = pos;
+        transform.position = pos + healthBarOffset;
     }
 }

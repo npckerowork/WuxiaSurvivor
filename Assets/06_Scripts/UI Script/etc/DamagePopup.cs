@@ -9,26 +9,27 @@ public class DamagePopup : MonoBehaviour
     private Color defaultTextColor;
 
 
+    [SerializeField] private Vector3 offset;
     [SerializeField] private float moveYDistance;   // 위로 올라가는 거리
     [SerializeField] private float fadeDuration;    // Fade 시간
 
     public void InitPopup(DamageUI damageUI)
     {
         this.damageUI = damageUI;
-        damageText = GetComponent<TextMeshPro>();
+        damageText = GetComponentInChildren<TextMeshPro>();
 
         defaultTextColor = damageText.color;
     }
 
 
-    public void OnDamage(float damage, SpriteRenderer spriteRenderer)
+    public void OnDamage(float damage, Transform target)
     {
         // 활성화
         gameObject.SetActive(true);
 
         // 위치 이동
-        transform.position = StartPosition(spriteRenderer);
-        
+        transform.position = target.position + offset;
+
         // 텍스트 / 컬러 변경
         damageText.text = damage.ToString("#.#");
         damageText.color = defaultTextColor;
@@ -45,11 +46,5 @@ public class DamagePopup : MonoBehaviour
     {
         damageUI.ReturnPopup(this);
         gameObject.SetActive(false);
-    }
-
-    public Vector3 StartPosition(SpriteRenderer spriteRenderer)
-    {
-        float topY = spriteRenderer.bounds.max.y;
-        return spriteRenderer.transform.position + new Vector3(0, (topY / 2) + 0.1f, 0);
     }
 }

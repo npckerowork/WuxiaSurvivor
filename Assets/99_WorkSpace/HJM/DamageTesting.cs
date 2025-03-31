@@ -2,17 +2,16 @@ using UnityEngine;
 
 public class DamageTesting : MonoBehaviour
 {
-    SpriteRenderer sr;
-    float topY;
+    private InGameUI gameUI;
+    private SpriteRenderer sr;
 
     public float maxHP;
     public float hp;
 
     private void Start()
     {
+        gameUI = UIManager.Instance.GetUI<InGameUI>();
         sr = GetComponent<SpriteRenderer>();
-
-        topY = sr.bounds.max.y;
 
         maxHP = 1000;
         hp = maxHP;
@@ -22,14 +21,10 @@ public class DamageTesting : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Tab)){
             float damage = Random.Range(1f, 100f);
-            UIManager.Instance.GetUI<InGameUI>().OnDamagePopup
-                (damage, sr);
+            gameUI.DamageUI.OnDamage(damage, transform);
 
             hp -= damage;
-            UIManager.Instance.GetUI<InGameUI>().OnHealthBar
-                (transform, maxHP, hp);
+            gameUI.HealthUI.UpdateHealthBar(transform, maxHP, hp);
         }
-
-
     }
 }

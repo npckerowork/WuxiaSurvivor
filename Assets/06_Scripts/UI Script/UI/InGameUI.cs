@@ -13,6 +13,9 @@ public class InGameUI : BaseUI
     [SerializeField] private DamageUI damageUI;
     [SerializeField] private HealthUI healthUI;
 
+    public DamageUI DamageUI => damageUI;
+    public HealthUI HealthUI => healthUI;
+
     public override void InitUI(UIManager uiManager)
     {
         base.InitUI(uiManager);
@@ -44,15 +47,5 @@ public class InGameUI : BaseUI
 
         // 타이머 종료
         gameTimer.EndTimer();
-    }
-
-    public void OnDamagePopup(float damage, SpriteRenderer spriteRenderer)
-    {
-        damageUI.OnDamage(damage, spriteRenderer);
-    }
-
-    public void OnHealthBar(Transform target, float maxHp, float hp)
-    {
-        healthUI.UpdateHealthBar(target, maxHp, hp);
     }
 }
