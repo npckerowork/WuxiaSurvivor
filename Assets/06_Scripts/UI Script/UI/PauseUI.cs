@@ -34,7 +34,7 @@ public class PauseUI : BaseUI
     private void OnOption()
     {
         // Option UI 켜기
-        uiManager.optionUI.ShowUI();
+        uiManager[UIType.Option].ShowUI();
     }
 
     private void OnLobby()
@@ -42,10 +42,10 @@ public class PauseUI : BaseUI
         // Pause UI off
         HideUI();
 
-        // InGameUI off
-        uiManager.inGameUI.HideUI();
+        // InGame off / Lobby On
+        uiManager[UIType.Ingame].HideUI();
+        uiManager[UIType.Lobby].ShowUI();
 
-        // TODO: Scene Loader 유틸 추가
         SceneManager.LoadScene("00_Lobby");
     }
 }

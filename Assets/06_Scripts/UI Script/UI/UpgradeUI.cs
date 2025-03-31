@@ -19,7 +19,8 @@ public class UpgradeUI : BaseUI
     {
         base.HideUI();
 
-        // Lobby UI 업데이트
-        uiManager.lobbyUI.UpdateLobbyUI("로비");
+        // Lobby UI
+        //uiManager.lobbyUI.ShowUI();
+        uiManager[UIType.Lobby].ShowUI();
     }
 }
