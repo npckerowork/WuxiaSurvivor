@@ -4,20 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-public enum VolumeType
-{
-    Master,
-    Bgm,
-    Sfx
-}
-
 public class AudioManager : Singleton<AudioManager>
 {
-    // player prefs key
-    private const string masterVolumeKey = "masterVolume";
-    private const string bgmVolumeKey = "bgmVolume";
-    private const string sfxVolumeKey = "sfxVolume";
-
     // volumes
     public float[] volumes { get; private set; }
 
@@ -55,9 +43,9 @@ public class AudioManager : Singleton<AudioManager>
     private void LoadVolumes()
     {
         volumes = new float[3];
-        volumes[(int)VolumeType.Master] = PlayerPrefs.GetFloat(masterVolumeKey, 1f);
-        volumes[(int)VolumeType.Bgm] = PlayerPrefs.GetFloat(bgmVolumeKey, 0.5f);
-        volumes[(int)VolumeType.Sfx] = PlayerPrefs.GetFloat(sfxVolumeKey, 0.5f);
+        volumes[(int)VolumeType.Master] = PlayerPrefs.GetFloat(Define.MASTER_VOLUME_KEY, 1f);
+        volumes[(int)VolumeType.Bgm] = PlayerPrefs.GetFloat(Define.BGM_VOLUME_KEY, 0.5f);
+        volumes[(int)VolumeType.Sfx] = PlayerPrefs.GetFloat(Define.SFX_VOLUME_KEY, 0.5f);
     }
 
     /// <summary>
@@ -65,9 +53,9 @@ public class AudioManager : Singleton<AudioManager>
     /// </summary>
     public void SaveVolumes()
     {
-        PlayerPrefs.SetFloat(masterVolumeKey, volumes[(int)VolumeType.Master]);
-        PlayerPrefs.SetFloat(bgmVolumeKey, volumes[(int)VolumeType.Bgm]);
-        PlayerPrefs.SetFloat(sfxVolumeKey, volumes[(int)VolumeType.Sfx]);
+        PlayerPrefs.SetFloat(Define.MASTER_VOLUME_KEY, volumes[(int)VolumeType.Master]);
+        PlayerPrefs.SetFloat(Define.BGM_VOLUME_KEY, volumes[(int)VolumeType.Bgm]);
+        PlayerPrefs.SetFloat(Define.SFX_VOLUME_KEY, volumes[(int)VolumeType.Sfx]);
     }
 
     /// <summary>

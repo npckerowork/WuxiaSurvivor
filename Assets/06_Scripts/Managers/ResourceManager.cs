@@ -20,7 +20,7 @@ public class ResourceManager : Singleton<ResourceManager>
     public GameObject Instantiate(string key, Transform parent, Vector2 localPosition, Vector3 localRotation)
     {
         GameObject gameObject = PoolManager.Instance.Get(key);
-        if (gameObject != null)
+        if (gameObject == null)
         {
             string path = $"{Define.PATH_OBJECT}/{key}";
             GameObject original = Resources.Load<GameObject>(path);
@@ -41,7 +41,7 @@ public class ResourceManager : Singleton<ResourceManager>
 
     public GameObject Instantiate(GameObject original)
     {
-        GameObject gameObject = Instantiate(original);
+        GameObject gameObject = Object.Instantiate(original);
         gameObject.name = original.name;
 
         return gameObject;

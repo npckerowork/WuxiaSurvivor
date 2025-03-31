@@ -14,6 +14,9 @@ public abstract class BaseController : MonoBehaviour
 {
     public bool IsDead { get { return state == BaseState.Death || state == BaseState.Destroyed; } }
 
+    public AnimationHandler AnimationHandler { get; private set; }
+    public SpriteRenderer Body { get; private set; }
+
     public event Action OnBirth;
     public event Action OnStand;
     public event Action OnDeath;
@@ -29,6 +32,9 @@ public abstract class BaseController : MonoBehaviour
 
     protected virtual void Initialize()
     {
+        AnimationHandler = GetComponent<AnimationHandler>();
+        Body = gameObject.FindComponent<SpriteRenderer>(nameof(Body));
+
         sequenceHandler.Initialize();
     }
 

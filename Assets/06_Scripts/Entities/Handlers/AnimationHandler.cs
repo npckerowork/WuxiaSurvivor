@@ -30,6 +30,12 @@ public class AnimationHandler : MonoBehaviour
             Animator.SetBool(parameter, false);
         }
 
+        if (state == ActionState.Attack)
+        {
+            Animator.SetTrigger(PARAMETERS[(int)state]);
+            return;
+        }
+
         Animator.SetBool(PARAMETERS[(int)state], true);
     }
 }
