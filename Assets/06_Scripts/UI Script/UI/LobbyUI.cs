@@ -20,33 +20,24 @@ public class LobbyUI : BaseUI
         upgradeButton.onClick.AddListener(OnUpgrade);
         optionButton.onClick.AddListener(OnOption);
 
-        UpdateLobbyUI("로비");
+        ShowUI();
     }
 
     public override void HideUI()
     {
         base.HideUI();
 
-        uiManager.inGameUI.ShowUI();
+        uiManager[UIType.Ingame].ShowUI();
         SceneManager.LoadScene("01_Main");
     }
 
     private void OnUpgrade()
     {
-        // Upgrade UI 켜기
-        uiManager.upgradeUI.ShowUI();
-        UpdateLobbyUI("강화");
+        uiManager[UIType.Upgrade].ShowUI();
     }
 
     private void OnOption()
     {
-        // Option UI 켜기
-        uiManager.optionUI.ShowUI();
-        UpdateLobbyUI("설정");
-    }
-
-    public void UpdateLobbyUI(string title)
-    {
-        uiTitle.text = title;
+        uiManager[UIType.Option].ShowUI();
     }
 }

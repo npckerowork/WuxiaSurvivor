@@ -11,6 +11,8 @@ public class InGameUI : BaseUI
     [SerializeField] private SkillInventory skillInventory;
     [SerializeField] private Button pauseButton;
 
+    [SerializeField] private DamageUI damageUI;
+
     public override void InitUI(UIManager uiManager)
     {
         base.InitUI(uiManager);
@@ -18,9 +20,12 @@ public class InGameUI : BaseUI
         // 초기화
         expbar.InitExpBar();
         gameTimer.InitTimer();
+        skillInventory.InitSkillInventory();
+        damageUI.InitDamageUI();
 
         // 버튼 버튼
-        pauseButton.onClick.AddListener(OnPause);
+        pauseButton.onClick.AddListener(
+            () => uiManager[UIType.Pause].ShowUI());
     }
 
     public override void ShowUI()
@@ -40,8 +45,8 @@ public class InGameUI : BaseUI
         gameTimer.EndTimer();
     }
 
-    private void OnPause()
+    public void OnDamagePopup(float damage, Vector3 pos)
     {
-        uiManager.pauseUI.ShowUI();
+        damageUI.OnDamage(damage, pos);
     }
 }
