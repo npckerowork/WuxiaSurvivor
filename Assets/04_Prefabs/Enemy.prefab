@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Data>k__BackingField: {fileID: 11400000, guid: 4cdd41e82eda6c946b55d44fd1c8e037, type: 2}
+  ExpGemPrefab: {fileID: -1069203976194398598, guid: c106e64f7f0ec2941a1251e6784b74e7, type: 3}
 --- !u!114 &4834456400822890438
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,8 +6,11 @@ public class CoinItem : ItemBase
 
     protected override void ApplyEffect()
     {
-        GameManager.Instance.GameCoin.Add(addBaseCoinAmount); //코인 획득
-        Debug.Log($"{addBaseCoinAmount} 코인 획득!");
+        //최종 획득 코인수 계산 (기본 획득 코인수 * 업그레이드한 코인수 배율)
+        float coinRatio = DataManager.Instance.UpgradeData[UpgradeType.CoinRatio];
+        int addCoinAmount = Mathf.FloorToInt(addBaseCoinAmount * coinRatio);
+        GameManager.Instance.GameCoin.Add(addCoinAmount);
+        Debug.Log($"{addCoinAmount} 코인 획득!");
         base.ApplyEffect();
     }
 }
