@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6829672243739510734, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
+      propertyPath: attractItemLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8086924600789982559, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9
@@ -304,14 +308,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteCollection: {fileID: 11400000, guid: 29f49e465a594f99b5b90d21e02e50ed, type: 2}
-  Head: Skeleton
-  Ears: 
-  Eyes: Skeleton
-  Body: Skeleton
+  Head: Human
+  Ears: Human
+  Eyes: Human
+  Body: Human
   Hair: 
   Armor: 
   Helmet: 
-  Weapon: ShortDagger
+  Weapon: 
   Shield: 
   Cape: 
   Back: 
@@ -497,6 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8b9c4525b5a5941bdb2ace4fcdd2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Data>k__BackingField: {fileID: 11400000, guid: 4cdd41e82eda6c946b55d44fd1c8e037, type: 2}
 --- !u!114 &9088294459086298067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 100
   MoveSpeed: 1
+  AttackDamage: 5
+  AttackDelay: 1
+  AttackRange: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

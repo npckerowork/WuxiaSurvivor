@@ -150,4 +150,21 @@ public class CharacterBuilder : MonoBehaviour
         Texture.SetPixels32(pixels);
         Texture.Apply();
     }
+
+    public void SetData(EnemyData data)
+    {
+        Head = data.Head;
+        Ears = data.Ears;
+        Eyes = data.Eyes;
+        Body = data.Body;
+        Hair = data.Hair;
+        Armor = data.Armor;
+        Helmet = data.Helmet;
+        Weapon = data.Weapon;
+        Shield = data.Shield;
+        Cape = data.Cape;
+        Back = data.Back;
+        Mask = data.Mask;
+        Horns = data.Horns;
+    }
 }

@@ -1,5 +1,7 @@
 public class Define
 {
+    public const float INVINCIBILITY_TIME = 0.5f;
+
     public const string PATH_OBJECT = "Objects";
 
     // player prefs key
@@ -8,7 +10,7 @@ public class Define
     public const string SFX_VOLUME_KEY = "sfxVolume";
 
     public const string CANVAS_KEY = "GameUI Canvas";
-    
-//SaveDataKey
+
+    //SaveDataKey
     public const string SAVEDATA_KEY = "SaveData";
-} 
+}
