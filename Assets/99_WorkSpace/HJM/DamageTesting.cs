@@ -27,6 +27,13 @@ public class DamageTesting : MonoBehaviour
             gameUI.HealthUI.UpdateHealthBar(transform, maxHP, hp);
 
             DataManager.Instance.Coin.Add(10000);
+
+            UpgradeData data = DataManager.Instance.UpgradeData;
+
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    Debug.Log($"{(UpgradeType)i}/{data.upgradeLevels[i]}/{data.upgradePrice[i]}/{data.upgradeValues[i]}");
+            //}
         }
     }
 }

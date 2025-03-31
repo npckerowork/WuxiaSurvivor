@@ -58,6 +58,9 @@ public class UpgradeSlot : MonoBehaviour
 
             // slot 업데이트
             UpdateSlot();
+
+            // 보유 코인 업데이트
+            UIManager.Instance.GetUI<LobbyUI>().CoinUpdate();
         }
     }
 }

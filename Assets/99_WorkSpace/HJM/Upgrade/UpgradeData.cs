@@ -16,9 +16,9 @@ public class UpgradeData
 {
     public UpgradeScriptable[] upgradeDatas { get; private set; }
 
-    public int[] upgradeLevels; // 업그레이드 레벨
-    public int[] upgradePrice;  // 업그레이드 가격
-    public float[] upgradeValues; // 업그레이드 수치
+    public int[] upgradeLevels;     // 업그레이드 레벨
+    public int[] upgradePrice;      // 업그레이드 가격
+    public float[] upgradeValues;   // 업그레이드 수치
 
     public UpgradeData()
     {
@@ -30,11 +30,6 @@ public class UpgradeData
         {
             upgradeDatas[(int)type] = 
                 Resources.Load<UpgradeScriptable>($"UpgradeData/{type.ToString()}");
-        }
-
-        foreach (UpgradeScriptable a in upgradeDatas)
-        {
-            Debug.Log(a.ToString());    
         }
 
         // 업그레이드 데이터 초기화

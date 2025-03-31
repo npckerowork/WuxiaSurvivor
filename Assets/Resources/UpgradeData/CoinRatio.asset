@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 894926c7b323a2647a3f41cf11f5b973, type: 3}
   m_Name: CoinRatio
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeScriptable
   type: 1
-  sprite: {fileID: -3454419488990572037, guid: f02467aee785ccf49a986c09192b2bee, type: 3}
+  sprite: {fileID: 21300000, guid: dc524065c83b84ff4937ccfc0c9d00b7, type: 3}
   price: 2000
   value: 1
   priceRatio: 1.4

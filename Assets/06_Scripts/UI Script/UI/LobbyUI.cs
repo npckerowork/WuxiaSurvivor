@@ -24,6 +24,12 @@ public class LobbyUI : BaseUI
         ShowUI();
     }
 
+    public override void ShowUI()
+    {
+        base.ShowUI();
+        CoinUpdate();
+    }
+
     public override void HideUI()
     {
         base.HideUI();
