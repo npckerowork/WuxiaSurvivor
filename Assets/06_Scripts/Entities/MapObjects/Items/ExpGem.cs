@@ -6,7 +6,7 @@ public class ExpGem : ItemBase
 
     protected override void ApplyEffect()
     {
-        // TODO : 경험치 획득
+        GameManager.Instance.Player.StatHandler.GetExp(addBaseExpAmount); //경험치 획득
         Debug.Log($"{addBaseExpAmount} 경험치 획득!");
         base.ApplyEffect();
     }

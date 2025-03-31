@@ -6,7 +6,7 @@ public class CoinItem : ItemBase
 
     protected override void ApplyEffect()
     {
-        // TODO : 코인획득
+        GameManager.Instance.GameCoin.Add(addBaseCoinAmount); //코인 획득
         Debug.Log($"{addBaseCoinAmount} 코인 획득!");
         base.ApplyEffect();
     }
