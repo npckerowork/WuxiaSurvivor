@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
     public PlayerController Player { get; private set; }
+    public readonly List<GameObject> Enemies = new();
 
     public Coin GameCoin = new();
 
@@ -14,6 +16,9 @@ public class GameManager : Singleton<GameManager>
     public Action OnTimeOver = delegate { };        // 시간제한 종료 후 실행 이벤트
     public Action OnTimeChanged = delegate { };     // 시간이 변할 때 실행 이벤트
 
+    private bool isEnded;
+    private readonly WaitForSeconds interval = new(1.0f);
+
     protected override void Initialize()
     {
         SetDontDestroyOnLoad();
@@ -22,6 +27,7 @@ public class GameManager : Singleton<GameManager>
         GameCoin = new();
 
         Application.wantsToQuit += OnWantsToQuit;
+        StartCoroutine(Spawning());
     }
 
     private bool OnWantsToQuit()
@@ -46,6 +52,44 @@ public class GameManager : Singleton<GameManager>
             // 제한시간 종료
             if (currentTime >= timeLimit)
                 OnTimeOver?.Invoke();
+        }
+    }
+
+    private IEnumerator Spawning()
+    {
+        while (!isEnded)
+        {
+            if (Enemies.Count < 100)
+            {
+                Vector3 direction = Vector3.zero;
+                switch (UnityEngine.Random.Range(0, 4))
+                {
+                    case 0:
+                        direction = Vector3.right;
+                        break;
+                    case 1:
+                        direction = Vector3.left;
+                        break;
+                    case 2:
+                        direction = Vector3.down;
+                        break;
+                    case 3:
+                        direction = Vector3.up;
+                        break;
+                }
+
+                GameObject enemy;
+                Vector3 randomPosition = Player.transform.position + 12.0f * direction;
+
+                enemy = currentTime switch
+                {
+                    _ => ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero),
+                };
+
+                Enemies.Add(enemy);
+            }
+
+            yield return interval;
         }
     }
 }

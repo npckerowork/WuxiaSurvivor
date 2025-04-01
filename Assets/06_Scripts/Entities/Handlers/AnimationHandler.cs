@@ -33,6 +33,11 @@ public class AnimationHandler : MonoBehaviour
 
     public void SetState(ActionState state)
     {
+        if (Animator == null)
+        {
+            return;
+        }
+
         foreach (var parameter in PARAMETERS)
         {
             Animator.SetBool(parameter, false);

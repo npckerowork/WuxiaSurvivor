@@ -40,6 +40,7 @@ MonoBehaviour:
   Horns: 
   MaxHP: 100
   MoveSpeed: 1
+  Name: "\uC18C\uAD50\uC8FC \uC1A1\uC81C\uC6B0"
   AttackDamage: 5
   AttackDelay: 2
   AttackRange: 10
