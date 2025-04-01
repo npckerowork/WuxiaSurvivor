@@ -9,25 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928e360caf560a5458be0a2a939fa938, type: 3}
-  m_Name: Enemy
+  m_Script: {fileID: 11500000, guid: c2f724efed037284d9915d88e1ac2d29, type: 3}
+  m_Name: Player
   m_EditorClassIdentifier: 
-  HeadIndex: 12
-  Head: Skeleton
+  HeadIndex: 8
+  Head: Human
   EarsIndex: 0
   Ears: 
-  EyesIndex: 12
-  Eyes: Skeleton
-  BodyIndex: 12
-  Body: Skeleton
-  HairIndex: 0
-  Hair: 
-  ArmorIndex: 0
-  Armor: 
+  EyesIndex: 8
+  Eyes: Human
+  BodyIndex: 8
+  Body: Human
+  HairIndex: 9
+  Hair: Hair2
+  ArmorIndex: 42
+  Armor: PirateCostume
   HelmetIndex: 0
   Helmet: 
-  WeaponIndex: 15
-  Weapon: Bow
+  WeaponIndex: 82
+  Weapon: ShortDagger
   ShieldIndex: 0
   Shield: 
   CapeIndex: 0
@@ -39,7 +39,4 @@ MonoBehaviour:
   HornsIndex: 0
   Horns: 
   MaxHP: 100
-  MoveSpeed: 1
-  AttackDamage: 6
-  AttackDelay: 2
-  AttackRange: 10
+  MoveSpeed: 5

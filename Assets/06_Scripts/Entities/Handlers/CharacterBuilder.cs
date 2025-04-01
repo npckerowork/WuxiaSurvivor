@@ -7,19 +7,19 @@ using UnityEngine;
 public class CharacterBuilder : MonoBehaviour
 {
     public SpriteCollection SpriteCollection;
-    public string Head = "Human";
-    public string Ears = "Human";
-    public string Eyes = "Human";
-    public string Body = "Human";
-    public string Hair;
-    public string Armor;
-    public string Helmet;
-    public string Weapon;
-    public string Shield;
-    public string Cape;
-    public string Back;
-    public string Mask;
-    public string Horns;
+    private string Head = "Human";
+    private string Ears = "Human";
+    private string Eyes = "Human";
+    private string Body = "Human";
+    private string Hair;
+    private string Armor;
+    private string Helmet;
+    private string Weapon;
+    private string Shield;
+    private string Cape;
+    private string Back;
+    private string Mask;
+    private string Horns;
 
     public Texture2D Texture { get; private set; }
     private Dictionary<string, Sprite> _sprites;
@@ -151,7 +151,7 @@ public class CharacterBuilder : MonoBehaviour
         Texture.Apply();
     }
 
-    public void SetData(EnemyData data)
+    public void SetData(EntityData data)
     {
         Head = data.Head;
         Ears = data.Ears;

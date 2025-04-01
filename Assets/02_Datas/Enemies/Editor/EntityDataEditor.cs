@@ -4,17 +4,17 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(EnemyData))]
-public class EnemyDataEditor : Editor
+[CustomEditor(typeof(EntityData), true)]
+public class EntityDataEditor : Editor
 {
-    private EnemyData enemyData;
+    private EntityData entityData;
 
     private int index;
     private string[] selectedValue;
 
     public override void OnInspectorGUI()
     {
-        enemyData = (EnemyData)target;
+        entityData = (EntityData)target;
 
         SpriteCollection spriteCollection = Resources.Load<SpriteCollection>(nameof(SpriteCollection));
         EditorGUILayout.LabelField(nameof(SpriteCollection), EditorStyles.boldLabel);
@@ -43,7 +43,7 @@ public class EnemyDataEditor : Editor
 
         if (GUI.changed)
         {
-            EditorUtility.SetDirty(enemyData);
+            EditorUtility.SetDirty(entityData);
         }
     }
 
@@ -52,31 +52,31 @@ public class EnemyDataEditor : Editor
         switch (layerIndex)
         {
             case 0:
-                return ref enemyData.CapeIndex;
+                return ref entityData.CapeIndex;
             case 1:
-                return ref enemyData.BackIndex;
+                return ref entityData.BackIndex;
             case 2:
-                return ref enemyData.ShieldIndex;
+                return ref entityData.ShieldIndex;
             case 3:
-                return ref enemyData.BodyIndex;
+                return ref entityData.BodyIndex;
             case 4:
-                return ref enemyData.ArmorIndex;
+                return ref entityData.ArmorIndex;
             case 5:
-                return ref enemyData.HeadIndex;
+                return ref entityData.HeadIndex;
             case 6:
-                return ref enemyData.HornsIndex;
+                return ref entityData.HornsIndex;
             case 7:
-                return ref enemyData.EyesIndex;
+                return ref entityData.EyesIndex;
             case 8:
-                return ref enemyData.MaskIndex;
+                return ref entityData.MaskIndex;
             case 9:
-                return ref enemyData.HairIndex;
+                return ref entityData.HairIndex;
             case 10:
-                return ref enemyData.EarsIndex;
+                return ref entityData.EarsIndex;
             case 11:
-                return ref enemyData.HelmetIndex;
+                return ref entityData.HelmetIndex;
             case 14:
-                return ref enemyData.WeaponIndex;
+                return ref entityData.WeaponIndex;
             default:
                 return ref index;
         }
@@ -90,43 +90,43 @@ public class EnemyDataEditor : Editor
         switch (layerIndex)
         {
             case 0:
-                enemyData.Cape = selectedValue;
+                entityData.Cape = selectedValue;
                 break;
             case 1:
-                enemyData.Back = selectedValue;
+                entityData.Back = selectedValue;
                 break;
             case 2:
-                enemyData.Shield = selectedValue;
+                entityData.Shield = selectedValue;
                 break;
             case 3:
-                enemyData.Body = selectedValue;
+                entityData.Body = selectedValue;
                 break;
             case 4:
-                enemyData.Armor = selectedValue;
+                entityData.Armor = selectedValue;
                 break;
             case 5:
-                enemyData.Head = selectedValue;
+                entityData.Head = selectedValue;
                 break;
             case 6:
-                enemyData.Horns = selectedValue;
+                entityData.Horns = selectedValue;
                 break;
             case 7:
-                enemyData.Eyes = selectedValue;
+                entityData.Eyes = selectedValue;
                 break;
             case 8:
-                enemyData.Mask = selectedValue;
+                entityData.Mask = selectedValue;
                 break;
             case 9:
-                enemyData.Hair = selectedValue;
+                entityData.Hair = selectedValue;
                 break;
             case 10:
-                enemyData.Ears = selectedValue;
+                entityData.Ears = selectedValue;
                 break;
             case 11:
-                enemyData.Helmet = selectedValue;
+                entityData.Helmet = selectedValue;
                 break;
             case 14:
-                enemyData.Weapon = selectedValue;
+                entityData.Weapon = selectedValue;
                 break;
         }
     }

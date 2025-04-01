@@ -26,25 +26,27 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //GameObject targetObject = collision.gameObject;
-        //int targetObjectLayer = 1 << targetObject.layer;
-        //if ((targetObjectLayer & targetLayer) != 0)
-        //{
-        //    if (targetObject.layer == obstacleLayer)
-        //    {
-        //        Destroy();
-        //        return;
-        //    }
+        GameObject targetObject = collision.gameObject;
+        int targetObjectLayer = 1 << targetObject.layer;
+        if ((targetObjectLayer & targetLayer) != 0)
+        {
+            var @base = targetObject.GetComponent<BaseController>();
+            if (@base.IsDead)
+            {
+                return;
+            }
 
-        //    var @object = targetObject.GetComponent<ObjectController>();
-        //    if (@object.IsDead)
-        //    {
-        //        return;
-        //    }
+            if (@base is PlayerController)
+            {
+                (@base as PlayerController).StatHandler.Damage(damage);
+            }
+            else if (@base is EnemyController)
+            {
+                (@base as EnemyController).StatHandler.Damage(damage);
+            }
 
-        //    @object.StatHandler.OnDamage(damage);
-        //    Destroy();
-        //}
+            Destroy();
+        }
     }
 
     private void Destroy()
