@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameTimer : MonoBehaviour
 {
-    private int timeSecond;
     [SerializeField] private TextMeshProUGUI timeText;
 
     private IEnumerator timerCoroutine;
