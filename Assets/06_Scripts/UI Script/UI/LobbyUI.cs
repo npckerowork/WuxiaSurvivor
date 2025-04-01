@@ -27,17 +27,18 @@ public class LobbyUI : BaseUI
 
     public override void HideUI()
     {
-        base.HideUI();
+        base.HideUI();                      // Lobby UI off
 
-        uiManager[UIType.Ingame].ShowUI();
+        uiManager[UIType.Ingame].ShowUI();  // InGame UI on
 
-        SceneManager.LoadScene("01_Main");
+        SceneManager.LoadScene("01_Main");  // 씬 변경
     }
 
     private void OnStart()
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
         uiManager.fade.FadeOut(HideUI);
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.GameBGM); // 배경음 변경
     }
 
     private void OnUpgrade()

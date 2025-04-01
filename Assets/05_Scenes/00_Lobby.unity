@@ -402,9 +402,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5171353552840319281, guid: 687d0e2dee0ace140971deb9fc3006fa, type: 3}
+      propertyPath: fadeInDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171353552840319281, guid: 687d0e2dee0ace140971deb9fc3006fa, type: 3}
+      propertyPath: fadeOutDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171353552840319281, guid: 687d0e2dee0ace140971deb9fc3006fa, type: 3}
+      propertyPath: clips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171353552840319281, guid: 687d0e2dee0ace140971deb9fc3006fa, type: 3}
       propertyPath: clips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: d54d48f1dcd87034592f5e3f43a6c715, type: 3}
+      objectReference: {fileID: 8300000, guid: 061635625f3409940b3da4b4c2e86372, type: 3}
+    - target: {fileID: 5171353552840319281, guid: 687d0e2dee0ace140971deb9fc3006fa, type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 81aa5c33e55c7624fb6036c683e67ef7, type: 3}
     - target: {fileID: 8541216030419986696, guid: 687d0e2dee0ace140971deb9fc3006fa, type: 3}
       propertyPath: m_Name
       value: BGM Controller

@@ -46,12 +46,11 @@ public class PauseUI : BaseUI
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
         uiManager.fade.FadeOut(LobbyFadeOut);
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);// 배경음 변경
     }
 
     private void LobbyFadeOut()
     {
-        // 여기 메서드명이 애매해요@@
-
         HideUI();                           // Pause UI off
         uiManager[UIType.Ingame].HideUI();  // InGame UI off
         uiManager[UIType.Lobby].ShowUI();   // Lobby UI On
