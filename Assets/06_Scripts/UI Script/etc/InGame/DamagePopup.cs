@@ -34,11 +34,13 @@ public class DamagePopup : MonoBehaviour
         damageText.text = damage.ToString("#.#");
         damageText.color = defaultTextColor;
 
-        // 데미지 팝업 애니메이션
-        // 위로 올라가면서 Fade 
-        // Fade 종료 -> ReturnDamagePopup 호출 
-        transform.DOMoveY(transform.position.y + moveYDistance, fadeDuration).SetEase(Ease.OutCubic);
-        damageText.DOFade(0, fadeDuration).SetEase(Ease.Linear)
+        // 데미지 팝업 움직임
+        transform.DOMoveY(transform.position.y + moveYDistance, fadeDuration)
+            .SetEase(Ease.OutCubic);
+
+        // 데미지 팝업 Fade
+        damageText.DOFade(0, fadeDuration)
+            .SetEase(Ease.Linear)
             .OnComplete(ReturnDamagePopup);
     }
 

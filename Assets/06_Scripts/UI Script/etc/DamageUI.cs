@@ -18,10 +18,8 @@ public class DamageUI : MonoBehaviour
     {
         if (!pool.TryDequeue(out DamagePopup popup))
         {
-            // 생성
             GameObject newPopup = Instantiate(damagePrefab, UIManager.Instance.transform);
 
-            //초기화
             popup = newPopup.GetComponent<DamagePopup>();
             popup.InitPopup(this);
         }

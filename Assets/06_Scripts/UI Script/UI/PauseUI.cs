@@ -48,7 +48,6 @@ public class PauseUI : BaseUI
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
 
-        // Option UI 켜기
         uiManager[UIType.Option].ShowUI();
     }
 
@@ -59,7 +58,7 @@ public class PauseUI : BaseUI
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
         uiManager.fade.FadeOut(EndFadeOut);
-        AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);// 배경음 변경
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);
     }
 
     /// <summary>
@@ -67,9 +66,9 @@ public class PauseUI : BaseUI
     /// </summary>
     private void EndFadeOut()
     {
-        HideUI();                           // Pause UI off
-        uiManager[UIType.Ingame].HideUI();  // InGame UI off
-        uiManager[UIType.Lobby].ShowUI();   // Lobby UI On
+        HideUI();                          
+        uiManager[UIType.Ingame].HideUI();
+        uiManager[UIType.Lobby].ShowUI();   
 
         SceneLoader.Instance.ChangeScene(SceneType.Lobby);
     }

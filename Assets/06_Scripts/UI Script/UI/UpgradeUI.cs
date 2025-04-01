@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeUI : BaseUI
 {
+    [Header("Slot")]
     [SerializeField] private GameObject upgradeSlotPrefab;
     [SerializeField] private Transform slotParent;
 

@@ -41,6 +41,8 @@ public class GameTimer : MonoBehaviour
     /// </summary>
     private void UpdateTime()
     {
+        // TODO:
+        // GameManager timeLimit로 변경하기
         int timeLimit = 300;
 
         int timeSecond = GameManager.Instance.currentTime;

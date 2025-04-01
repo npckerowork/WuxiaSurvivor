@@ -22,38 +22,53 @@ public class LobbyUI : BaseUI
 
         ShowUI();
 
+        // 보유 코인 UI 업데이트
         DataManager.Instance.Coin.OnUpdateCoinAmountEvent += CoinUpdate;
     }
 
     public override void HideUI()
     {
-        base.HideUI();                      // Lobby UI off
+        base.HideUI();                     
 
-        uiManager[UIType.Ingame].ShowUI();  // InGame UI on
+        uiManager[UIType.Ingame].ShowUI();  
 
         SceneLoader.Instance.ChangeScene(SceneType.Main);
-        //SceneManager.LoadScene("01_Main");  // 씬 변경
     }
 
+    /// <summary>
+    /// 게임 시작 
+    /// </summary>
     private void OnStart()
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
+
         uiManager.fade.FadeOut(HideUI);
-        AudioManager.Instance.bgmController.ChangeBGM(BgmName.GameBGM); // 배경음 변경
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.GameBGM);
     }
 
+    /// <summary>
+    /// Upgrade UI 켜기
+    /// </summary>
     private void OnUpgrade()
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
+
         uiManager[UIType.Upgrade].ShowUI();
     }
 
+    /// <summary>
+    /// Option UI 켜기
+    /// </summary>
     private void OnOption()
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
+
         uiManager[UIType.Option].ShowUI();
     }
 
+    /// <summary>
+    /// 코인 Text 업데이트
+    /// </summary>
     public void CoinUpdate(long coin)
     {
         coinText.text = $"{coin}";

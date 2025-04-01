@@ -17,16 +17,12 @@ public class HealthUI : MonoBehaviour
 
     public void UpdateHealthBar(Transform target, float maxHp, float hp)
     {
-        // 사용중인 체력바가 없으면
         if (!useHealthBar.TryGetValue(target, out HealthBar healthBar))
         {
-            // 풀에 남아있는 체력바가 없으면
             if (!pool.TryDequeue(out healthBar))
             {
-                // 생성
                 GameObject newHealthBar = Instantiate(healthBarPrefab, transform);
 
-                // 초기화
                 healthBar = newHealthBar.GetComponent<HealthBar>();
                 healthBar.InitHealthBar(this);
             }
