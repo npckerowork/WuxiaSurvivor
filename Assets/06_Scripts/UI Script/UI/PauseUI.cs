@@ -21,11 +21,18 @@ public class PauseUI : BaseUI
         quitButton.onClick.AddListener(QuitGame);
     }
 
+    /// <summary>
+    /// Pause UI 켜기
+    /// </summary>
     public override void ShowUI()
     {
         base.ShowUI();
         Time.timeScale = 0;
     }
+
+    /// <summary>
+    /// Pause UI 닫기
+    /// </summary>
     public override void HideUI()
     {
         base.HideUI();
@@ -34,6 +41,9 @@ public class PauseUI : BaseUI
         sfxController.PlayClip(SfxName.ButtonClick2);
     }
 
+    /// <summary>
+    /// Option UI 켜기
+    /// </summary>
     private void OnOption()
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
@@ -42,23 +52,31 @@ public class PauseUI : BaseUI
         uiManager[UIType.Option].ShowUI();
     }
 
+    /// <summary>
+    /// Lobby로 돌아가기 
+    /// </summary>
     private void OnLobby()
     {
         sfxController.PlayClip(SfxName.ButtonClick2);
-        uiManager.fade.FadeOut(LobbyFadeOut);
+        uiManager.fade.FadeOut(EndFadeOut);
         AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);// 배경음 변경
     }
 
-    private void LobbyFadeOut()
+    /// <summary>
+    /// Lobby로 돌아가기 FadeOut 종료후
+    /// </summary>
+    private void EndFadeOut()
     {
         HideUI();                           // Pause UI off
         uiManager[UIType.Ingame].HideUI();  // InGame UI off
         uiManager[UIType.Lobby].ShowUI();   // Lobby UI On
 
-        SceneManager.LoadScene("00_Lobby"); // 씬 변경
+        SceneLoader.Instance.ChangeScene(SceneType.Lobby);
     }
 
-
+    /// <summary>
+    /// 게임 종료
+    /// </summary>
     private void QuitGame()
     {
         sfxController.PlayClip(SfxName.ButtonClick2);

@@ -9,7 +9,7 @@ public class HealthUI : MonoBehaviour
     private Queue<HealthBar> pool;
     Dictionary<Transform, HealthBar> useHealthBar;
 
-    public void InitHealthBar()
+    public void InitUI()
     {
         pool = new Queue<HealthBar>();
         useHealthBar = new Dictionary<Transform, HealthBar>();

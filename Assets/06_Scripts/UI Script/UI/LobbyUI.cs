@@ -31,7 +31,8 @@ public class LobbyUI : BaseUI
 
         uiManager[UIType.Ingame].ShowUI();  // InGame UI on
 
-        SceneManager.LoadScene("01_Main");  // 씬 변경
+        SceneLoader.Instance.ChangeScene(SceneType.Main);
+        //SceneManager.LoadScene("01_Main");  // 씬 변경
     }
 
     private void OnStart()

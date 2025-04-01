@@ -12,8 +12,8 @@ public class SkillInventory : MonoBehaviour
     /// <summary>
     /// 초기화
     /// </summary>
-    public void InitSkillInventory()
+    public void InitUI()
     {
-        
+
     }
 }

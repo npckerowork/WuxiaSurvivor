@@ -9,13 +9,15 @@ public class GameTimer : MonoBehaviour
 
     private IEnumerator timerCoroutine;
 
-    /// <summary>
-    /// 초기화
-    /// </summary>
-    public void InitTimer()
+    public void InitUI()
     {
         timerCoroutine = GameManager.Instance.StartTimer();
         GameManager.Instance.OnTimeChanged += UpdateTime;
+
+        // 메인 씬 변경 이벤트 할당
+        SceneLoader.Instance.AddAction(SceneType.Main, StartTimer);
+        SceneLoader.Instance.AddAction(SceneType.Main, () => Debug.Log("메인씬 실행"));
+        SceneLoader.Instance.AddAction(SceneType.Lobby, () => Debug.Log("로비씬 실행"));
     }
 
     /// <summary>

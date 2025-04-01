@@ -25,6 +25,8 @@ public class GameManager : Singleton<GameManager>
 
         GameCoin = new();
         Application.wantsToQuit += OnWantsToQuit;
+
+        SceneLoader.Instance.AddAction(SceneType.Main, GameStart);
     }
 
     private bool OnWantsToQuit()

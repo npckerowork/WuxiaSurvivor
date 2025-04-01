@@ -10,7 +10,8 @@ public class ExpBar : MonoBehaviour
     /// <summary>
     /// 초기화
     /// </summary>
-    public void InitExpBar()
+    /// 
+    public void InitUI()
     {
         expSlider.value = 0;
     }

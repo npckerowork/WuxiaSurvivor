@@ -9,7 +9,7 @@ public class DamageUI : MonoBehaviour
     // 임시 오브젝트 풀링
     private Queue<DamagePopup> pool;
 
-    public void InitDamageUI()
+    public void InitUI()
     {
         pool = new Queue<DamagePopup>();
     }
