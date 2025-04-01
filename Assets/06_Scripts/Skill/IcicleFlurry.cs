@@ -1,12 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class IcicleFlurry : MonoBehaviour
+public class IcicleFlurry : AttackSkillBase
 {
     [SerializeField] private IceProjectile iceProjectilePrefab;
 
     [SerializeField] private float shootSpeed = 5.0f; //투사체 발사 스피드
-    [SerializeField] private float damage = 3.0f; //투사체 데미지
     [SerializeField] private float skillCoolDown = 5.0f; //스킬 쿨다운
     [SerializeField] private float projectileSpawndelayTime = 0.2f; //투사체 발사 딜레이
     [SerializeField] private int directionCount = 1; //투사체 방향수
@@ -16,10 +15,15 @@ public class IcicleFlurry : MonoBehaviour
 
     private void Start()
     {
-        skillHandler = GameManager.Instance.Player.SkillHandler;
         InvokeRepeating(nameof(ShootIceInDirections), 0, skillCoolDown);
 
         GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
+    }
+
+    public override void Init()
+    {
+        base.Init();
+        skillHandler = GameManager.Instance.Player.SkillHandler;
     }
 
     private void ShootIceInDirections()
@@ -54,7 +58,7 @@ public class IcicleFlurry : MonoBehaviour
 
             if (ice.TryGetComponent(out IceProjectile iceProjectile))
             {
-                iceProjectile.SetData(dir, damage, shootSpeed);
+                iceProjectile.SetData(dir, attackSkillData.Damage[attackSkillData.SkillLevel - 1], shootSpeed);
             }
 
             yield return new WaitForSeconds(projectileSpawndelayTime);

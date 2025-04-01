@@ -3,6 +3,11 @@ using UnityEngine;
 public class RotateWeapon : MonoBehaviour
 {
     private float damage;
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
     private LayerMask enemyLayer;
 
     public void Init(float damage, LayerMask layer)

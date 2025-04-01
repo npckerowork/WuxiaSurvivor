@@ -5,7 +5,7 @@ public interface ISkillBehavior
 {
     public void Init();
     public void ExecuteSkill();
-
+    public void SkillLevelUp();
 }
 
 public interface ICoolTimeCount
@@ -13,11 +13,8 @@ public interface ICoolTimeCount
     public bool CheckCoolTime();
 }
 
-public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
+public class ProjectileFireSkill : AttackSkillBase, ICoolTimeCount
 {
-    // 동작 구현부터
-    // 스킬 데이터
-    [SerializeField] private AttackSkillData attackSkillData;
     // 투사체 프리팹
     [SerializeField] private GameObject projectileObj;
     // 몬스터를 탐지하고 공격하는 범위
@@ -28,14 +25,8 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
     private float lastUseSkillCoolTime;
     // 생성할 투사체 프리팹 갯수
     [SerializeField] private int countObj;
-    // 몬스터 레이어
-    [SerializeField] private LayerMask layerMask;
-    // 플레이어 Transform
-    private Transform playerTrs;
     private List<Projectile> projectileList = new List<Projectile>();
     private Collider2D[] hits = null;
-    // 스킬 레벨
-    private int skillLevel = 1;
 
     private void Start()
     {
@@ -47,17 +38,17 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
         ExecuteSkill();
     }
 
-    public void Init()
+    public override void Init()
     {
-        playerTrs = GameManager.Instance.Player.transform;
+        base.Init();
 
         for(int i = 0; i < countObj; i++)
         {
             GameObject obj = Instantiate(projectileObj);
             projectileList.Add(obj.GetComponent<Projectile>());
-            projectileList[i].MonsterLayer = layerMask;
+            projectileList[i].MonsterLayer = enemyLayer;
             projectileList[i].Init();
-            projectileList[i].Damage = attackSkillData.Damage[skillLevel - 1];
+            projectileList[i].Damage = attackSkillData.Damage[attackSkillData.SkillLevel - 1];
             obj.SetActive(false);
         }
     }
@@ -79,9 +70,9 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
         }
     }
 
-    public void ExecuteSkill()
+    public override void ExecuteSkill()
     {
-        hits = Physics2D.OverlapCircleAll(playerTrs.position, attackRange, layerMask);
+        hits = Physics2D.OverlapCircleAll(playerTrs.position, attackRange, enemyLayer);
         if (!CheckCoolTime() || hits.Length == 0) return;
 
         int length = hits.Length;
@@ -98,16 +89,28 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
             }
         }
 
+        Vector3 dir = (target.transform.position - playerTrs.position).normalized;
+
         for(int i = 0; i < countObj; i++)
         {
             if (projectileList[i].Usabel)
             {
                 projectileList[i].gameObject.SetActive(true);
-                projectileList[i].SetProjectile(playerTrs.position, (target.transform.position - playerTrs.position).normalized);
+                projectileList[i].SetProjectile(playerTrs.position, dir);
                 break;
             }
         }
 
         hits = null;
+    }
+
+    public override void SkillLevelUp()
+    {
+        base.SkillLevelUp();
+
+        for (int i = 0; i < countObj; i++)
+        {
+            projectileList[i].Damage = attackSkillData.Damage[attackSkillData.SkillLevel - 1];
+        }
     }
 }

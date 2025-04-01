@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class Thunder : MonoBehaviour, ISkillBehavior
+public class Thunder : AttackSkillBase, ICoolTimeCount
 {
     [SerializeField] private BoxCollider2D boxCollider;
 
     [SerializeField] private float skillCooldown = 3f; //스킬 쿨다운
-    [SerializeField] private float damage = 3f; //임시값
 
     private void Start()
     {
@@ -13,13 +12,16 @@ public class Thunder : MonoBehaviour, ISkillBehavior
         GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
     }
 
-    public void ExecuteSkill()
+    public override void ExecuteSkill()
     {
         transform.position = GetRandomPosition();
         gameObject.SetActive(true);
     }
 
-    public void Init() { }
+    public override void Init() 
+    {
+        base.Init();
+    }
 
     public void ActiveCollider()
     {
@@ -53,7 +55,17 @@ public class Thunder : MonoBehaviour, ISkillBehavior
         if (collision.TryGetComponent(out EnemyController enemy))
         {
             //TODO : 데미지 계산 수정
-            enemy.StatHandler.Damage(damage);
+            enemy.StatHandler.Damage(attackSkillData.Damage[attackSkillData.MaxLevel - 1]);
         }
+    }
+
+    public bool CheckCoolTime()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void SkillLevelUp()
+    {
+        base.SkillLevelUp();
     }
 }

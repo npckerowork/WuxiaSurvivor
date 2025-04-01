@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9180203543205562114
+--- !u!1 &8553680718405789436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8991888120877815720}
-  - component: {fileID: 1352491343896736315}
+  - component: {fileID: 2535553749471731522}
+  - component: {fileID: 5940844751918402279}
   m_Layer: 0
-  m_Name: IcicleFlurry
+  m_Name: ProjectileFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8991888120877815720
+--- !u!4 &2535553749471731522
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180203543205562114}
+  m_GameObject: {fileID: 8553680718405789436}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,25 +32,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1352491343896736315
+--- !u!114 &5940844751918402279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180203543205562114}
+  m_GameObject: {fileID: 8553680718405789436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5410249729495e49b13ff6de6b2637d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7425cb443fdf32f418791399b17f8fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSkillData: {fileID: 11400000, guid: 14d9b2e9caf5e4b469ec62deba5d73ca, type: 2}
+  attackSkillData: {fileID: 11400000, guid: 5a8d2c52877159749abc0db5bab2343e, type: 2}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  iceProjectilePrefab: {fileID: 6782793766155828224, guid: 722dba4d19555cf42b005746f51a469e, type: 3}
-  shootSpeed: 10
-  skillCoolDown: 3
-  projectileSpawndelayTime: 0.1
-  directionCount: 1
-  projectileCount: 3
+  projectileObj: {fileID: 3055455285711186656, guid: a14462ad682ff6340989b6d33d7f5c3b, type: 3}
+  attackRange: 5
+  baseCoolTime: 2
+  countObj: 5

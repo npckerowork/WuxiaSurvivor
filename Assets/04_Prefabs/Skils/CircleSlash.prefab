@@ -120,6 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6163dbf35c56aad4e9354fa299a8af1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSkillData: {fileID: 11400000, guid: 1b0ef27250a15ec4ea163ff9102afcc9, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   skillCooldown: 5
   damage: 3
   scale: 1

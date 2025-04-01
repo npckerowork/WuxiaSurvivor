@@ -49,6 +49,7 @@ public class Projectile : MonoBehaviour
         startPosition = startPos;
         transform.position = startPosition;
         rigid.velocity = dir * speed;
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
         usable = false;
     }
 
@@ -63,10 +64,11 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 적 캐릭터라면 데미지를 가하는 동작 수행
-        if (collision.gameObject.layer == Mathf.Log(monsterLayer, 2))
+        if (collision.gameObject.layer == Mathf.Log(monsterLayer, 2) 
+            && collision.TryGetComponent<EnemyStatHandler>(out EnemyStatHandler enemy))
         {
-            collision.GetComponent<EnemyStatHandler>().Damage(damage);
-            OffProjectile();
+            enemy.Damage(damage);
+            //OffProjectile();
         }
     }
 

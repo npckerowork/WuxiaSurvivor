@@ -7,10 +7,10 @@ public class SkillManager : Singleton<SkillManager>
     private GameManager gameManager;
     // 스킬 데이터 리스트
     [SerializeField] private List<SkillData> totalSkillDataList = new List<SkillData>();
+    public List<SkillData> TotalSkillDataList { get { return totalSkillDataList; } }
 
     private int totalSkillCount;
     public int TotalSKillCount {  get { return totalSkillCount; } }
-    public List<SkillData> TotalSkillDataList { get { return totalSkillDataList; } }
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class SkillManager : Singleton<SkillManager>
 
     public void AddSkill(SkillData data)
     {
-        
+        if (data.SkillLevel == data.MaxLevel) return;
     }
 
     protected override void Initialize()

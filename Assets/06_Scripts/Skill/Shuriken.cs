@@ -1,29 +1,22 @@
 using System.Collections;
 using UnityEngine;
 
-public class Shuriken : MonoBehaviour, ISkillBehavior
+public class Shuriken : AttackSkillBase
 {
-    // 스킬 데이터
-    [SerializeField] private AttackSkillData attackSkillData;
-
     [SerializeField] private float MoveSpeed = 20.0f; //이동 속도
     [SerializeField] private float returnDelay = 1.0f; //수리검을 되돌리는 시간
     [SerializeField] private float skillCooldown = 5f; //스킬 쿨다운
-    [SerializeField] private float damage = 3f; //임시값
 
     private PlayerController player;
     private PlayerSkillHandler skillController;
 
     private void Start()
     {
-        player = GameManager.Instance.Player;
-        skillController = player.SkillHandler;
-        InvokeRepeating(nameof(ExecuteSkill), 0, skillCooldown);
-
+        Init();
         GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
     }
 
-    public void ExecuteSkill()
+    public override void ExecuteSkill()
     {
         transform.position = skillController.SkillPos.position;
         gameObject.SetActive(true);
@@ -56,8 +49,12 @@ public class Shuriken : MonoBehaviour, ISkillBehavior
         gameObject.SetActive(false);
     }
 
-    public void Init()
+    public override void Init()
     {
+        base.Init();
+        player = GameManager.Instance.Player;
+        skillController = player.SkillHandler;
+        InvokeRepeating(nameof(ExecuteSkill), 0, skillCooldown);
         transform.position = skillController.SkillPos.position;
     }
 
@@ -66,7 +63,12 @@ public class Shuriken : MonoBehaviour, ISkillBehavior
         if (collision.TryGetComponent(out EnemyController enemy))
         {
             //TODO : 데미지 계산 수정
-            enemy.StatHandler.Damage(damage);
+            enemy.StatHandler.Damage(attackSkillData.Damage[attackSkillData.SkillLevel - 1]);
         }
+    }
+
+    public override void SkillLevelUp()
+    {
+        base.SkillLevelUp();
     }
 }

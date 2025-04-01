@@ -134,11 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6378438f232392a44b9d8c5f02fbaec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSkillData: {fileID: 0}
+  attackSkillData: {fileID: 11400000, guid: f6cb8e8248670bc4594dc51e2b2bdbd2, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   MoveSpeed: 15
   returnDelay: 0.3
   skillCooldown: 3
-  damage: 5
 --- !u!95 &4245273969598872560
 Animator:
   serializedVersion: 5

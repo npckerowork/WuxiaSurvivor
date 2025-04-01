@@ -166,9 +166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e455298974f7f4bba28e0b8639bd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSkillData: {fileID: 11400000, guid: f176195411a92a14cb7616044d8949f7, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   boxCollider: {fileID: 1597222603228945580}
   skillCooldown: 3
-  damage: 5
 --- !u!50 &5789116260790566317
 Rigidbody2D:
   serializedVersion: 4

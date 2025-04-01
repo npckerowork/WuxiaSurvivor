@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
-  m_Name: NewSwordAuraData
+  m_Name: ThunderData
   m_EditorClassIdentifier: 
+  skillIcon: {fileID: 0}
+  skillPrefab: {fileID: 8215995983609219546, guid: 5f08fc82ef275b74c94d77af6a181269, type: 3}
   skillName: SwordAura
   category: 0
+  maxLevel: 3
+  attackType: 0
   damage:
   - 10
   - 15
   - 20
+  objCount: 
