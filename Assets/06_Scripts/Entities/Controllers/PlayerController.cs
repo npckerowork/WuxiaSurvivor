@@ -8,6 +8,7 @@ public class PlayerController : BaseController
     public PlayerStatHandler StatHandler { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public PlayerStateMachine StateMachine { get; private set; }
+    public PlayerSkillHandler SkillHandler { get; private set; }
 
     protected override void Initialize()
     {
@@ -17,6 +18,7 @@ public class PlayerController : BaseController
         StatHandler.SetData(Data);
 
         Rigidbody = GetComponent<Rigidbody2D>();
+        SkillHandler = GetComponent<PlayerSkillHandler>();
 
         InputSystem = new();
         StateMachine = new(this);
