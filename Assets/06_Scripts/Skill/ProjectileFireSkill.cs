@@ -33,6 +33,8 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
     private Transform playerTrs;
     private List<Projectile> projectileList = new List<Projectile>();
     private Collider2D[] hits = null;
+    // 스킬 레벨
+    private int skillLevel = 1;
 
     private void Start()
     {
@@ -54,6 +56,7 @@ public class ProjectileFireSkill : MonoBehaviour, ISkillBehavior
             projectileList.Add(obj.GetComponent<Projectile>());
             projectileList[i].MonsterLayer = layerMask;
             projectileList[i].Init();
+            projectileList[i].Damage = attackSkillData.Damage[skillLevel - 1];
             obj.SetActive(false);
         }
     }

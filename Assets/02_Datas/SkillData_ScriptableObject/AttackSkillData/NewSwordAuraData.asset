@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
   m_Name: NewSwordAuraData
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: SwordAura
   category: 0
-  damage: 
+  damage:
+  - 10
+  - 15
+  - 20
