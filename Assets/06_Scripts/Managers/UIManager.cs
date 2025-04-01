@@ -25,7 +25,8 @@ public class UIManager : Singleton<UIManager>
             FindObjectOfType<UpgradeUI>(true),
             FindObjectOfType<OptionUI>(true),
             FindObjectOfType<InGameUI>(true),
-            FindObjectOfType<PauseUI>(true)
+            FindObjectOfType<PauseUI>(true),
+            FindObjectOfType<SkillSelectUI>(true)
         };
         fade = FindObjectOfType<Fade>(true); 
 

@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c63b6dd9eb53e84585476186dfffd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillText: {fileID: 5423005184190443154}
+  skillIcon: {fileID: 3610221568317797421}
 --- !u!1 &1396633479001402715
 GameObject:
   m_ObjectHideFlags: 0

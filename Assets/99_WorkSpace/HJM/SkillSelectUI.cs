@@ -14,12 +14,14 @@ public class SkillSelectUI : BaseUI
     public override void InitUI(UIManager uiManager)
     {
         base.InitUI(uiManager);
+        slots = new List<SkillSelectSlot>();
 
         // 스킬슬롯 미리 생성해두기
         for (int i = 0; i < skillCount; i++)
         {
             GameObject slotObject = Instantiate(slotPrefab, slotParent);
             SkillSelectSlot slot = slotObject.GetComponent<SkillSelectSlot>();
+            slot.InitSlot(this);
             slots.Add(slot);
 
             slotObject.SetActive(false);
@@ -31,6 +33,11 @@ public class SkillSelectUI : BaseUI
         base.HideUI();
 
         Time.timeScale = 1;
+
+        foreach(SkillSelectSlot slot in slots)
+        {
+            slot?.ClearData();
+        }
     }
 
     // 레벨업했을때 호출해주기
@@ -41,43 +48,36 @@ public class SkillSelectUI : BaseUI
         Time.timeScale = 0;
 
         // 가져올 데이터가없으면 UI 다시 끄기
-        if (!GetRandomSkillData(out SkillData[] data))
+        if (!GetRandomSkillData(out List<SkillData> data))
             HideUI();
 
-        for(int i = 0; i < data.Length; i++)
+        for(int i = 0; i < data.Count; i++)
         {
-            slots[i].InitSlot(data[i]);
+            slots[i].SetData(data[i]);
         }
     }
 
-    public bool GetRandomSkillData(out SkillData[] resultData)
+    
+    public bool GetRandomSkillData(out List<SkillData> resultData)
     {
-        resultData = new SkillData[skillCount];
-        List<SkillData> datas = SkillManager.Instance.TotalSkillDataList;
-        int[] randomIndex = GetRandomIndexes(datas.Count, skillCount);
+        resultData = new List<SkillData>();
 
-        if (randomIndex.Length > 0)
+        List<SkillData> datas = SkillManager.Instance.TotalSkillDataList;
+
+        
+        if (datas == null || datas.Count <= 0)
             return false;
 
-        for(int i = 0; i < randomIndex.Length; i++)
+        // 임시로 리스트 앞에서 3개 가져오기
+
+        for (int i = 0; i < datas.Count; i++)
         {
-            resultData[i] = datas[randomIndex[i]];
+            if (i >= skillCount)
+                break;
+
+            resultData.Add(datas[i]);
         }
 
         return true;
-    }
-
-
-    // 고마워 따봉GPT야!
-    public int[] GetRandomIndexes(int maxNumber, int pickCount)
-    {
-        pickCount = Mathf.Min(maxNumber, pickCount);
-
-        HashSet<int> randomIndexes = new HashSet<int>();
-        while (randomIndexes.Count < pickCount)
-        {
-            randomIndexes.Add(Random.Range(0, maxNumber));
-        }
-        return randomIndexes.ToArray();
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class DamageTesting : MonoBehaviour
 {
@@ -38,10 +37,9 @@ public class DamageTesting : MonoBehaviour
             VFXManager.Instance.PlayVFX(EffectType.SparkColorful, transform.position, Vector3.zero);
         }
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Vector3 pos = Input.mousePosition;
-        //    VFXManager.Instance.PlayVFX(EffectType.SparkBlue, pos, Vector3.zero);
-        //}
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            UIManager.Instance.GetUI<SkillSelectUI>().ShowUI();
+        }
     }
 }

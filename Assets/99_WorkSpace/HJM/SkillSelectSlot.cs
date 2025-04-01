@@ -10,14 +10,12 @@ public class SkillSelectSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI skillText;
     [SerializeField] private Image skillIcon;
 
+    private SkillSelectUI skillSelectUI;
     private SkillData currentData;
 
-    public void InitSlot(SkillData data)
+    public void InitSlot(SkillSelectUI skillSelectUI)
     {
-        currentData = data;
-
-        skillText.text = data.SkillName;
-        //skillIcon.sprite = ; 스킬 데이터 이미지가없음!
+        this.skillSelectUI = skillSelectUI;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -26,6 +24,23 @@ public class SkillSelectSlot : MonoBehaviour, IPointerClickHandler
             return;
 
         SkillManager.Instance.AddSkill(currentData);
+        skillSelectUI.HideUI();
+    }
+
+    public void SetData(SkillData data)
+    {
+        currentData = data;
+
+        skillText.text = data.SkillName;
+        //skillIcon.sprite = ; 스킬 데이터 이미지가없음!
+
+        gameObject.SetActive(true);
+    }
+
+    public void ClearData()
+    {
+        currentData = null;
+        gameObject.SetActive(false);
     }
 }
 
