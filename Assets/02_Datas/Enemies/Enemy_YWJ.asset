@@ -10,36 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 928e360caf560a5458be0a2a939fa938, type: 3}
-  m_Name: Enemy
+  m_Name: Enemy_YWJ
   m_EditorClassIdentifier: 
-  HeadIndex: 12
-  Head: Skeleton
+  HeadIndex: 2
+  Head: Demigod
   EarsIndex: 0
   Ears: 
-  EyesIndex: 12
-  Eyes: Skeleton
-  BodyIndex: 12
-  Body: Skeleton
+  EyesIndex: 2
+  Eyes: Demigod
+  BodyIndex: 2
+  Body: Demigod
   HairIndex: 0
   Hair: 
-  ArmorIndex: 0
-  Armor: 
+  ArmorIndex: 42
+  Armor: PirateCostume
   HelmetIndex: 0
   Helmet: 
-  WeaponIndex: 15
-  Weapon: Bow
-  ShieldIndex: 0
-  Shield: 
+  WeaponIndex: 80
+  Weapon: ShitOnStick
+  ShieldIndex: 14
+  Shield: WoodenBuckler
   CapeIndex: 0
   Cape: 
-  BackIndex: 0
-  Back: 
+  BackIndex: 2
+  Back: LargeBackpack
   MaskIndex: 0
   Mask: 
   HornsIndex: 0
   Horns: 
   MaxHP: 100
-  MoveSpeed: 1
-  AttackDamage: 6
-  AttackDelay: 2
-  AttackRange: 10
+  MoveSpeed: 0.8
+  AttackDamage: 5
+  AttackDelay: 1
+  AttackRange: 1
