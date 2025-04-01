@@ -6,6 +6,9 @@ public class GameManager : Singleton<GameManager>
 
     public Coin GameCoin = new();
 
+    private const int timeLimit = 300;      // 시간 제한
+    public int currentTime { get; private set; }
+
     protected override void Initialize()
     {
         SetDontDestroyOnLoad();
