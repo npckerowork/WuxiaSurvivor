@@ -131,9 +131,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 913687961479483061, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013025316587378017, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
+      propertyPath: <Data>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: f45d8099bd8ec4e43aac5e9710cd9373, type: 2}
     - target: {fileID: 2794761715729117023, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794761715729117023, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6829672243739510734, guid: 0a04ca5398ab8404cbed1b17a4330166, type: 3}
       propertyPath: attractItemLayer.m_Bits
@@ -294,7 +306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 564060885577454676, guid: 58f58a8abc10b1c4085a292002b774e8, type: 3}
-  attackCount: 1
   spreadAngle: 15
   projectileCount: 1
 --- !u!1001 &8920753205439844160

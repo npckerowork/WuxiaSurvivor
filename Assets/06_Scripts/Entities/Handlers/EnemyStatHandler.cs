@@ -1,8 +1,8 @@
 public class EnemyStatHandler : StatHandler
 {
-    public float AttackDamage = 5.0f;
-    public float AttackDelay = 1.0f;
-    public float AttackRange = 1.0f;
+    public float AttackDamage { get; set; } = 5.0f;
+    public float AttackDelay { get; set; } = 1.0f;
+    public float AttackRange { get; set; } = 1.0f;
 
     public void SetData(EnemyData data)
     {
