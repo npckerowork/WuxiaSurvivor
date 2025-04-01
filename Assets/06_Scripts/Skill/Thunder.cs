@@ -10,6 +10,7 @@ public class Thunder : MonoBehaviour, ISkillBehavior
     private void Start()
     {
         InvokeRepeating(nameof(ExecuteSkill), 0, skillCooldown);
+        GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
     }
 
     public void ExecuteSkill()
