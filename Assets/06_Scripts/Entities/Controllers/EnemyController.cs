@@ -64,6 +64,12 @@ public class EnemyController : BaseController
         StateMachine.FixedUpdate();
     }
 
+    public override void Destroy()
+    {
+        base.Destroy();
+        GameManager.Instance.Enemies.Remove(gameObject);
+    }
+
     private void DropExpGem()
     {
         //경험지 젬 드롭
