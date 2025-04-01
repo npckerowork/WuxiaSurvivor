@@ -15,7 +15,8 @@ public class GameTimer : MonoBehaviour
     /// </summary>
     public void InitTimer()
     {
-        timerCoroutine = Timer();
+        timerCoroutine = GameManager.Instance.StartTimer();
+        GameManager.Instance.OnTimeChanged += UpdateTime;
     }
 
     /// <summary>
@@ -23,7 +24,6 @@ public class GameTimer : MonoBehaviour
     /// </summary>
     public void StartTimer()
     {
-        timeSecond = 0;
         StartCoroutine(timerCoroutine);
     }
 
@@ -36,25 +36,12 @@ public class GameTimer : MonoBehaviour
     }
 
     /// <summary>
-    /// 타이머 코루틴
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator Timer()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f);
-            timeSecond++;
-
-            UpdateTime();
-        }
-    }
-
-    /// <summary>
     /// 타이머 텍스트
     /// </summary>
     private void UpdateTime()
     {
+        int timeSecond = GameManager.Instance.currentTime;
+
         int min = timeSecond / 60;
         int sec = timeSecond % 60;
         timeText.text = $"{min:D2} : {sec:D2}";
