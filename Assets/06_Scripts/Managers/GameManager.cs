@@ -23,9 +23,7 @@ public class GameManager : Singleton<GameManager>
     {
         SetDontDestroyOnLoad();
 
-        Player = FindAnyObjectByType<PlayerController>();
         GameCoin = new();
-
         Application.wantsToQuit += OnWantsToQuit;
     }
 
@@ -36,6 +34,12 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("게임 종료 전에 저장 완료!");
 #endif
         return true; // false면 종료 취소됨
+    }
+
+    public void GameStart()
+    {
+        Player = FindAnyObjectByType<PlayerController>();
+        StartCoroutine(Spawning());
     }
 
     public IEnumerator StartTimer()
