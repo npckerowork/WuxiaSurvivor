@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928e360caf560a5458be0a2a939fa938, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  HeadIndex: 7
-  Head: Goblin
-  EarsIndex: 5
-  Ears: Goblin
-  EyesIndex: 7
-  Eyes: Goblin
-  BodyIndex: 7
-  Body: Goblin
+  HeadIndex: 12
+  Head: Skeleton
+  EarsIndex: 0
+  Ears: 
+  EyesIndex: 12
+  Eyes: Skeleton
+  BodyIndex: 12
+  Body: Skeleton
   HairIndex: 0
   Hair: 
-  ArmorIndex: 7
-  Armor: Box
+  ArmorIndex: 0
+  Armor: 
   HelmetIndex: 0
   Helmet: 
-  WeaponIndex: 82
-  Weapon: ShortDagger
+  WeaponIndex: 15
+  Weapon: Bow
   ShieldIndex: 0
   Shield: 
   CapeIndex: 0
@@ -41,5 +41,5 @@ MonoBehaviour:
   MaxHP: 100
   MoveSpeed: 1
   AttackDamage: 5
-  AttackDelay: 1
-  AttackRange: 1
+  AttackDelay: 2
+  AttackRange: 10
