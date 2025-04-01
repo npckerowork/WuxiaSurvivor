@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.Rendering;
 using UnityEngine;
 
 public enum SkillCategory
@@ -5,13 +6,6 @@ public enum SkillCategory
     Attack,
     Defense,
     Support
-}
-
-[CreateAssetMenu(fileName = "new AttackSkillData", menuName = "Skill/SkillDatas/AttackSkillData")]
-public class AttackSkillData : SkillData
-{
-    [SerializeField] protected int[] damage;
-    public int[] Damage { get { return damage; } }
 }
 
 public class SkillData : ScriptableObject
