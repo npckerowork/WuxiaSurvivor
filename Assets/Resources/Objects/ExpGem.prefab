@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1069203976194398598}
   - component: {fileID: 2486314311190616937}
   - component: {fileID: 7920709028171996111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExpGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
