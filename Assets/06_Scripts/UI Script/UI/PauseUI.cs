@@ -18,6 +18,7 @@ public class PauseUI : BaseUI
         backButton.onClick.AddListener(HideUI);
         optionButton.onClick.AddListener(OnOption);
         lobbyButton.onClick.AddListener(OnLobby);
+        quitButton.onClick.AddListener(QuitGame);
     }
 
     public override void ShowUI()
@@ -29,10 +30,14 @@ public class PauseUI : BaseUI
     {
         base.HideUI();
         Time.timeScale = 1;
+
+        sfxController.PlayClip(SfxName.ButtonClick2);
     }
 
     private void OnOption()
     {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+
         // Option UI 켜기
         uiManager[UIType.Option].ShowUI();
     }
@@ -47,5 +52,15 @@ public class PauseUI : BaseUI
         uiManager[UIType.Lobby].ShowUI();
 
         SceneManager.LoadScene("00_Lobby");
+    }
+
+    private void QuitGame()
+    {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

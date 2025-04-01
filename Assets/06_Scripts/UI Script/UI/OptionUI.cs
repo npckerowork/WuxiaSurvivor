@@ -42,6 +42,7 @@ public class OptionUI : BaseUI
     public override void HideUI()
     {
         base.HideUI();
+        sfxController.PlayClip(SfxName.ButtonClick2);
 
         // 볼륨값 저장
         audioManager.SaveVolumes();

@@ -28,8 +28,7 @@ public class InGameUI : BaseUI
         healthUI.InitHealthBar();
 
         // 버튼 버튼
-        pauseButton.onClick.AddListener(
-            () => uiManager[UIType.Pause].ShowUI());
+        pauseButton.onClick.AddListener(OnPause);
     }
 
     public override void ShowUI()
@@ -47,5 +46,11 @@ public class InGameUI : BaseUI
 
         // 타이머 종료
         gameTimer.EndTimer();
+    }
+
+    private void OnPause()
+    {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+        uiManager[UIType.Pause].ShowUI();
     }
 }

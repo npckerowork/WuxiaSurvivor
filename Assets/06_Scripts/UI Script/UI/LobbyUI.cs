@@ -33,6 +33,7 @@ public class LobbyUI : BaseUI
     public override void HideUI()
     {
         base.HideUI();
+        sfxController.PlayClip(SfxName.ButtonClick2);
 
         uiManager[UIType.Ingame].ShowUI();
         SceneManager.LoadScene("01_Main");
@@ -40,11 +41,13 @@ public class LobbyUI : BaseUI
 
     private void OnUpgrade()
     {
+        sfxController.PlayClip(SfxName.ButtonClick2);
         uiManager[UIType.Upgrade].ShowUI();
     }
 
     private void OnOption()
     {
+        sfxController.PlayClip(SfxName.ButtonClick2);
         uiManager[UIType.Option].ShowUI();
     }
 

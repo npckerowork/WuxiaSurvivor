@@ -42,6 +42,7 @@ public class UpgradeUI : BaseUI
     public override void HideUI()
     {
         base.HideUI();
+        sfxController.PlayClip(SfxName.ButtonClick2);
 
         uiManager[UIType.Lobby].ShowUI();
     }
