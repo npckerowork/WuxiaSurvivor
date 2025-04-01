@@ -14,10 +14,11 @@ GameObject:
   - component: {fileID: 1267597280886746928}
   - component: {fileID: 8721450737946774316}
   - component: {fileID: 4834456400822890438}
+  - component: {fileID: 6744982591620798591}
   - component: {fileID: 4186042453336479915}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,19 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteCollection: {fileID: 11400000, guid: 29f49e465a594f99b5b90d21e02e50ed, type: 2}
-  Head: Human
-  Ears: Human
-  Eyes: Human
-  Body: Human
-  Hair: 
-  Armor: 
-  Helmet: 
-  Weapon: 
-  Shield: 
-  Cape: 
-  Back: 
-  Mask: 
-  Horns: 
 --- !u!95 &8496087589755817806
 Animator:
   serializedVersion: 5
@@ -123,11 +111,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d33a2254c132e94f926e329a8396ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 100
-  MoveSpeed: 1
-  AttackDamage: 5
-  AttackDelay: 1
-  AttackRange: 1
+--- !u!114 &6744982591620798591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423392608041312352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405540d0ad8858d4b93f8b4664645e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 564060885577454676, guid: 58f58a8abc10b1c4085a292002b774e8, type: 3}
+  spreadAngle: 15
+  projectileCount: 1
 --- !u!114 &4186042453336479915
 MonoBehaviour:
   m_ObjectHideFlags: 0
