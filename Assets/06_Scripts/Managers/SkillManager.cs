@@ -10,6 +10,7 @@ public class SkillManager : Singleton<SkillManager>
 
     private int totalSkillCount;
     public int TotalSKillCount {  get { return totalSkillCount; } }
+    public List<SkillData> TotalSkillDataList { get { return totalSkillDataList; } }
 
     void Start()
     {
