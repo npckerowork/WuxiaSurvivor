@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
     public Action OnTimeChanged = delegate { };     // 시간이 변할 때 실행 이벤트
 
     private bool isEnded;
-    private readonly WaitForSeconds interval = new(0.2f);
+    private readonly WaitForSeconds interval = new(1.0f);
 
     protected override void Initialize()
     {
@@ -59,15 +59,35 @@ public class GameManager : Singleton<GameManager>
     {
         while (!isEnded)
         {
-            GameObject enemy = null;
-            switch (currentTime)
+            if (Enemies.Count < 100)
             {
-                default:
-                    enemy = ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, Player.transform.position, Vector3.zero);
-                    break;
-            }
+                Vector3 direction = Vector3.zero;
+                switch (UnityEngine.Random.Range(0, 4))
+                {
+                    case 0:
+                        direction = Vector3.right;
+                        break;
+                    case 1:
+                        direction = Vector3.left;
+                        break;
+                    case 2:
+                        direction = Vector3.down;
+                        break;
+                    case 3:
+                        direction = Vector3.up;
+                        break;
+                }
 
-            Enemies.Add(enemy);
+                GameObject enemy;
+                Vector3 randomPosition = Player.transform.position + 12.0f * direction;
+
+                enemy = currentTime switch
+                {
+                    _ => ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero),
+                };
+
+                Enemies.Add(enemy);
+            }
 
             yield return interval;
         }

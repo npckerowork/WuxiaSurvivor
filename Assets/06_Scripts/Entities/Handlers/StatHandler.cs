@@ -19,6 +19,11 @@ public class StatHandler : MonoBehaviour
         animationHandler = GetComponent<AnimationHandler>();
     }
 
+    private void OnEnable()
+    {
+        hp = MaxHP;
+    }
+
     public virtual void Damage(float damage)
     {
         if (IsDead || IsInvincibility)

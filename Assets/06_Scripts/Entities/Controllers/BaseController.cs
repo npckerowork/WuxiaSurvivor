@@ -30,6 +30,7 @@ public abstract class BaseController : MonoBehaviour
 
     private void Awake() => Initialize();
     private void OnDestroy() => Deinitialize();
+    private void OnEnable() => Birth();
     private void OnDisable() => Clear();
 
     protected void BindSequences(BaseState type, params Func<Sequence>[] sequences) => sequenceHandler.Bind(type, sequences);
@@ -41,8 +42,6 @@ public abstract class BaseController : MonoBehaviour
         statHandler = GetComponent<StatHandler>();
 
         sequenceHandler.Initialize();
-
-        Birth();
     }
 
     protected virtual void Deinitialize()
