@@ -64,8 +64,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (Enemies.Count < 100)
             {
-                GameObject enemy = GetRandomMonster();
-                Enemies.Add(enemy);
+                Enemies.Add(GetRandomMonster((int)(currentTime / 6f)));
             }
 
             yield return interval;
@@ -94,9 +93,25 @@ public class GameManager : Singleton<GameManager>
         return direction;
     }
 
-    private GameObject GetRandomMonster()
+    private GameObject GetRandomMonster(int level)
     {
         Vector3 randomPosition = Player.transform.position + 12.0f * GetRandomDirection();
-        return ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero);
+
+        switch (level)
+        {
+            case 1:
+                return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
+            case 2:
+                if (UnityEngine.Random.Range(0, 2) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
+                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[2], null, randomPosition, Vector3.zero);
+            case 3:
+                if (UnityEngine.Random.Range(0, 3) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[2], null, randomPosition, Vector3.zero);
+                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[3], null, randomPosition, Vector3.zero);
+            case 4:
+                if (UnityEngine.Random.Range(0, 2) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
+                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[4], null, randomPosition, Vector3.zero);
+            default:
+                return ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero);
+        }
     }
 }
