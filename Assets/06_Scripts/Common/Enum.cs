@@ -48,5 +48,12 @@ public enum UpgradeType
 
 public enum EffectType
 {
-    SparkBlue
+    SparkBlue,
+    SparkYellow,
+    SparkPurple,
+    SparkColorful,
+    SparkBlueStar,
+    SparkYellowStar,
+    Heart,
+    SparkHeart,
 }

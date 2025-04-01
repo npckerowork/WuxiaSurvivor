@@ -39,10 +39,10 @@ public class HealthBar : MonoBehaviour
         healthFill.fillAmount = hp / maxHp;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         // 타겟 오브젝트 꺼져있음 ( 죽은 상태 또는 디스폰 )
-        if (targetObject.gameObject.activeSelf == false)
+        if (targetObject == null || targetObject.gameObject.activeSelf == false)
         {
             gameObject.SetActive(false);
             healthUI.ReturnHealthBar(targetObject, this);

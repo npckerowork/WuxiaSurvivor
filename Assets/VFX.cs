@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class VFX : Poolable
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem[] particleSystem;
     private void Awake()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        particleSystem = GetComponentsInChildren<ParticleSystem>();
 
-        var main = particleSystem.main;
+        if (particleSystem == null)
+            return;
+
+        var main = particleSystem[0].main;
         main.stopAction = ParticleSystemStopAction.Callback;
     }
 
@@ -20,6 +23,9 @@ public class VFX : Poolable
 
     private void OnEnable()
     {
-        particleSystem.Play();
+        foreach (var particleSystem in particleSystem)
+        { 
+            particleSystem.Play();
+        }
     }
 }
