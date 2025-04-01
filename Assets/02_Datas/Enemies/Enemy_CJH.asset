@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928e360caf560a5458be0a2a939fa938, type: 3}
+  m_Name: Enemy_CJH
+  m_EditorClassIdentifier: 
+  HeadIndex: 3
+  Head: Demon
+  EarsIndex: 2
+  Ears: Demon
+  EyesIndex: 3
+  Eyes: Demon
+  BodyIndex: 3
+  Body: Demon
+  HairIndex: 0
+  Hair: 
+  ArmorIndex: 0
+  Armor: 
+  HelmetIndex: 0
+  Helmet: 
+  WeaponIndex: 51
+  Weapon: LargeScythe
+  ShieldIndex: 5
+  Shield: Dreadnought
+  CapeIndex: 0
+  Cape: 
+  BackIndex: 0
+  Back: 
+  MaskIndex: 0
+  Mask: 
+  HornsIndex: 0
+  Horns: 
+  MaxHP: 500
+  MoveSpeed: 5
+  Name: "\uCC9C\uB9C8 \uCD5C\uC885\uD6C8"
+  AttackDamage: 5
+  AttackDelay: 0.3
+  AttackRange: 1.5

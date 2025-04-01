@@ -10,8 +10,21 @@ public enum SkillCategory
 
 public class SkillData : ScriptableObject
 {
+    // 스킬 프리팹
+    [SerializeField] protected GameObject skillPrefab;
+    public GameObject SkillPrefab { get { return skillPrefab; } }
+    // 스킬 이름
     [SerializeField] protected string skillName;
     public string SkillName { get { return skillName; } }
+    // 스킬 종류
     [SerializeField] protected SkillCategory category;
     public SkillCategory Category { get { return category; } }
+    [SerializeField] private int maxLevel;
+    public int MaxLevel { get { return maxLevel; } }
+    protected int skillLevel = 1;
+    public int SkillLevel
+    {
+        get {  return skillLevel; }
+        set { skillLevel = value; }
+    }
 }

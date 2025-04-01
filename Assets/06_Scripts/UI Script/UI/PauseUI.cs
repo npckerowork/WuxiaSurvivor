@@ -44,15 +44,20 @@ public class PauseUI : BaseUI
 
     private void OnLobby()
     {
-        // Pause UI off
-        HideUI();
-
-        // InGame off / Lobby On
-        uiManager[UIType.Ingame].HideUI();
-        uiManager[UIType.Lobby].ShowUI();
-
-        SceneManager.LoadScene("00_Lobby");
+        sfxController.PlayClip(SfxName.ButtonClick2);
+        uiManager.fade.FadeOut(LobbyFadeOut);
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);// 배경음 변경
     }
+
+    private void LobbyFadeOut()
+    {
+        HideUI();                           // Pause UI off
+        uiManager[UIType.Ingame].HideUI();  // InGame UI off
+        uiManager[UIType.Lobby].ShowUI();   // Lobby UI On
+
+        SceneManager.LoadScene("00_Lobby"); // 씬 변경
+    }
+
 
     private void QuitGame()
     {

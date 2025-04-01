@@ -24,8 +24,6 @@ public class SFXController : MonoBehaviour
         audioListener = FindObjectOfType<AudioListener>();
 
         playingClips = new HashSet<AudioClip>();
-
-        audioSource.ignoreListenerPause = true;
     }
 
     /// <summary>

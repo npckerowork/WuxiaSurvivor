@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -10,6 +11,11 @@ public class BGMController : MonoBehaviour
 
     [Header("BGM Clips")]
     [SerializeField] private AudioClip[] clips;
+
+    [Header("Fade In/Out")]
+    [SerializeField] private float fadeInDuration;
+    [SerializeField] private float fadeOutDuration;
+
     public void InitController(AudioManager audioManager)
     {
         this.audioManager = audioManager;
@@ -17,30 +23,26 @@ public class BGMController : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        InitBGM();
+        StartBGM(BgmName.LobbyBGM);
     }
 
-    private void InitBGM()
+    private void StartBGM(BgmName bgm)
     {
-        audioSource.clip = clips[(int)BgmName.LobbyBGM];
-        audioSource.volume = audioManager.GetVolume(VolumeType.Bgm);
+        audioSource.clip = clips[(int)bgm];
+        audioSource.volume = 0;
         audioSource.Play();
+
+        float volume = audioManager.GetVolume(VolumeType.Bgm);
+        audioSource.DOFade(volume, fadeInDuration);     
+    }
+
+    public void ChangeBGM(BgmName bgm)
+    {
+        audioSource.DOFade(0, fadeOutDuration).OnComplete(() => StartBGM(bgm));
     }
 
     public void ChangeVolume(float volume)
     {
         audioSource.volume = volume;
-    }
-
-    public void ChangeBGM(BgmName clipName)
-    {
-        audioSource.Stop();
-        audioSource.clip = clips[(int)clipName];
-        audioSource.Play();
-    }
-
-    private void FadeBGM()
-    {
-        
     }
 }
