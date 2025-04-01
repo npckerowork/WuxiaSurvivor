@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
   m_Name: NewRotateSwordData
   m_EditorClassIdentifier: 
+  skillPrefab: {fileID: 0}
   skillName: RotateSword
   category: 0
+  maxLevel: 0
+  attackType: 1
   damage:
   - 7
   - 10

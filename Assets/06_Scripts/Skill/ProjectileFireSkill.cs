@@ -5,6 +5,7 @@ public interface ISkillBehavior
 {
     public void Init();
     public void ExecuteSkill();
+
 }
 
 public interface ICoolTimeCount
