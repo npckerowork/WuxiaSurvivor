@@ -19,6 +19,8 @@ public class Shuriken : MonoBehaviour, ISkillBehavior
         player = GameManager.Instance.Player;
         skillController = player.SkillHandler;
         InvokeRepeating(nameof(ExecuteSkill), 0, skillCooldown);
+
+        GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
     }
 
     public void ExecuteSkill()
