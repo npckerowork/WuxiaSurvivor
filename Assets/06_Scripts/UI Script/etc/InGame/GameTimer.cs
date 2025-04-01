@@ -40,10 +40,14 @@ public class GameTimer : MonoBehaviour
     /// </summary>
     private void UpdateTime()
     {
+        int timeLimit = 300;
+
         int timeSecond = GameManager.Instance.currentTime;
 
-        int min = timeSecond / 60;
-        int sec = timeSecond % 60;
+        int time = timeLimit - timeSecond;
+
+        int min = time / 60;
+        int sec = time % 60;
         timeText.text = $"{min:D2} : {sec:D2}";
     }
 }
