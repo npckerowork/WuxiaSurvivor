@@ -45,3 +45,15 @@ public enum UpgradeType
     HP,
     Magnet
 }
+
+public enum EffectType
+{
+    SparkBlue,
+    SparkYellow,
+    SparkPurple,
+    SparkColorful,
+    SparkBlueStar,
+    SparkYellowStar,
+    Heart,
+    SparkHeart,
+}

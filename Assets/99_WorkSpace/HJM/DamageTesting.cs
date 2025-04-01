@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class DamageTesting : MonoBehaviour
 {
@@ -34,6 +35,13 @@ public class DamageTesting : MonoBehaviour
             //{
             //    Debug.Log($"{(UpgradeType)i}/{data.upgradeLevels[i]}/{data.upgradePrice[i]}/{data.upgradeValues[i]}");
             //}
+            VFXManager.Instance.PlayVFX(EffectType.SparkColorful, transform.position, Vector3.zero);
         }
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Vector3 pos = Input.mousePosition;
+        //    VFXManager.Instance.PlayVFX(EffectType.SparkBlue, pos, Vector3.zero);
+        //}
     }
 }
