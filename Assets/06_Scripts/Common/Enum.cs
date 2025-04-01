@@ -42,5 +42,6 @@ public enum UpgradeType
     CoinRatio,
     MoveSpeed,
     Damage,
-    HP
+    HP,
+    Magnet
 }
