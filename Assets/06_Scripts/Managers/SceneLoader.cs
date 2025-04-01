@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum SceneType
@@ -50,6 +51,8 @@ public class SceneLoader
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log($"{scene.name} 실행");
+
         // 씬 로드 이벤트 실행
         OnSceneChanged[(int)currentScene]?.Invoke();
     }
