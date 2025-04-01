@@ -16,7 +16,7 @@ public class LobbyUI : BaseUI
     {
         base.InitUI(uiManager);
 
-        startButton.onClick.AddListener(HideUI);
+        startButton.onClick.AddListener(OnStart);
         upgradeButton.onClick.AddListener(OnUpgrade);
         optionButton.onClick.AddListener(OnOption);
 
@@ -25,18 +25,20 @@ public class LobbyUI : BaseUI
         DataManager.Instance.Coin.OnUpdateCoinAmountEvent += CoinUpdate;
     }
 
-    public override void ShowUI()
-    {
-        base.ShowUI();
-    }
-
     public override void HideUI()
     {
-        base.HideUI();
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        base.HideUI();                      // Lobby UI off
 
-        uiManager[UIType.Ingame].ShowUI();
-        SceneManager.LoadScene("01_Main");
+        uiManager[UIType.Ingame].ShowUI();  // InGame UI on
+
+        SceneManager.LoadScene("01_Main");  // 씬 변경
+    }
+
+    private void OnStart()
+    {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+        uiManager.fade.FadeOut(HideUI);
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.GameBGM); // 배경음 변경
     }
 
     private void OnUpgrade()

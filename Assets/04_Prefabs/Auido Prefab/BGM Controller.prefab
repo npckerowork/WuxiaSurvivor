@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8541216030419986696}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1150.6261, y: 539.5249, z: -9.360787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,7 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 765d1858425003a429bbd179836d1201, type: 3}
+  - {fileID: 8300000, guid: 061635625f3409940b3da4b4c2e86372, type: 3}
+  - {fileID: 8300000, guid: 81aa5c33e55c7624fb6036c683e67ef7, type: 3}
+  fadeInDuration: 3
+  fadeOutDuration: 2
 --- !u!82 &5348838657224596841
 AudioSource:
   m_ObjectHideFlags: 0
@@ -61,7 +64,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
