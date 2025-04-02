@@ -20,6 +20,13 @@ public class PlayerStatHandler : StatHandler
 
     public Action<int> OnLevelUpEvent = delegate { }; //레벨업 할때 호출되는 이벤트
 
+    public void SetData(PlayerData data)
+    {
+        MaxHP = data.MaxHP;
+        hp = MaxHP;
+        MoveSpeed = data.MoveSpeed;
+    }
+
     public override void Damage(float damage)
     {
         base.Damage(damage);
@@ -47,6 +54,9 @@ public class PlayerStatHandler : StatHandler
     public void GetExp(float amount)
     {
         exp += amount;
+
+        gameUI.Expbar.UpdateExp(exp, maxExp);
+
         while (exp >= maxExp) //넘친 경험치가 다음 레벨로 이월되도록 
         {
             exp -= maxExp;

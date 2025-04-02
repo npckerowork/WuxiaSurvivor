@@ -16,38 +16,59 @@ public class LobbyUI : BaseUI
     {
         base.InitUI(uiManager);
 
-        startButton.onClick.AddListener(HideUI);
+        startButton.onClick.AddListener(OnStart);
         upgradeButton.onClick.AddListener(OnUpgrade);
         optionButton.onClick.AddListener(OnOption);
 
         ShowUI();
 
+        // 보유 코인 UI 업데이트
         DataManager.Instance.Coin.OnUpdateCoinAmountEvent += CoinUpdate;
-    }
-
-    public override void ShowUI()
-    {
-        base.ShowUI();
     }
 
     public override void HideUI()
     {
-        base.HideUI();
+        base.HideUI();                     
 
-        uiManager[UIType.Ingame].ShowUI();
-        SceneManager.LoadScene("01_Main");
+        uiManager[UIType.Ingame].ShowUI();  
+
+        SceneLoader.Instance.ChangeScene(SceneType.Main);
     }
 
+    /// <summary>
+    /// 게임 시작 
+    /// </summary>
+    private void OnStart()
+    {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+
+        uiManager.fade.FadeOut(HideUI);
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.GameBGM);
+    }
+
+    /// <summary>
+    /// Upgrade UI 켜기
+    /// </summary>
     private void OnUpgrade()
     {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+
         uiManager[UIType.Upgrade].ShowUI();
     }
 
+    /// <summary>
+    /// Option UI 켜기
+    /// </summary>
     private void OnOption()
     {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+
         uiManager[UIType.Option].ShowUI();
     }
 
+    /// <summary>
+    /// 코인 Text 업데이트
+    /// </summary>
     public void CoinUpdate(long coin)
     {
         coinText.text = $"{coin}";

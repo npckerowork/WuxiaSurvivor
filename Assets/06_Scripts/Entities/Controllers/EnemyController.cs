@@ -33,7 +33,6 @@ public class EnemyController : BaseController
 
         StatHandler = statHandler as EnemyStatHandler;
         StatHandler.SetData(Data);
-        OnDeath += DropExpGem;
 
         GetComponent<CharacterBuilder>().SetData(Data);
 
@@ -64,6 +63,22 @@ public class EnemyController : BaseController
         StateMachine.FixedUpdate();
     }
 
+    public override void Birth()
+    {
+        base.Birth();
+
+        StateMachine.ChangeState(StateMachine.Run);
+        OnDeath += DropExpGem;
+    }
+
+    public override void Destroy()
+    {
+        base.Destroy();
+
+        GameManager.Instance.Enemies.Remove(this);
+        GameManager.Instance.GameUpdate();
+    }
+
     private void DropExpGem()
     {
         //경험지 젬 드롭
@@ -73,11 +88,11 @@ public class EnemyController : BaseController
         //팅기게 하는 이펙트
         Vector2 dir = Random.insideUnitCircle.normalized * 1.0f; //랜덤한 방향성 부여
         Vector3 targetPos = transform.position + (Vector3)dir;
-        
+
         float duration = 0.2f;
 
         //x축 이동
-        gem.transform.DOMove(targetPos, duration).SetEase(Ease.Linear); 
+        gem.transform.DOMove(targetPos, duration).SetEase(Ease.Linear);
 
         //y축 이동 (포물선 궤도)
         gem.transform.DOMoveY(transform.position.y + 0.5f, duration / 2f)

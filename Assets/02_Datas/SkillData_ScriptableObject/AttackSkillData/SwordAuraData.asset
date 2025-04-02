@@ -9,9 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
   m_Name: SwordAuraData
-  m_EditorClassIdentifier: Assembly-CSharp::AttackSkillData
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 0}
+  skillPrefab: {fileID: 8553680718405789436, guid: a24b144fda795184bb5ca04cf1b79111, type: 3}
   skillName: SwordAura
   category: 0
-  damage: 0a0000000f00000014000000
+  maxLevel: 3
+  attackType: 0
+  damage:
+  - 10
+  - 15
+  - 20
+  objCount: 

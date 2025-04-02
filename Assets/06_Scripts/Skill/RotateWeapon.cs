@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class RotateWeapon : MonoBehaviour
 {
-    private int damage;
+    private float damage;
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
     private LayerMask enemyLayer;
 
-    public void Init(int damage, LayerMask layer)
+    public void Init(float damage, LayerMask layer)
     {
         this.damage = damage;
         enemyLayer = layer;
@@ -16,6 +21,7 @@ public class RotateWeapon : MonoBehaviour
         if(collision.gameObject.layer == Mathf.Log(enemyLayer.value, 2))
         {
             Debug.Log("충돌!!");
+            collision.GetComponent<EnemyStatHandler>().Damage(damage);
         }
     }
 }

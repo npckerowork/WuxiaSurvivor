@@ -24,6 +24,8 @@ public enum SfxName
 {
     ButtonClick1,
     ButtonClick2,
+    GetItem,
+    Hit
 }
 #endregion
 
@@ -33,7 +35,8 @@ public enum UIType
     Upgrade,
     Option,
     Ingame,
-    Pause
+    Pause,
+    SkillSelect
 }
 
 public enum UpgradeType
@@ -42,5 +45,18 @@ public enum UpgradeType
     CoinRatio,
     MoveSpeed,
     Damage,
-    HP
+    HP,
+    Magnet
+}
+
+public enum EffectType
+{
+    SparkBlue,
+    SparkYellow,
+    SparkPurple,
+    SparkColorful,
+    SparkBlueStar,
+    SparkYellowStar,
+    Heart,
+    SparkHeart,
 }

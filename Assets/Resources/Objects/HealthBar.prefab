@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFill: {fileID: 8598652130930196900}
-  healthBarOffset: {x: 0, y: 45, z: 0}
+  healthBarOffset: {x: 0, y: 120, z: 0}
 --- !u!1 &9101985911434622472
 GameObject:
   m_ObjectHideFlags: 0

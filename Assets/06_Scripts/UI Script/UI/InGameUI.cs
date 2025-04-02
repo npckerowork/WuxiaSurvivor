@@ -4,15 +4,29 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum GameUIType
+{
+    ExpBar,
+    Timer,
+    Inventory,
+    Damage,
+    Health
+}
+
 public class InGameUI : BaseUI
 {
+    [Header("Game UI")]
     [SerializeField] private ExpBar expbar;
     [SerializeField] private GameTimer gameTimer;
     [SerializeField] private SkillInventory skillInventory;
-    [SerializeField] private Button pauseButton;
     [SerializeField] private DamageUI damageUI;
     [SerializeField] private HealthUI healthUI;
 
+    [Header("Button")]
+    [SerializeField] private Button pauseButton;
+
+    // get
+    public ExpBar Expbar => expbar;
     public DamageUI DamageUI => damageUI;
     public HealthUI HealthUI => healthUI;
 
@@ -21,31 +35,21 @@ public class InGameUI : BaseUI
         base.InitUI(uiManager);
 
         // 초기화
-        expbar.InitExpBar();
-        gameTimer.InitTimer();
-        skillInventory.InitSkillInventory();
-        damageUI.InitDamageUI();
-        healthUI.InitHealthBar();
+        expbar.InitUI();
+        gameTimer.InitUI();
+        skillInventory.InitUI();
+        damageUI.InitUI();
+        healthUI.InitUI();
 
-        // 버튼 버튼
-        pauseButton.onClick.AddListener(
-            () => uiManager[UIType.Pause].ShowUI());
+        pauseButton.onClick.AddListener(OnPause);
     }
 
-    public override void ShowUI()
+    /// <summary>
+    /// Pause UI 켜기
+    /// </summary>
+    private void OnPause()
     {
-        base.ShowUI();
-
-        // 초기화 / 타이머 시작
-        expbar.InitExpBar();
-        gameTimer.StartTimer();
-    }
-
-    public override void HideUI()
-    {
-        base.HideUI();
-
-        // 타이머 종료
-        gameTimer.EndTimer();
+        sfxController.PlayClip(SfxName.ButtonClick2);
+        uiManager[UIType.Pause].ShowUI();
     }
 }

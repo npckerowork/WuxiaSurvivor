@@ -13,10 +13,20 @@ public class EnemyAttackState : EnemyBaseState
 
         if (stateMachine.Controller.ProjectileHandler == null)
         {
+            stateMachine.Controller.AnimationHandler.SetState(ActionState.Attack);
             DOVirtual.DelayedCall(0.25f, () => targetController.StatHandler.Damage(statHandler.AttackDamage));
+
+            return;
         }
 
-        stateMachine.Controller.AnimationHandler.SetState(ActionState.Attack);
+        moveDirection = (target.position - transform.position).normalized;
+        if (moveDirection.x != 0)
+        {
+            body.flipX = moveDirection.x < 0;
+        }
+
+        stateMachine.Controller.AnimationHandler.SetState(ActionState.Shot);
+        stateMachine.Controller.ProjectileHandler.Shot(transform.position, moveDirection);
     }
 
     public override void Exit()

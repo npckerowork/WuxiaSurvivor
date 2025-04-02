@@ -8,6 +8,7 @@ public class UIManager : Singleton<UIManager>
     private BaseUI[] uis;
 
     public BaseUI this[UIType type] => uis[(int)type];
+    public Fade fade;
 
     protected override void Initialize()
     {
@@ -24,9 +25,11 @@ public class UIManager : Singleton<UIManager>
             FindObjectOfType<UpgradeUI>(true),
             FindObjectOfType<OptionUI>(true),
             FindObjectOfType<InGameUI>(true),
-            FindObjectOfType<PauseUI>(true)
+            FindObjectOfType<PauseUI>(true),
+            FindObjectOfType<SkillSelectUI>(true)
         };
-         
+        fade = FindObjectOfType<Fade>(true); 
+
         // 초기화
         InitUIs();
     }
@@ -37,6 +40,8 @@ public class UIManager : Singleton<UIManager>
         {
             ui?.InitUI(this);
         }
+
+        fade.InitFade();
     }
 
     public T GetUI<T>()

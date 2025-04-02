@@ -9,7 +9,7 @@ public class DamageUI : MonoBehaviour
     // 임시 오브젝트 풀링
     private Queue<DamagePopup> pool;
 
-    public void InitDamageUI()
+    public void InitUI()
     {
         pool = new Queue<DamagePopup>();
     }
@@ -18,10 +18,8 @@ public class DamageUI : MonoBehaviour
     {
         if (!pool.TryDequeue(out DamagePopup popup))
         {
-            // 생성
             GameObject newPopup = Instantiate(damagePrefab, UIManager.Instance.transform);
 
-            //초기화
             popup = newPopup.GetComponent<DamagePopup>();
             popup.InitPopup(this);
         }

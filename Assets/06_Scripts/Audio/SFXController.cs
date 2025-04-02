@@ -31,7 +31,7 @@ public class SFXController : MonoBehaviour
     /// </summary>
     /// <param name="clipName">sfx clip enum</param>
     /// <param name="sfxPosition">실행 위치</param>
-    public void PlayClip(SfxName clipName, Vector2 sfxPosition)
+    public void PlayClip(SfxName clipName, Vector2 sfxPosition = default)
     {
         AudioClip clip = clips[(int)clipName];
 

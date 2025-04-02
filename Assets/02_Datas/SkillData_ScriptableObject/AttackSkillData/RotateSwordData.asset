@@ -9,9 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
   m_Name: RotateSwordData
-  m_EditorClassIdentifier: Assembly-CSharp::AttackSkillData
-  skillName: 
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 0}
+  skillPrefab: {fileID: 1993472576010516173, guid: 4aa0f16bba0374745ade39f00443716e, type: 3}
+  skillName: RotateSword
   category: 0
-  damage: 
+  maxLevel: 3
+  attackType: 1
+  damage:
+  - 7
+  - 10
+  - 15
+  objCount: 

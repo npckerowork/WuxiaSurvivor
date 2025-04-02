@@ -1,6 +1,14 @@
 public class Define
 {
     public const float INVINCIBILITY_TIME = 0.5f;
+    public static readonly string[] ENEMIES =
+    {
+        "Enemy_YWJ",
+        "Enemy_LSJ",
+        "Enemy_SJW",
+        "Enemy_KJH",
+        "Enemy_CJH"
+    };
 
     public const string PATH_OBJECT = "Objects";
 

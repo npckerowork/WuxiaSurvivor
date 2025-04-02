@@ -9,6 +9,13 @@ public class Projectile : MonoBehaviour
     private Vector2 startPosition;
     // 투사체가 날아가는 속도
     [SerializeField] private float speed;
+    // 충돌한 몬스터에게 가할 데미지
+    private float damage;
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
     // 사용 가능한 상태인지
     private bool usable = true;
     public bool Usabel
@@ -42,6 +49,7 @@ public class Projectile : MonoBehaviour
         startPosition = startPos;
         transform.position = startPosition;
         rigid.velocity = dir * speed;
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
         usable = false;
     }
 
@@ -56,9 +64,11 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 적 캐릭터라면 데미지를 가하는 동작 수행
-        if (collision.gameObject.layer == monsterLayer)
+        if (collision.gameObject.layer == Mathf.Log(monsterLayer, 2) 
+            && collision.TryGetComponent<EnemyStatHandler>(out EnemyStatHandler enemy))
         {
-            OffProjectile();
+            enemy.Damage(damage);
+            //OffProjectile();
         }
     }
 

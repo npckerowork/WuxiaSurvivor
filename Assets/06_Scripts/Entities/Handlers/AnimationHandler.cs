@@ -7,6 +7,7 @@ public enum ActionState
     Die,
 
     Attack,
+    Shot,
 
     Hit,
 }
@@ -19,6 +20,7 @@ public class AnimationHandler : MonoBehaviour
         Animator.StringToHash(ActionState.Run.ToString()),
         Animator.StringToHash(ActionState.Die.ToString()),
         Animator.StringToHash(ActionState.Attack.ToString()),
+        Animator.StringToHash(ActionState.Shot.ToString()),
         Animator.StringToHash(ActionState.Hit.ToString()),
     };
 
@@ -31,12 +33,17 @@ public class AnimationHandler : MonoBehaviour
 
     public void SetState(ActionState state)
     {
+        if (Animator == null)
+        {
+            return;
+        }
+
         foreach (var parameter in PARAMETERS)
         {
             Animator.SetBool(parameter, false);
         }
 
-        if (state == ActionState.Attack || state == ActionState.Hit)
+        if (state == ActionState.Attack || state == ActionState.Shot || state == ActionState.Hit)
         {
             Animator.SetTrigger(PARAMETERS[(int)state]);
             return;

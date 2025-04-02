@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeUI : BaseUI
 {
+    [Header("Slot")]
     [SerializeField] private GameObject upgradeSlotPrefab;
     [SerializeField] private Transform slotParent;
 
@@ -42,6 +43,7 @@ public class UpgradeUI : BaseUI
     public override void HideUI()
     {
         base.HideUI();
+        sfxController.PlayClip(SfxName.ButtonClick2);
 
         uiManager[UIType.Lobby].ShowUI();
     }

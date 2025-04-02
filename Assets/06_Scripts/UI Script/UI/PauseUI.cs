@@ -18,34 +18,71 @@ public class PauseUI : BaseUI
         backButton.onClick.AddListener(HideUI);
         optionButton.onClick.AddListener(OnOption);
         lobbyButton.onClick.AddListener(OnLobby);
+        quitButton.onClick.AddListener(QuitGame);
     }
 
+    /// <summary>
+    /// Pause UI 켜기
+    /// </summary>
     public override void ShowUI()
     {
         base.ShowUI();
         Time.timeScale = 0;
     }
+
+    /// <summary>
+    /// Pause UI 닫기
+    /// </summary>
     public override void HideUI()
     {
         base.HideUI();
         Time.timeScale = 1;
+
+        sfxController.PlayClip(SfxName.ButtonClick2);
     }
 
+    /// <summary>
+    /// Option UI 켜기
+    /// </summary>
     private void OnOption()
     {
-        // Option UI 켜기
+        sfxController.PlayClip(SfxName.ButtonClick2);
+
         uiManager[UIType.Option].ShowUI();
     }
 
+    /// <summary>
+    /// Lobby로 돌아가기 
+    /// </summary>
     private void OnLobby()
     {
-        // Pause UI off
-        HideUI();
+        sfxController.PlayClip(SfxName.ButtonClick2);
+        uiManager.fade.FadeOut(EndFadeOut);
+        AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);
+    }
 
-        // InGame off / Lobby On
+    /// <summary>
+    /// Lobby로 돌아가기 FadeOut 종료후
+    /// </summary>
+    private void EndFadeOut()
+    {
+        HideUI();                          
         uiManager[UIType.Ingame].HideUI();
-        uiManager[UIType.Lobby].ShowUI();
+        uiManager[UIType.Lobby].ShowUI();   
 
-        SceneManager.LoadScene("00_Lobby");
+        SceneLoader.Instance.ChangeScene(SceneType.Lobby);
+    }
+
+    /// <summary>
+    /// 게임 종료
+    /// </summary>
+    private void QuitGame()
+    {
+        sfxController.PlayClip(SfxName.ButtonClick2);
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
