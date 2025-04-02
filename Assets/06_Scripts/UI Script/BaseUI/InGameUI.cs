@@ -49,7 +49,7 @@ public class InGameUI : BaseUI
     /// </summary>
     private void OnPause()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
         uiManager[UIType.Pause].ShowUI();
     }
 }

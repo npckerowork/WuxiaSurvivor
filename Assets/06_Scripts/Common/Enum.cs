@@ -22,11 +22,15 @@ public enum BgmName
 
 public enum SfxName
 {
-    ButtonClick1,
-    ButtonClick2,
+    ButtonClick,
     GetItem,
-    Hit,
-    TaskDone
+    TaskDone,
+    LevelUp,
+    Victory,
+    Lose,
+    Fight1,
+    Fight2,
+    Fight3
 }
 #endregion
 

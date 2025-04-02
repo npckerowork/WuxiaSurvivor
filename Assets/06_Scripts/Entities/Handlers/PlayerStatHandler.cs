@@ -20,6 +20,11 @@ public class PlayerStatHandler : StatHandler
 
     public Action<int> OnLevelUpEvent = delegate { }; //레벨업 할때 호출되는 이벤트
 
+    private void Start()
+    {
+        invincibilityTime = Define.INVINCIBILITY_TIME;
+    }
+
     public void SetData(PlayerData data)
     {
         MaxHP = data.MaxHP;
