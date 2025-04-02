@@ -23,7 +23,8 @@ public class EnemyStatHandler : StatHandler
         // ==== UI / Effect / Sound ====
         gameUI.DamageUI.OnDamage(damage, transform);
         gameUI.HealthUI.UpdateHealthBar(transform, MaxHP, hp);
-        sfxController.RandomHitSFX(transform.position);
+        AudioManager.Instance.sfxController.RandomHitSFX(transform.position);
+        VFXManager.Instance.PlayVFX(EffectType.SparkPurple, transform.position);
         // =============================
 
         if (IsDead)

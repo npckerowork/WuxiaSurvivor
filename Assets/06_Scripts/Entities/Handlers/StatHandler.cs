@@ -15,14 +15,12 @@ public class StatHandler : MonoBehaviour
     private AnimationHandler animationHandler;
 
     protected InGameUI gameUI;
-    protected SFXController sfxController;
     private void Awake()
     {
         hp = MaxHP;
         animationHandler = GetComponent<AnimationHandler>();
 
         gameUI = UIManager.Instance.GetUI<InGameUI>();
-        sfxController = AudioManager.Instance.sfxController;
     }
 
     private void OnEnable()
