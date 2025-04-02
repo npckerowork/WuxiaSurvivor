@@ -33,7 +33,6 @@ public class EnemyController : BaseController
 
         StatHandler = statHandler as EnemyStatHandler;
         StatHandler.SetData(Data);
-        OnDeath += DropExpGem;
 
         GetComponent<CharacterBuilder>().SetData(Data);
 
@@ -67,14 +66,16 @@ public class EnemyController : BaseController
     public override void Birth()
     {
         base.Birth();
+
         StateMachine.ChangeState(StateMachine.Run);
+        OnDeath += DropExpGem;
     }
 
     public override void Destroy()
     {
         base.Destroy();
 
-        GameManager.Instance.Enemies.Remove(gameObject);
+        GameManager.Instance.Enemies.Remove(this);
         GameManager.Instance.GameUpdate();
     }
 
