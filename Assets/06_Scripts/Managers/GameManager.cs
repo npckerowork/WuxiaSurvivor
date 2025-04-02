@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     private const int timeLimit = 180;      // 시간 제한
     public int currentTime { get; private set; }
+    public int TimeLimit => timeLimit;
 
     public Action OnTimeOver = delegate { };        // 시간제한 종료 후 실행 이벤트
     public Action OnTimeChanged = delegate { };     // 시간이 변할 때 실행 이벤트
