@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
   m_Name: SwordAuraData
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 0}
+  skillIcon: {fileID: 21300000, guid: 3f2ae0cc986c1ce478ca79c46e100642, type: 3}
   skillPrefab: {fileID: 8553680718405789436, guid: a24b144fda795184bb5ca04cf1b79111, type: 3}
   skillName: SwordAura
+  skillDescription: 
   category: 0
   maxLevel: 3
   attackType: 0
   damage:
-  - 10
-  - 15
-  - 20
+  - 50
+  - 70
+  - 100
   objCount: 

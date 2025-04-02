@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -6845452212504763038}
   - component: {fileID: 4834456400822890438}
   - component: {fileID: 4186042453336479915}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy_SJW
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 7933256448524493193}
   - component: {fileID: 3197395662974820884}
   - component: {fileID: 1403635033065959471}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
