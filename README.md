@@ -8,7 +8,9 @@
 
 # 🚀0. Bulid (빌드 배포)
 
->👉 빌드 파일 
+>👉 빌드 파일
+>
+>[Unity Play](https://play.unity.com/en/games/1a471d47-d832-4a0e-b54b-e22447b378d0/wuxia-survivor)
 
 # 🎮1. Project Overview (프로젝트 개요)
 | 항목 | 내용 |
@@ -28,8 +30,6 @@
 # 🌟3. Key Features (주요 기능)
 
 >👉 주요 기능 발표 자료 (PPT)
->
->[Unity Play](https://play.unity.com/en/games/1a471d47-d832-4a0e-b54b-e22447b378d0/wuxia-survivor)
 
 
 # 🛠️4. Tasks & Responsibilities (작업 및 역할 분담)
