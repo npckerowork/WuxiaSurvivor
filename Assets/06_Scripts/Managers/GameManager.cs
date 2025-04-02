@@ -72,14 +72,14 @@ public class GameManager : Singleton<GameManager>
     public void GameDefeat()
     {
         Debug.Log("게임 패배!");
-
+        UIManager.Instance.GetUI<ResultUI>().OnResult("게임 패배");
         StopAllCoroutines();
     }
 
     public void GameVictory()
     {
         Debug.Log("게임 승리!");
-
+        UIManager.Instance.GetUI<ResultUI>().OnResult("게임 승리");
         StopAllCoroutines();
     }
 

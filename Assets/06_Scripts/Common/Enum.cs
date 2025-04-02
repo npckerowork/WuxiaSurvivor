@@ -36,7 +36,8 @@ public enum UIType
     Option,
     Ingame,
     Pause,
-    SkillSelect
+    SkillSelect,
+    Result
 }
 
 public enum UpgradeType
