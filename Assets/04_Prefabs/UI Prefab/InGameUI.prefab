@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '00 : 00'
+  m_text: '05 : 00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 59ce0d2986a083d43a5865e1fde21493, type: 2}
   m_sharedMaterial: {fileID: -595871954402109574, guid: 59ce0d2986a083d43a5865e1fde21493, type: 2}
@@ -820,9 +820,9 @@ MonoBehaviour:
   expbar: {fileID: 1914484113809409043}
   gameTimer: {fileID: 5021480241723940012}
   skillInventory: {fileID: 5692841646808646575}
-  pauseButton: {fileID: 1734925312029323613}
   damageUI: {fileID: 5843209922866079266}
   healthUI: {fileID: 3365691451779384596}
+  pauseButton: {fileID: 1734925312029323613}
 --- !u!1 &8925942442277492921
 GameObject:
   m_ObjectHideFlags: 0

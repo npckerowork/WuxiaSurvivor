@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,9 @@ public class HealthBar : MonoBehaviour
 {
     private HealthUI healthUI;
     private Transform targetObject;
+    private EnemyController enemyController;
 
+    [SerializeField] private TextMeshProUGUI enemyNameText;
     [SerializeField] private Image healthFill;
     [SerializeField] private Vector3 healthBarOffset;
     /// <summary>
@@ -26,6 +29,11 @@ public class HealthBar : MonoBehaviour
     public void RegisterTarget(Transform target)
     {
         targetObject = target;
+        if(!targetObject.TryGetComponent(out enemyController))
+            enemyNameText.gameObject.SetActive(false);
+
+        enemyNameText.text = enemyController.Data.Name;
+        enemyNameText.gameObject.SetActive(true);
         gameObject.SetActive(true);
     }
 

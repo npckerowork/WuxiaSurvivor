@@ -32,7 +32,7 @@ public class SkillSelectSlot : MonoBehaviour, IPointerClickHandler
         currentData = data;
 
         skillText.text = data.SkillName;
-        //skillIcon.sprite = ; 스킬 데이터 이미지가없음!
+        skillIcon.sprite = data.SkillIcon;
 
         gameObject.SetActive(true);
     }

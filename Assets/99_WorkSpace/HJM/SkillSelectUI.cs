@@ -54,13 +54,11 @@ public class SkillSelectUI : BaseUI
 
         Time.timeScale = 0;
 
-        //// 가져올 데이터가없으면 UI 다시 끄기
-        //if (!GetRandomSkillData(out List<SkillData> data))
-        //    HideUI();
+        SkillData[] data = SkillManager.Instance.RandomSkillChoice();
 
-        //for(int i = 0; i < data.Count; i++)
-        //{
-        //    slots[i].SetData(data[i]);
-        //}
+        for (int i = 0; i < data.Length; i++)
+        {
+            slots[i].SetData(data[i]);
+        }
     }
 }
