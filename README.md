@@ -72,7 +72,7 @@
 </details>
 <br/>
 
-# 🧾7. 코드 컨벤션 (Coding Convention)
+# 🧾7. Coding Convention (코드 컨벤션)
 <details>
 <summary>명명 규칙</summary>
  <br>
@@ -91,7 +91,7 @@
 </details>
 <br/>
 
-# 📌8. 커밋 컨벤션 (Commit Convention)
+# 📌8. Commit Convention (커밋 컨벤션)
 <details>
 <summary>기본 구조</summary>
  <br>
