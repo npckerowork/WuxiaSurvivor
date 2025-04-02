@@ -13,6 +13,12 @@ public class ExpBar : MonoBehaviour
     /// 
     public void InitUI()
     {
+        InitExpGauge();
+        SceneLoader.Instance.AddAction(SceneType.Main, InitExpGauge);
+    }
+
+    private void InitExpGauge()
+    {
         expSlider.value = 0;
     }
 
