@@ -30,12 +30,13 @@ public class ProjectileController : MonoBehaviour
         int targetObjectLayer = 1 << targetObject.layer;
         if ((targetObjectLayer & targetLayer) != 0)
         {
-            var @base = targetObject.GetComponent<BaseController>();
-            if (@base.IsDead)
+            var statHandler = targetObject.GetComponent<StatHandler>();
+            if (statHandler.IsDead)
             {
                 return;
             }
 
+            var @base = targetObject.GetComponent<BaseController>();
             if (@base is PlayerController)
             {
                 (@base as PlayerController).StatHandler.Damage(damage);

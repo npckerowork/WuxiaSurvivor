@@ -21,4 +21,6 @@ public class Define
 
     //SaveDataKey
     public const string SAVEDATA_KEY = "SaveData";
+
+    public const string PLAYER_NAME = "화산파 27대 제자";
 }

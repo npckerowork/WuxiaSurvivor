@@ -18,11 +18,11 @@ public class EnemyRunState : EnemyBaseState
 
     public override void Update()
     {
-        if (target == null) return;
+        if (Target == null) return;
 
         base.Update();
 
-        moveDirection = (target.position - transform.position).normalized;
+        moveDirection = (Target.position - transform.position).normalized;
         if (moveDirection.x != 0)
         {
             body.flipX = moveDirection.x < 0;

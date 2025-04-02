@@ -19,7 +19,7 @@ public class EnemyAttackState : EnemyBaseState
             return;
         }
 
-        moveDirection = (target.position - transform.position).normalized;
+        moveDirection = (Target.position - transform.position).normalized;
         if (moveDirection.x != 0)
         {
             body.flipX = moveDirection.x < 0;

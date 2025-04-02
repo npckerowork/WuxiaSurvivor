@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
 
     public Coin GameCoin = new();
 
-    private const int timeLimit = 300;      // 시간 제한
+    private const int timeLimit = 30;      // 시간 제한
     public int currentTime { get; private set; }
 
     public Action OnTimeOver = delegate { };        // 시간제한 종료 후 실행 이벤트
@@ -53,6 +53,9 @@ public class GameManager : Singleton<GameManager>
 
     public void GameStart()
     {
+        currentTime = 0;
+        isEnded = false;
+
         Player = FindAnyObjectByType<PlayerController>();
         Player.OnDeath += GameDefeat;
 
@@ -64,7 +67,7 @@ public class GameManager : Singleton<GameManager>
 
     public void GameUpdate()
     {
-        if (isEnded == false) return;
+        if (!isEnded) return;
         if (Enemies.Count > 0) return;
 
         GameVictory();
@@ -103,7 +106,10 @@ public class GameManager : Singleton<GameManager>
 
             // 제한시간 종료
             if (currentTime >= timeLimit)
+            {
                 OnTimeOver?.Invoke();
+                break;
+            }
         }
     }
 
@@ -112,7 +118,7 @@ public class GameManager : Singleton<GameManager>
         while (!isEnded)
         {
             int level = currentTime / timeUnit;
-            if (level == 4)
+            if (level == 5)
             {
                 isEnded = true;
             }
@@ -122,7 +128,7 @@ public class GameManager : Singleton<GameManager>
                 Enemies.Add(GetRandomMonster(level).GetComponent<EnemyController>());
             }
 
-            yield return level == 3 ? shortInterval : longInterval;
+            yield return level == 4 ? shortInterval : longInterval;
         }
     }
 
@@ -151,6 +157,9 @@ public class GameManager : Singleton<GameManager>
     private GameObject GetRandomMonster(int level)
     {
         Vector3 randomPosition = Player.transform.position + 12.0f * GetRandomDirection();
+        randomPosition.x += UnityEngine.Random.Range(-2.0f, 2.0f);
+        randomPosition.y += UnityEngine.Random.Range(-2.0f, 2.0f);
+
         switch (level)
         {
             case 1:
@@ -160,8 +169,11 @@ public class GameManager : Singleton<GameManager>
                 else return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
             case 3:
                 if (UnityEngine.Random.Range(0, 3) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[3], null, randomPosition, Vector3.zero);
-                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero);
+                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[2], null, randomPosition, Vector3.zero);
             case 4:
+                if (UnityEngine.Random.Range(0, 3) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[3], null, randomPosition, Vector3.zero);
+                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
+            case 5:
                 return ResourceManager.Instance.Instantiate(Define.ENEMIES[4], null, randomPosition, Vector3.zero);
             default:
                 return ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero);
