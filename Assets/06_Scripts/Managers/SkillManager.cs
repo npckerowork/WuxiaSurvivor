@@ -33,6 +33,7 @@ public class SkillManager : Singleton<SkillManager>
         {
             controller.Skills[key].SkillLevelUp();
         }
+        else
         {
             GameObject obj = Instantiate(data.SkillPrefab);
             controller.Skills.Add(key, obj.GetComponent<ISkillBehavior>());
