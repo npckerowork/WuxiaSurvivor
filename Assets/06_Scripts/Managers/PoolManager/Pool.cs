@@ -41,7 +41,6 @@ public class Pool
     private void ActionOnRelease(GameObject gameObject)
     {
         gameObject.transform.SetParent(transform);
-        gameObject.transform.position = new Vector3(int.MaxValue, int.MaxValue, int.MaxValue);
         gameObject.SetActive(false);
     }
 
