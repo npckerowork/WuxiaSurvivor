@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ public class GameManager : Singleton<GameManager>
 
         GameCoin = new();
         Application.wantsToQuit += OnWantsToQuit;
+        DOTween.SetTweensCapacity(200, 125);
 
         SceneLoader.Instance.AddAction(SceneType.Main, GameStart);
     }
