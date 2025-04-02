@@ -8,6 +8,8 @@ public class ItemBase : Poolable
 
         AudioManager.Instance.sfxController.
             PlayClip(SfxName.GetItem, transform.position);
+
+        VFXManager.Instance.PlayVFX(EffectType.SparkYellow, transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
