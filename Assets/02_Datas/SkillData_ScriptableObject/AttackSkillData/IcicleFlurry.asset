@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 0}
   skillPrefab: {fileID: 9180203543205562114, guid: 11542cba0661dac449acba85078ac94c, type: 3}
-  skillName: SwordAura
+  skillName: IcicleFlurry
+  skillDescription: 
   category: 0
   maxLevel: 3
   attackType: 0

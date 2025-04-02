@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 0}
   skillPrefab: {fileID: 8215995983609219546, guid: 5f08fc82ef275b74c94d77af6a181269, type: 3}
-  skillName: SwordAura
+  skillName: Thunder
+  skillDescription: 
   category: 0
   maxLevel: 3
   attackType: 0
