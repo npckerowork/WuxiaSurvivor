@@ -10,7 +10,7 @@ public class CoinItem : ItemBase
         float coinRatio = DataManager.Instance.UpgradeData[UpgradeType.CoinRatio];
         int addCoinAmount = Mathf.FloorToInt(addBaseCoinAmount * coinRatio);
         GameManager.Instance.GameCoin.Add(addCoinAmount);
-        Debug.Log($"{addCoinAmount} 코인 획득!");
+        DebugLogger.Log($"{addCoinAmount} 코인 획득!");
         base.ApplyEffect();
     }
 }

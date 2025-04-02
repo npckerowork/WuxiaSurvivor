@@ -10,7 +10,7 @@ public class ExpGem : ItemBase
         float expRatio = DataManager.Instance.UpgradeData[UpgradeType.ExpRatio];
         int addExpAmount = Mathf.FloorToInt(addBaseExpAmount * expRatio); 
         GameManager.Instance.Player.StatHandler.GetExp(addExpAmount); //경험치 획득
-        Debug.Log($"{addExpAmount} 경험치 획득!");
+        DebugLogger.Log($"{addExpAmount} 경험치 획득!");
         base.ApplyEffect();
     }
 }
