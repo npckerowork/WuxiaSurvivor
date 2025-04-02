@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
   m_Name: ThunderData
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 0}
+  skillIcon: {fileID: 21300000, guid: 5e1cded6d1fd711418f45a410d2eeaec, type: 3}
   skillPrefab: {fileID: 8215995983609219546, guid: 5f08fc82ef275b74c94d77af6a181269, type: 3}
   skillName: Thunder
   skillDescription: 
@@ -20,7 +20,7 @@ MonoBehaviour:
   maxLevel: 3
   attackType: 0
   damage:
-  - 10
-  - 15
-  - 20
+  - 100
+  - 200
+  - 300
   objCount: 

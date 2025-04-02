@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
   m_Name: IcicleFlurry
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 0}
+  skillIcon: {fileID: 21300000, guid: 69b4bad57cda6cf46a78c6949f4f7d4a, type: 3}
   skillPrefab: {fileID: 9180203543205562114, guid: 11542cba0661dac449acba85078ac94c, type: 3}
   skillName: IcicleFlurry
   skillDescription: 
@@ -20,7 +20,7 @@ MonoBehaviour:
   maxLevel: 3
   attackType: 0
   damage:
-  - 10
-  - 15
-  - 20
+  - 30
+  - 50
+  - 70
   objCount: 
