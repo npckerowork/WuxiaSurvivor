@@ -10,7 +10,7 @@
 
 >👉 빌드 파일
 >
->[Unity Play](https://play.unity.com/en/games/1a471d47-d832-4a0e-b54b-e22447b378d0/wuxia-survivor)
+>WuxiaSurvivor은 [Unity Play](https://play.unity.com/en/games/1a471d47-d832-4a0e-b54b-e22447b378d0/wuxia-survivor)에서 설치없이 플레이 가능합니다!
 
 # 🎮1. Project Overview (프로젝트 개요)
 | 항목 | 내용 |
