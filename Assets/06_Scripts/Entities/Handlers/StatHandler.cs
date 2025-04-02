@@ -10,6 +10,7 @@ public class StatHandler : MonoBehaviour
     public float MoveSpeed { get; set; } = 5.0f;
 
     protected float hp;
+    protected float invincibilityTime;
 
     private AnimationHandler animationHandler;
     protected InGameUI gameUI;
@@ -32,10 +33,13 @@ public class StatHandler : MonoBehaviour
             return;
         }
 
-        IsInvincibility = true;
+        if (invincibilityTime > 0.0f)
+        {
+            IsInvincibility = true;
+            DOVirtual.DelayedCall(invincibilityTime, () => IsInvincibility = false);
+        }
+
         hp = Mathf.Max(hp - damage, 0);
         animationHandler.SetState(ActionState.Hit);
-
-        DOVirtual.DelayedCall(Define.INVINCIBILITY_TIME, () => IsInvincibility = false);
     }
 }
