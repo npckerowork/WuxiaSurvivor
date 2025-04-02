@@ -18,7 +18,7 @@ public class PauseUI : BaseUI
         backButton.onClick.AddListener(HideUI);
         optionButton.onClick.AddListener(OnOption);
         lobbyButton.onClick.AddListener(OnLobby);
-        quitButton.onClick.AddListener(QuitGame);
+        quitButton.onClick.AddListener(() => Application.Quit());
     }
 
     /// <summary>
@@ -71,18 +71,5 @@ public class PauseUI : BaseUI
         uiManager[UIType.Lobby].ShowUI();   
 
         SceneLoader.Instance.ChangeScene(SceneType.Lobby);
-    }
-
-    /// <summary>
-    /// 게임 종료
-    /// </summary>
-    private void QuitGame()
-    {
-        sfxController.PlayClip(SfxName.ButtonClick);
-        Application.Quit();
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
     }
 }

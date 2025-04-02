@@ -32,6 +32,12 @@ public class PlayerStatHandler : StatHandler
         MoveSpeed = data.MoveSpeed;
     }
 
+    public void ApplyUpgrade()
+    {
+        MaxHP *= DataManager.Instance.UpgradeData[UpgradeType.HP];
+        MoveSpeed *= DataManager.Instance.UpgradeData[UpgradeType.MoveSpeed];
+    }
+
     public override void Damage(float damage)
     {
         base.Damage(damage);

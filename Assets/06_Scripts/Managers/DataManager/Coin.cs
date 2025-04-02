@@ -17,6 +17,7 @@ public class Coin
     [JsonProperty]
     private long current;
 
+    [JsonIgnore]
     public Action<long> OnUpdateCoinAmountEvent = delegate { }; //코인량이 업데이트 될때마다 호출되는 이벤트
 
     //추가

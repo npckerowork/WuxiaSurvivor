@@ -174,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 16562785311948101, guid: 7b9563a3f141c40419691677848ebfca, type: 3}
       propertyPath: clips.Array.data[9]
       value: 
-      objectReference: {fileID: 8300000, guid: 60166bfc3fc0643da88a5a73a7517bc0, type: 3}
+      objectReference: {fileID: 8300000, guid: 2e1cdedc08462f8489c7422de00e3455, type: 3}
     - target: {fileID: 5658250148988563046, guid: 7b9563a3f141c40419691677848ebfca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
