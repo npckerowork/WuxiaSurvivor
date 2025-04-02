@@ -103,7 +103,10 @@ public class GameManager : Singleton<GameManager>
 
             // 제한시간 종료
             if (currentTime >= timeLimit)
+            {
                 OnTimeOver?.Invoke();
+                break;
+            }
         }
     }
 
