@@ -60,7 +60,7 @@ public class UpgradeSlot : MonoBehaviour
 
             // slot 업데이트
             UpdateSlot();
-
+            AudioManager.Instance.sfxController.PlayClip(SfxName.TaskDone);
             return;
         }
     }

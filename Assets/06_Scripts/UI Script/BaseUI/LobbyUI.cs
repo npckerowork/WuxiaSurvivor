@@ -21,7 +21,7 @@ public class LobbyUI : BaseUI
         optionButton.onClick.AddListener(OnOption);
 
         ShowUI();
-
+        CoinUpdate(DataManager.Instance.Coin.Current); 
         // 보유 코인 UI 업데이트
         DataManager.Instance.Coin.OnUpdateCoinAmountEvent += CoinUpdate;
     }

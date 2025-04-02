@@ -25,7 +25,8 @@ public enum SfxName
     ButtonClick1,
     ButtonClick2,
     GetItem,
-    Hit
+    Hit,
+    TaskDone
 }
 #endregion
 
