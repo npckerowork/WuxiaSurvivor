@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
 
     public Coin GameCoin = new();
 
-    private const int timeLimit = 300;      // 시간 제한
+    private const int timeLimit = 180;      // 시간 제한
     public int currentTime { get; private set; }
 
     public Action OnTimeOver = delegate { };        // 시간제한 종료 후 실행 이벤트
