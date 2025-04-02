@@ -79,8 +79,11 @@ public class ProjectileFireSkill : AttackSkillBase, ICoolTimeCount
         {
             if(Vector2.Distance(playerTrs.position, hits[i].transform.position) < distance)
             {
-                target = hits[i];
-                distance = Vector2.Distance(playerTrs.position, target.transform.position);
+                if (!hits[i].GetComponent<EnemyStatHandler>().IsDead)
+                {
+                    target = hits[i];
+                    distance = Vector2.Distance(playerTrs.position, target.transform.position);
+                }
             }
         }
 

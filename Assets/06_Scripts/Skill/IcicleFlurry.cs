@@ -63,4 +63,10 @@ public class IcicleFlurry : AttackSkillBase
             yield return new WaitForSeconds(projectileSpawndelayTime);
         }
     }
+
+    public override void SkillLevelUp()
+    {
+        base.SkillLevelUp();
+        directionCount += 2;
+    }
 }
