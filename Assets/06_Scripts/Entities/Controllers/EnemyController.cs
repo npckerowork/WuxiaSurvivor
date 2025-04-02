@@ -73,7 +73,9 @@ public class EnemyController : BaseController
     public override void Destroy()
     {
         base.Destroy();
+
         GameManager.Instance.Enemies.Remove(gameObject);
+        GameManager.Instance.GameUpdate();
     }
 
     private void DropExpGem()
