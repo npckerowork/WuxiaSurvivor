@@ -12,7 +12,6 @@ public class Shuriken : AttackSkillBase
 
     private void Start()
     {
-        Init();
         GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
     }
 

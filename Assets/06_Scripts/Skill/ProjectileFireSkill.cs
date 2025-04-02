@@ -28,11 +28,6 @@ public class ProjectileFireSkill : AttackSkillBase, ICoolTimeCount
     private List<Projectile> projectileList = new List<Projectile>();
     private Collider2D[] hits = null;
 
-    private void Start()
-    {
-        Init();
-    }
-
     private void Update()
     {
         ExecuteSkill();

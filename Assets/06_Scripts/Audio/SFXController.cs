@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -11,6 +13,9 @@ public class SFXController : MonoBehaviour
     private AudioManager audioManager;
     private AudioSource audioSource;
     private AudioListener audioListener;
+
+    private Dictionary<AudioClip, AudioSource> audioSources;
+
     private HashSet<AudioClip> playingClips;
 
     [Header("SFX Clips")]
@@ -23,7 +28,17 @@ public class SFXController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioListener = FindObjectOfType<AudioListener>();
 
+        audioSources = new Dictionary<AudioClip, AudioSource>();
         playingClips = new HashSet<AudioClip>();
+
+        for(int i = 0; i < Enum.GetValues(typeof(SfxName)).Length; i++)
+        {
+            AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
+            audioSources.Add(clips[i], newAudioSource);
+
+            newAudioSource.clip = clips[i];
+            newAudioSource.playOnAwake = false;
+        }
     }
 
     /// <summary>
@@ -36,7 +51,7 @@ public class SFXController : MonoBehaviour
         AudioClip clip = clips[(int)clipName];
 
         // null 예외처리
-        if (clip == null) 
+        if (clip == null)
             return;
 
         //  null 예외처리
@@ -45,26 +60,27 @@ public class SFXController : MonoBehaviour
 
         // 범위 밖
         float distance = Vector2.Distance(audioListener.transform.position, sfxPosition);
-        if (distance >= hearingRange) 
+        if (distance >= hearingRange)
             return;
 
-        // 이미 재생중인 클립 ( 중복 방지
-        // TODO: 재생중인 클립일때 재생된지 n초가 지났다면 멈추고 다시 실행시키기
-        if (playingClips.Contains(clip))
+        // 예외처리
+        if (!audioSources.TryGetValue(clip, out AudioSource audio))
             return;
-        
-        // 클립 재생
-        playingClips.Add(clip);
-        audioSource.PlayOneShot(clip, audioManager.GetVolume(VolumeType.Sfx));
 
-        // 클립 종료 코루틴
-        StartCoroutine(EndPlayingStatus(clip));
-    }
+        // 이미 재생중
+        if (audio.isPlaying)
+        {
+            // 실행된지 0.15초를 넘지못함 -> 재생 X
+            if (audio.time <= 0.15f)
+                return;
 
-    private IEnumerator EndPlayingStatus(AudioClip clip)
-    {
-        yield return new WaitForSeconds(clip.length);
-        playingClips.Remove(clip);
+            // 재생중인 클립 멈춤
+            audio.Stop();
+        }
+
+        // 사운드 조절 / 클립 재생
+        audio.volume = audioManager.GetVolume(VolumeType.Sfx);
+        audio.Play();
     }
 
     private void OnDrawGizmos()

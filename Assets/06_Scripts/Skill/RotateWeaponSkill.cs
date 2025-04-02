@@ -15,11 +15,6 @@ public class RotateWeaponSkill : AttackSkillBase
     // 생성한 무기 프리팹 리스트
     private List<RotateWeapon> weaponList = new List<RotateWeapon>();
 
-    void Start()
-    {
-        Init();
-    }
-
     void Update()
     {
         ExecuteSkill();
@@ -28,12 +23,13 @@ public class RotateWeaponSkill : AttackSkillBase
     public override void Init()
     {
         base.Init();
+
         for (int i = 0; i < weaponCount; i++)
         {
             GameObject obj = Instantiate(weaponPrefabs, transform);
             weaponList.Add(obj.GetComponent<RotateWeapon>());
             obj.transform.rotation = Quaternion.Euler(Vector3.forward * 360 * i / weaponCount);
-            obj.transform.position = obj.transform.up.normalized * distance;
+            obj.transform.localPosition = obj.transform.up.normalized * distance;
             weaponList[i].Init(attackSkillData.Damage[attackSkillData.SkillLevel - 1], enemyLayer);
         }
     }

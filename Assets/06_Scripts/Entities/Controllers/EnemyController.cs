@@ -63,11 +63,20 @@ public class EnemyController : BaseController
         StateMachine.FixedUpdate();
     }
 
+    private void OnDestroy()
+    {
+        Body.DOKill();
+    }
+
     public override void Birth()
     {
         base.Birth();
 
+        StateMachine.Attack.SetTartget(GameManager.Instance.Player.transform);
+        StateMachine.Run.SetTartget(GameManager.Instance.Player.transform);
+
         StateMachine.ChangeState(StateMachine.Run);
+
         OnDeath += DropExpGem;
     }
 
