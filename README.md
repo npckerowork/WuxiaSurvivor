@@ -9,8 +9,10 @@
 # 🚀0. Bulid (빌드 배포)
 
 >👉 빌드 파일
->
->WuxiaSurvivor은 [Unity Play](https://play.unity.com/en/games/1a471d47-d832-4a0e-b54b-e22447b378d0/wuxia-survivor)에서 설치없이 플레이 가능합니다!
+
+WuxiaSurvivor은 [Unity Play](https://play.unity.com/en/games/1a471d47-d832-4a0e-b54b-e22447b378d0/wuxia-survivor)에서 설치없이 플레이 가능합니다!
+
+https://github.com/user-attachments/assets/b179873b-bfff-46ad-8aba-646293e93b23
 
 # 🎮1. Project Overview (프로젝트 개요)
 | 항목 | 내용 |
