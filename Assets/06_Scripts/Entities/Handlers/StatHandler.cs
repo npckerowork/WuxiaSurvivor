@@ -12,11 +12,12 @@ public class StatHandler : MonoBehaviour
     protected float hp;
 
     private AnimationHandler animationHandler;
-
+    protected InGameUI gameUI;
     private void Awake()
     {
         hp = MaxHP;
         animationHandler = GetComponent<AnimationHandler>();
+        gameUI = UIManager.Instance.GetUI<InGameUI>();
     }
 
     private void OnEnable()

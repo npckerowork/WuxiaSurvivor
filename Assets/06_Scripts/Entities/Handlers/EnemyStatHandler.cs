@@ -18,6 +18,9 @@ public class EnemyStatHandler : StatHandler
     {
         base.Damage(damage);
 
+        gameUI.DamageUI.OnDamage(damage, transform);
+        gameUI.HealthUI.UpdateHealthBar(transform, MaxHP, hp);
+
         if (IsDead)
         {
             EnemyStateMachine stateMachine = GetComponent<EnemyController>().StateMachine;

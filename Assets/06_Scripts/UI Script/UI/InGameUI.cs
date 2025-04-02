@@ -26,6 +26,7 @@ public class InGameUI : BaseUI
     [SerializeField] private Button pauseButton;
 
     // get
+    public ExpBar Expbar => expbar;
     public DamageUI DamageUI => damageUI;
     public HealthUI HealthUI => healthUI;
 

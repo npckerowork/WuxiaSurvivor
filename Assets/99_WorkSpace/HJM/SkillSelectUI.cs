@@ -26,6 +26,13 @@ public class SkillSelectUI : BaseUI
 
             slotObject.SetActive(false);
         }
+
+        SceneLoader.Instance.AddAction(SceneType.Main, LevelUpEvent);
+    }
+
+    private void LevelUpEvent()
+    {
+        GameManager.Instance.Player.StatHandler.OnLevelUpEvent += (level) => ShowUI();
     }
 
     public override void HideUI()
@@ -47,37 +54,13 @@ public class SkillSelectUI : BaseUI
 
         Time.timeScale = 0;
 
-        // 가져올 데이터가없으면 UI 다시 끄기
-        if (!GetRandomSkillData(out List<SkillData> data))
-            HideUI();
+        //// 가져올 데이터가없으면 UI 다시 끄기
+        //if (!GetRandomSkillData(out List<SkillData> data))
+        //    HideUI();
 
-        for(int i = 0; i < data.Count; i++)
-        {
-            slots[i].SetData(data[i]);
-        }
-    }
-
-    
-    public bool GetRandomSkillData(out List<SkillData> resultData)
-    {
-        resultData = new List<SkillData>();
-
-        List<SkillData> datas = SkillManager.Instance.TotalSkillDataList;
-
-        
-        if (datas == null || datas.Count <= 0)
-            return false;
-
-        // 임시로 리스트 앞에서 3개 가져오기
-
-        for (int i = 0; i < datas.Count; i++)
-        {
-            if (i >= skillCount)
-                break;
-
-            resultData.Add(datas[i]);
-        }
-
-        return true;
+        //for(int i = 0; i < data.Count; i++)
+        //{
+        //    slots[i].SetData(data[i]);
+        //}
     }
 }
