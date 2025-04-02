@@ -28,6 +28,9 @@ public class RotateWeaponSkill : AttackSkillBase
     public override void Init()
     {
         base.Init();
+        transform.parent = playerTrs;
+        transform.position = Vector3.zero;
+
         for (int i = 0; i < weaponCount; i++)
         {
             GameObject obj = Instantiate(weaponPrefabs, transform);

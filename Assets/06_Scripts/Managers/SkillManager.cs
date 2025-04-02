@@ -15,6 +15,11 @@ public class SkillManager : Singleton<SkillManager>
     {
         gameManager = GameManager.Instance;
         totalSkillCount = totalSkillDataList.Count;
+
+        for(int i = 0; i < totalSkillCount; i++)
+        {
+            totalSkillDataList[i].SkillLevel = 1;
+        }
     }
 
     private void Start()
@@ -36,6 +41,8 @@ public class SkillManager : Singleton<SkillManager>
         else
         {
             GameObject obj = Instantiate(data.SkillPrefab);
+            obj.SetActive(true);
+            obj.GetComponent<ISkillBehavior>().Init();
             controller.Skills.Add(key, obj.GetComponent<ISkillBehavior>());
         }
     }
@@ -53,14 +60,21 @@ public class SkillManager : Singleton<SkillManager>
         for(int i = 0; i < 3; i++)
         {
             bool select = false;
+            int repeatCount = 0;
 
             while(!select)
             {
                 int idx = Random.Range(0, totalSkillCount);
+                repeatCount++;
 
                 if (totalSkillDataList[idx].SkillLevel != totalSkillDataList[idx].MaxLevel)
                 {
                     randomSkills[i] = totalSkillDataList[idx];
+                    select = true;
+                }
+                else if(repeatCount >= 100)
+                {
+                    randomSkills[i] = null;
                     select = true;
                 }
             }

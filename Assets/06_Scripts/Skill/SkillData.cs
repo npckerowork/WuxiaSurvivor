@@ -27,7 +27,7 @@ public class SkillData : ScriptableObject
     public SkillCategory Category { get { return category; } }
     [SerializeField] private int maxLevel;
     public int MaxLevel { get { return maxLevel; } }
-    protected int skillLevel = 1;
+    [SerializeField]protected int skillLevel = 1;
     public int SkillLevel
     {
         get {  return skillLevel; }
