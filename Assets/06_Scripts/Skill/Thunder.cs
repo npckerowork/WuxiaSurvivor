@@ -67,5 +67,6 @@ public class Thunder : AttackSkillBase, ICoolTimeCount
     public override void SkillLevelUp()
     {
         base.SkillLevelUp();
+        skillCooldown *= 0.7f;
     }
 }

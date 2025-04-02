@@ -69,5 +69,6 @@ public class Shuriken : AttackSkillBase
     public override void SkillLevelUp()
     {
         base.SkillLevelUp();
+        skillCooldown *= 0.7f;
     }
 }

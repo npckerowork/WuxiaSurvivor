@@ -3,7 +3,6 @@ using UnityEngine;
 public class CircleSlash : AttackSkillBase
 {
     [SerializeField] private float skillCooldown = 3f; //스킬 쿨다운
-    [SerializeField] private float damage = 10f; //임시값
     [SerializeField] private float scale = 1f; //스킬 범위(스킬 크기)
 
     private void Start()
@@ -38,7 +37,14 @@ public class CircleSlash : AttackSkillBase
         if(collision.TryGetComponent(out EnemyController enemy))
         {
             //TODO : 데미지 계산 
-            enemy.StatHandler.Damage(damage);
+            enemy.StatHandler.Damage(attackSkillData.Damage[attackSkillData.SkillLevel]);
         }
+    }
+
+    public override void SkillLevelUp()
+    {
+        base.SkillLevelUp();
+        skillCooldown *= 0.8f;
+        scale *= 1.2f;
     }
 }
