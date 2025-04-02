@@ -20,7 +20,7 @@ public class LobbyUI : BaseUI
         startButton.onClick.AddListener(OnStart);
         upgradeButton.onClick.AddListener(OnUpgrade);
         optionButton.onClick.AddListener(OnOption);
-        exitButton.onClick.AddListener(ExitGame);
+        exitButton.onClick.AddListener(() => Application.Quit());
 
         ShowUI();
         CoinUpdate(DataManager.Instance.Coin.Current); 
@@ -66,12 +66,6 @@ public class LobbyUI : BaseUI
         sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager[UIType.Option].ShowUI();
-    }
-
-    private void ExitGame()
-    {
-        DataManager.Instance.SaveData();
-        Application.Quit();
     }
 
     /// <summary>
