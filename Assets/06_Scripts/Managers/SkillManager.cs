@@ -15,6 +15,10 @@ public class SkillManager : Singleton<SkillManager>
     {
         gameManager = GameManager.Instance;
         totalSkillCount = totalSkillDataList.Count;
+    }
+
+    private void Start()
+    {
         AddSkill(totalSkillDataList[0]);
     }
 
