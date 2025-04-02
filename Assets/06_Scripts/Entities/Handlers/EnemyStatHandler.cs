@@ -18,10 +18,11 @@ public class EnemyStatHandler : StatHandler
     {
         if (IsDead) return;
 
-        base.Damage(damage);
+        float upgradeDamage = damage * DataManager.Instance.UpgradeData[UpgradeType.Damage];
+        base.Damage(upgradeDamage);
 
         // ==== UI / Effect / Sound ====
-        gameUI.DamageUI.OnDamage(damage, transform);
+        gameUI.DamageUI.OnDamage(upgradeDamage, transform);
         gameUI.HealthUI.UpdateHealthBar(transform, MaxHP, hp);
         AudioManager.Instance.sfxController.RandomHitSFX(transform.position);
         VFXManager.Instance.PlayVFX(EffectType.SparkPurple, transform.position);
