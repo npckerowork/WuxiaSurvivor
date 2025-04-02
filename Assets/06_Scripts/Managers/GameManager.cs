@@ -36,6 +36,12 @@ public class GameManager : Singleton<GameManager>
         SceneLoader.Instance.AddAction(SceneType.Main, GameStart);
     }
 
+    public void Clear()
+    {
+        Enemies.Clear();
+        StopAllCoroutines();
+    }
+
     private bool OnWantsToQuit()
     {
         DataManager.Instance.SaveData(); // 저장 요청
@@ -52,35 +58,37 @@ public class GameManager : Singleton<GameManager>
 
         StartCoroutine(Spawning());
         StartCoroutine(StartTimer());
+
+        SceneLoader.Instance.AddAction(SceneType.Lobby, Clear);
     }
 
     public void GameUpdate()
     {
-        if (isEnded == false)
-        {
-            return;
-        }
-
-        if (Enemies.Count > 0)
-        {
-            return;
-        }
+        if (isEnded == false) return;
+        if (Enemies.Count > 0) return;
 
         GameVictory();
     }
 
     public void GameDefeat()
     {
-        Debug.Log("게임 패배!");
+        if (isEnded) return;
+
+        foreach (var enemy in Enemies)
+        {
+            enemy.Body.DOFade(0.0f, 0.5f).OnComplete(() => Destroy(gameObject));
+        }
+
+        Clear();
+        isEnded = true;
+
         UIManager.Instance.GetUI<ResultUI>().OnResult("게임 패배");
-        StopAllCoroutines();
     }
 
     public void GameVictory()
     {
-        Debug.Log("게임 승리!");
-        UIManager.Instance.GetUI<ResultUI>().OnResult("게임 승리");
         StopAllCoroutines();
+        UIManager.Instance.GetUI<ResultUI>().OnResult("게임 승리");
     }
 
     public IEnumerator StartTimer()

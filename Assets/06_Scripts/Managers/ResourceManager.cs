@@ -33,6 +33,11 @@ public class ResourceManager : Singleton<ResourceManager>
             gameObject = Instantiate(original);
         }
 
+        if (parent == null)
+        {
+            gameObject.transform.SetParent(GameManager.Instance.Player.transform);
+        }
+
         gameObject.transform.SetParent(parent);
         gameObject.transform.SetLocalPositionAndRotation(localPosition, Quaternion.Euler(localRotation));
 
