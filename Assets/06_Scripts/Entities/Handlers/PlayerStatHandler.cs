@@ -56,12 +56,12 @@ public class PlayerStatHandler : StatHandler
     {
         exp += amount;
 
-        gameUI.Expbar.UpdateExp(exp, maxExp);
-
         while (exp >= maxExp) //넘친 경험치가 다음 레벨로 이월되도록 
         {
             exp -= maxExp;
             Level++;
         }
+
+        gameUI.Expbar.UpdateExp(exp, maxExp, Level);
     }
 }
