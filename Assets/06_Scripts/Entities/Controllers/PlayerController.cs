@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : BaseController
@@ -9,6 +10,7 @@ public class PlayerController : BaseController
     public Rigidbody2D Rigidbody { get; private set; }
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerSkillHandler SkillHandler { get; private set; }
+    public Dictionary<string, ISkillBehavior> Skills { get; private set; } = new();
 
     protected override void Initialize()
     {

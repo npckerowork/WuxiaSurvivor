@@ -16,8 +16,12 @@ public class GameManager : Singleton<GameManager>
     public Action OnTimeOver = delegate { };        // 시간제한 종료 후 실행 이벤트
     public Action OnTimeChanged = delegate { };     // 시간이 변할 때 실행 이벤트
 
-    private bool isEnded;
-    private readonly WaitForSeconds interval = new(1.0f);
+    // 게임 로직
+    private const int timeUnit = timeLimit / 5;     // 난이도가 올라가는 단위
+    private bool isEnded;                           // 게임 승리 조건 확인을 위한 bool값
+
+    private readonly WaitForSeconds longInterval = new(1.0f);
+    private readonly WaitForSeconds shortInterval = new(0.2f);
 
     protected override void Initialize()
     {
@@ -44,6 +48,16 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(Spawning());
     }
 
+    public void GameDefeat()
+    {
+
+    }
+
+    public void GameVictory()
+    {
+        StopAllCoroutines();
+    }
+
     public IEnumerator StartTimer()
     {
         currentTime = 0;
@@ -64,12 +78,19 @@ public class GameManager : Singleton<GameManager>
     {
         while (!isEnded)
         {
-            if (Enemies.Count < 100)
+            int level = currentTime / timeUnit;
+            Debug.Log(level);
+            if (level == 4)
             {
-                Enemies.Add(GetRandomMonster((int)(currentTime / 6f)));
+                isEnded = true;
             }
 
-            yield return interval;
+            if (Enemies.Count < 100)
+            {
+                Enemies.Add(GetRandomMonster(level));
+            }
+
+            yield return level == 3 ? shortInterval : longInterval;
         }
     }
 
@@ -104,14 +125,13 @@ public class GameManager : Singleton<GameManager>
             case 1:
                 return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
             case 2:
-                if (UnityEngine.Random.Range(0, 2) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
-                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[2], null, randomPosition, Vector3.zero);
-            case 3:
                 if (UnityEngine.Random.Range(0, 3) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[2], null, randomPosition, Vector3.zero);
-                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[3], null, randomPosition, Vector3.zero);
+                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
+            case 3:
+                if (UnityEngine.Random.Range(0, 3) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[3], null, randomPosition, Vector3.zero);
+                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero);
             case 4:
-                if (UnityEngine.Random.Range(0, 2) == 0) return ResourceManager.Instance.Instantiate(Define.ENEMIES[1], null, randomPosition, Vector3.zero);
-                else return ResourceManager.Instance.Instantiate(Define.ENEMIES[4], null, randomPosition, Vector3.zero);
+                return ResourceManager.Instance.Instantiate(Define.ENEMIES[4], null, randomPosition, Vector3.zero);
             default:
                 return ResourceManager.Instance.Instantiate(Define.ENEMIES[0], null, randomPosition, Vector3.zero);
         }
