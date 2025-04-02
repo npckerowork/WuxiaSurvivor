@@ -12,7 +12,9 @@ public class HealthUI : MonoBehaviour
     public void InitUI()
     {
         pool = new Queue<HealthBar>();
-        useHealthBar = new Dictionary<Transform, HealthBar>();
+
+        SceneLoader.Instance.AddAction(SceneType.Main,
+            () => useHealthBar = new Dictionary<Transform, HealthBar>());
     }
 
     public void UpdateHealthBar(Transform target, float maxHp, float hp)

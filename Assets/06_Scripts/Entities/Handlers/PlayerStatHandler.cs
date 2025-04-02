@@ -30,6 +30,7 @@ public class PlayerStatHandler : StatHandler
     public override void Damage(float damage)
     {
         base.Damage(damage);
+        gameUI.HealthUI.UpdateHealthBar(transform, MaxHP, hp);
 
         if (IsDead)
         {

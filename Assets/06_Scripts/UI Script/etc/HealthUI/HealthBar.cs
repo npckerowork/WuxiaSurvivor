@@ -29,10 +29,12 @@ public class HealthBar : MonoBehaviour
     public void RegisterTarget(Transform target)
     {
         targetObject = target;
-        if(!targetObject.TryGetComponent(out enemyController))
-            enemyNameText.gameObject.SetActive(false);
+        if (targetObject.TryGetComponent(out enemyController))
+            enemyNameText.text = enemyController.Data.Name;
+        else
+            enemyNameText.text = Define.PLAYER_NAME;
 
-        enemyNameText.text = enemyController.Data.Name;
+
         enemyNameText.gameObject.SetActive(true);
         gameObject.SetActive(true);
     }
