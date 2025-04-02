@@ -38,7 +38,7 @@ public class PauseUI : BaseUI
         base.HideUI();
         Time.timeScale = 1;
 
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public class PauseUI : BaseUI
     /// </summary>
     private void OnOption()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager[UIType.Option].ShowUI();
     }
@@ -56,7 +56,7 @@ public class PauseUI : BaseUI
     /// </summary>
     private void OnLobby()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
         uiManager.fade.FadeOut(EndFadeOut);
         AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);
     }
@@ -78,7 +78,7 @@ public class PauseUI : BaseUI
     /// </summary>
     private void QuitGame()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
         Application.Quit();
 
 #if UNITY_EDITOR

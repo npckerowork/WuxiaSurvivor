@@ -40,7 +40,7 @@ public class LobbyUI : BaseUI
     /// </summary>
     private void OnStart()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager.fade.FadeOut(HideUI);
         AudioManager.Instance.bgmController.ChangeBGM(BgmName.GameBGM);
@@ -51,7 +51,7 @@ public class LobbyUI : BaseUI
     /// </summary>
     private void OnUpgrade()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager[UIType.Upgrade].ShowUI();
     }
@@ -61,7 +61,7 @@ public class LobbyUI : BaseUI
     /// </summary>
     private void OnOption()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager[UIType.Option].ShowUI();
     }

@@ -38,7 +38,7 @@ public class ResultUI : BaseUI
 
     private void OnLobby()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
         uiManager.fade.FadeOut(EndFadeOut);
         AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);
     }
