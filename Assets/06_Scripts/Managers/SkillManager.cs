@@ -42,6 +42,8 @@ public class SkillManager : Singleton<SkillManager>
         {
             GameObject obj = Instantiate(data.SkillPrefab);
             obj.SetActive(true);
+            obj.transform.parent = gameManager.Player.SkillHandler.SkillPos;
+            obj.transform.localPosition = Vector3.zero;
             obj.GetComponent<ISkillBehavior>().Init();
             controller.Skills.Add(key, obj.GetComponent<ISkillBehavior>());
         }
