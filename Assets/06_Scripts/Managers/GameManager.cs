@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ public class GameManager : Singleton<GameManager>
 
         GameCoin = new();
         Application.wantsToQuit += OnWantsToQuit;
+        DOTween.SetTweensCapacity(200, 125);
 
         SceneLoader.Instance.AddAction(SceneType.Main, GameStart);
     }
@@ -45,12 +47,29 @@ public class GameManager : Singleton<GameManager>
     public void GameStart()
     {
         Player = FindAnyObjectByType<PlayerController>();
+
         StartCoroutine(Spawning());
+        StartCoroutine(StartTimer());
+    }
+
+    public void GameUpdate()
+    {
+        if (isEnded == false)
+        {
+            return;
+        }
+
+        if (Enemies.Count > 0)
+        {
+            return;
+        }
+
+        GameVictory();
     }
 
     public void GameDefeat()
     {
-
+        StopAllCoroutines();
     }
 
     public void GameVictory()
@@ -79,7 +98,6 @@ public class GameManager : Singleton<GameManager>
         while (!isEnded)
         {
             int level = currentTime / timeUnit;
-            Debug.Log(level);
             if (level == 4)
             {
                 isEnded = true;
@@ -119,7 +137,6 @@ public class GameManager : Singleton<GameManager>
     private GameObject GetRandomMonster(int level)
     {
         Vector3 randomPosition = Player.transform.position + 12.0f * GetRandomDirection();
-
         switch (level)
         {
             case 1:
