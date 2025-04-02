@@ -17,7 +17,6 @@
 | 레퍼런스 게임 | 	Vampire Survivors |
 | 게임 설명 | 2D 탑다운 로그라이크식 슈팅 게임 |
 | 제작 기간 | 2025.3.27~2025.4.02(약 6일)|
-| 사용 언어 / 툴 | Unity (C#), DOTween,Newtonsoft JSON |
 
 # 👥2. Team Members (팀원 및 팀 소개)
 
