@@ -37,7 +37,7 @@ public class CircleSlash : AttackSkillBase
         if(collision.TryGetComponent(out EnemyController enemy))
         {
             //TODO : 데미지 계산 
-            enemy.StatHandler.Damage(attackSkillData.Damage[attackSkillData.SkillLevel]);
+            enemy.StatHandler.Damage(attackSkillData.Damage[attackSkillData.SkillLevel] - 1);
         }
     }
 

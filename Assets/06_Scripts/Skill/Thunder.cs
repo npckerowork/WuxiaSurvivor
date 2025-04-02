@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Thunder : AttackSkillBase, ICoolTimeCount
+public class Thunder : AttackSkillBase
 {
     [SerializeField] private BoxCollider2D boxCollider;
 
@@ -57,11 +57,6 @@ public class Thunder : AttackSkillBase, ICoolTimeCount
             //TODO : 데미지 계산 수정
             enemy.StatHandler.Damage(attackSkillData.Damage[attackSkillData.MaxLevel - 1]);
         }
-    }
-
-    public bool CheckCoolTime()
-    {
-        throw new System.NotImplementedException();
     }
 
     public override void SkillLevelUp()
