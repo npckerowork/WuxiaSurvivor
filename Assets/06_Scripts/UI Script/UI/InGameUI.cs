@@ -45,17 +45,6 @@ public class InGameUI : BaseUI
     }
 
     /// <summary>
-    /// InGameUI 종료
-    /// </summary>
-    public override void HideUI()
-    {
-        base.HideUI();
-
-        // 타이머 종료
-        gameTimer.EndTimer();
-    }
-
-    /// <summary>
     /// Pause UI 켜기
     /// </summary>
     private void OnPause()
