@@ -34,7 +34,10 @@ public class PlayerMagnet : MonoBehaviour
 
     private void AttractItems()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, magnetRange, attractItemLayer);
+        float rangeRatio = DataManager.Instance.UpgradeData[UpgradeType.Magnet];
+        float range = magnetRange * rangeRatio;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, attractItemLayer);
 
         foreach (var hit in hits)
         {
