@@ -56,9 +56,19 @@ public class SkillSelectUI : BaseUI
 
         SkillData[] data = SkillManager.Instance.RandomSkillChoice();
 
+        int nullCount = 0;
         for (int i = 0; i < data.Length; i++)
         {
+            if (data[i] == null)
+            {
+                nullCount++;
+                continue;
+            }
+
             slots[i].SetData(data[i]);
         }
+
+        if (nullCount >= skillCount)
+            HideUI();
     }
 }

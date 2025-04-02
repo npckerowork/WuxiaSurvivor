@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class SkillSelectSlot : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private TextMeshProUGUI skillText;
+    [SerializeField] private TextMeshProUGUI skillNameText;
+    [SerializeField] private TextMeshProUGUI skillDescriptionText;
     [SerializeField] private Image skillIcon;
 
     private SkillSelectUI skillSelectUI;
@@ -31,7 +32,8 @@ public class SkillSelectSlot : MonoBehaviour, IPointerClickHandler
     {
         currentData = data;
 
-        skillText.text = data.SkillName;
+        skillNameText.text = data.SkillName;
+        skillDescriptionText.text = data.SkillDescription;
         skillIcon.sprite = data.SkillIcon;
 
         gameObject.SetActive(true);
