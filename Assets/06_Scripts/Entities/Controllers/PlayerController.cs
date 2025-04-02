@@ -16,6 +16,8 @@ public class PlayerController : BaseController
     {
         base.Initialize();
 
+        Data.ApplyUpgrade();
+
         StatHandler = statHandler as PlayerStatHandler;
         StatHandler.SetData(Data);
 
