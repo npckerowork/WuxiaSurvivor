@@ -34,8 +34,8 @@ public class HealthBar : MonoBehaviour
         else
             enemyNameText.text = Define.PLAYER_NAME;
 
-
         enemyNameText.gameObject.SetActive(true);
+        MoveHealthBar(target);
         gameObject.SetActive(true);
     }
 
@@ -59,8 +59,13 @@ public class HealthBar : MonoBehaviour
             return;
         }
 
+        MoveHealthBar(targetObject);
+    }
+
+    private void MoveHealthBar(Transform target)
+    {
         // 월드 좌표 → 스크린 좌표 변환
-        Vector3 pos = Camera.main.WorldToScreenPoint(targetObject.transform.position);
+        Vector3 pos = Camera.main.WorldToScreenPoint(target.transform.position);
         transform.position = pos + healthBarOffset;
     }
 }
