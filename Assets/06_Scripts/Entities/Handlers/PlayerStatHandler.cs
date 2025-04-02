@@ -65,6 +65,7 @@ public class PlayerStatHandler : StatHandler
         {
             exp -= maxExp;
             Level++;
+            AudioManager.Instance.sfxController.PlayClip(SfxName.LevelUp);
         }
 
         gameUI.Expbar.UpdateExp(exp, maxExp, Level);

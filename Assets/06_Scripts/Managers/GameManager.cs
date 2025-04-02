@@ -86,12 +86,14 @@ public class GameManager : Singleton<GameManager>
         isEnded = true;
 
         UIManager.Instance.GetUI<ResultUI>().OnResult("게임 패배");
+        AudioManager.Instance.sfxController.PlayClip(SfxName.Lose);
     }
 
     public void GameVictory()
     {
         StopAllCoroutines();
         UIManager.Instance.GetUI<ResultUI>().OnResult("게임 승리");
+        AudioManager.Instance.sfxController.PlayClip(SfxName.Victory);
     }
 
     public IEnumerator StartTimer()

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SFXController : MonoBehaviour
 {
@@ -15,8 +16,7 @@ public class SFXController : MonoBehaviour
     private AudioListener audioListener;
 
     private Dictionary<AudioClip, AudioSource> audioSources;
-
-    private HashSet<AudioClip> playingClips;
+    private SfxName[] hitSfxNames;
 
     [Header("SFX Clips")]
     [SerializeField] private AudioClip[] clips;
@@ -29,7 +29,6 @@ public class SFXController : MonoBehaviour
         audioListener = FindObjectOfType<AudioListener>();
 
         audioSources = new Dictionary<AudioClip, AudioSource>();
-        playingClips = new HashSet<AudioClip>();
 
         for(int i = 0; i < Enum.GetValues(typeof(SfxName)).Length; i++)
         {
@@ -39,6 +38,9 @@ public class SFXController : MonoBehaviour
             newAudioSource.clip = clips[i];
             newAudioSource.playOnAwake = false;
         }
+
+        hitSfxNames = new SfxName[]
+        { SfxName.Fight1, SfxName.Fight2, SfxName.Fight3, };
     }
 
     /// <summary>
@@ -81,6 +83,13 @@ public class SFXController : MonoBehaviour
         // 사운드 조절 / 클립 재생
         audio.volume = audioManager.GetVolume(VolumeType.Sfx);
         audio.Play();
+    }
+
+    public void RandomHitSFX(Vector2 sfxPosition = default)
+    {
+        int clipLength = hitSfxNames.Length;
+        SfxName randomClip = hitSfxNames[Random.Range(0, clipLength)];
+        PlayClip(randomClip, sfxPosition);
     }
 
     private void OnDrawGizmos()
