@@ -30,7 +30,8 @@ public enum SfxName
     Lose,
     Fight1,
     Fight2,
-    Fight3
+    Fight3,
+    Error
 }
 #endregion
 
