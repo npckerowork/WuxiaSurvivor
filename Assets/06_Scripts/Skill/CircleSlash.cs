@@ -8,7 +8,10 @@ public class CircleSlash : AttackSkillBase
 
     private void Start()
     {
-
+        //생성 할때 스킬 생성위치 하위로 배치
+        //TODO: 생성할때 이 코드 작성
+        //transform.SetParent(GameManager.Instance.Player.SkillHandler.SkillPos); 
+        InvokeRepeating(nameof(Slash),0, skillCooldown);
         GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
     }
 
@@ -16,10 +19,6 @@ public class CircleSlash : AttackSkillBase
     {
         base.Init();
 
-        //생성 할때 스킬 생성위치 하위로 배치
-        //TODO: 생성할때 이 코드 작성
-        transform.SetParent(GameManager.Instance.Player.SkillHandler.SkillPos); 
-        InvokeRepeating(nameof(Slash),0, skillCooldown);
     }
 
     private void Slash()

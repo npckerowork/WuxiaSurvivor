@@ -8,7 +8,7 @@ public class Spawnable : MonoBehaviour
     {
         if (Weight == 0)
         {
-            Debug.Log("가중치의 값을 설정해주세요");
+            DebugLogger.LogWarning("가중치의 값을 설정해주세요");
             return;
         }
         GameObject go = ResourceManager.Instance.Instantiate(gameObject.name, parent, pos, Vector3.zero);

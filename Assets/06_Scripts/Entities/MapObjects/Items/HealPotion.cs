@@ -7,7 +7,7 @@ public class HealPotion : ItemBase
     protected override void ApplyEffect()
     {
         GameManager.Instance.Player.StatHandler.Heal(addBaseHealAmount); //체력 회복
-        Debug.Log($"{addBaseHealAmount} 체력 회복!");
+        DebugLogger.Log($"{addBaseHealAmount} 체력 회복!");
         base.ApplyEffect();
     }
 }

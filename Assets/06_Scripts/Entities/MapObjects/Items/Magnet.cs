@@ -13,7 +13,7 @@ public class Magnet : ItemBase
     {
         if (playerMagnet == null)
         {
-            Debug.Log("플레이어에 PlayerMagnet스크립트가 없습니다.");
+            DebugLogger.LogError("플레이어에 PlayerMagnet스크립트가 없습니다.");
             return;
         }
         playerMagnet.ActivateMagnet();   //자기장 활성화
