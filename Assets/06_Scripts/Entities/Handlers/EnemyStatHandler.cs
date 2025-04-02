@@ -16,6 +16,8 @@ public class EnemyStatHandler : StatHandler
 
     public override void Damage(float damage)
     {
+        if (IsDead) return;
+
         base.Damage(damage);
 
         gameUI.DamageUI.OnDamage(damage, transform);
