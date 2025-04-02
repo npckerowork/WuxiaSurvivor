@@ -1,0 +1,445 @@
+fileFormatVersion: 2
+guid: 3a4be00ad5fb3ca4f9e8af2439b8a584
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a241425401e3b34185b8605dc176124
+      internalID: -1005300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1e021cb50f75b419572781e89307c0
+      internalID: 971293088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d65124b8a3f7342abd83e2604a5b6f
+      internalID: 1129234109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 226d8c59ca31384429285ff4a9501444
+      internalID: -2111133818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6b5c4253edfab4e80b94a88168b8d3
+      internalID: 2106924114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc2938260515694296779e72c7ddecb
+      internalID: -2057128598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3154d64c04611e48b8a90b9b9836543
+      internalID: 577341533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a20806c22bac840b83e93dce151fec
+      internalID: -1373852108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_34
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c33dd52adde1c647baeb8d710985de1
+      internalID: -985392077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Seasons_Ground_Tiles_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62fa110cc3cf1b44979019def33fd1a
+      internalID: -559756619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      4_Seasons_Ground_Tiles_0: 1793894684
+      4_Seasons_Ground_Tiles_1: 111167810
+      4_Seasons_Ground_Tiles_10: 835497141
+      4_Seasons_Ground_Tiles_100: 280384717
+      4_Seasons_Ground_Tiles_101: -1529507056
+      4_Seasons_Ground_Tiles_102: -136696266
+      4_Seasons_Ground_Tiles_103: -437975441
+      4_Seasons_Ground_Tiles_104: -222635416
+      4_Seasons_Ground_Tiles_105: 1867619449
+      4_Seasons_Ground_Tiles_106: -1277896526
+      4_Seasons_Ground_Tiles_107: -694249892
+      4_Seasons_Ground_Tiles_11: -1185323774
+      4_Seasons_Ground_Tiles_12: 937869957
+      4_Seasons_Ground_Tiles_13: 1502849638
+      4_Seasons_Ground_Tiles_14: -427344719
+      4_Seasons_Ground_Tiles_15: -987284995
+      4_Seasons_Ground_Tiles_16: 1697742216
+      4_Seasons_Ground_Tiles_17: 130242325
+      4_Seasons_Ground_Tiles_18: 914991140
+      4_Seasons_Ground_Tiles_19: 527839855
+      4_Seasons_Ground_Tiles_2: -2050086010
+      4_Seasons_Ground_Tiles_20: -1257046232
+      4_Seasons_Ground_Tiles_21: 1955532678
+      4_Seasons_Ground_Tiles_22: 515140799
+      4_Seasons_Ground_Tiles_23: 2033701173
+      4_Seasons_Ground_Tiles_24: 2106924114
+      4_Seasons_Ground_Tiles_25: -2057128598
+      4_Seasons_Ground_Tiles_26: 577341533
+      4_Seasons_Ground_Tiles_27: 1497057906
+      4_Seasons_Ground_Tiles_28: 1449871516
+      4_Seasons_Ground_Tiles_29: -614502145
+      4_Seasons_Ground_Tiles_3: 1991137671
+      4_Seasons_Ground_Tiles_30: 1777666056
+      4_Seasons_Ground_Tiles_31: -1856815783
+      4_Seasons_Ground_Tiles_32: 985803341
+      4_Seasons_Ground_Tiles_33: -1373852108
+      4_Seasons_Ground_Tiles_34: -985392077
+      4_Seasons_Ground_Tiles_35: -559756619
+      4_Seasons_Ground_Tiles_36: 365166033
+      4_Seasons_Ground_Tiles_37: 967520100
+      4_Seasons_Ground_Tiles_38: 1865425812
+      4_Seasons_Ground_Tiles_39: 146762947
+      4_Seasons_Ground_Tiles_4: -933533611
+      4_Seasons_Ground_Tiles_40: 1856985356
+      4_Seasons_Ground_Tiles_41: -663049751
+      4_Seasons_Ground_Tiles_42: -225964906
+      4_Seasons_Ground_Tiles_43: -773267891
+      4_Seasons_Ground_Tiles_44: 1940952324
+      4_Seasons_Ground_Tiles_45: -372239921
+      4_Seasons_Ground_Tiles_46: -377227450
+      4_Seasons_Ground_Tiles_47: 1178413918
+      4_Seasons_Ground_Tiles_48: -1446581282
+      4_Seasons_Ground_Tiles_49: -1645996078
+      4_Seasons_Ground_Tiles_5: -1005300022
+      4_Seasons_Ground_Tiles_50: 1937176661
+      4_Seasons_Ground_Tiles_51: 2114427695
+      4_Seasons_Ground_Tiles_52: 1473511280
+      4_Seasons_Ground_Tiles_53: -681124606
+      4_Seasons_Ground_Tiles_54: -1351037430
+      4_Seasons_Ground_Tiles_55: -2109675097
+      4_Seasons_Ground_Tiles_56: -1713148911
+      4_Seasons_Ground_Tiles_57: 1188274018
+      4_Seasons_Ground_Tiles_58: 54224045
+      4_Seasons_Ground_Tiles_59: -1873504280
+      4_Seasons_Ground_Tiles_6: 971293088
+      4_Seasons_Ground_Tiles_60: -10160958
+      4_Seasons_Ground_Tiles_61: 2050752184
+      4_Seasons_Ground_Tiles_62: -959388792
+      4_Seasons_Ground_Tiles_63: 649816323
+      4_Seasons_Ground_Tiles_64: 861494541
+      4_Seasons_Ground_Tiles_65: 686040266
+      4_Seasons_Ground_Tiles_66: -1019228650
+      4_Seasons_Ground_Tiles_67: 1464936269
+      4_Seasons_Ground_Tiles_68: -1871502070
+      4_Seasons_Ground_Tiles_69: 1874267117
+      4_Seasons_Ground_Tiles_7: 1129234109
+      4_Seasons_Ground_Tiles_70: -1174532460
+      4_Seasons_Ground_Tiles_71: 660942344
+      4_Seasons_Ground_Tiles_72: 1587633127
+      4_Seasons_Ground_Tiles_73: -1110847400
+      4_Seasons_Ground_Tiles_74: -769597164
+      4_Seasons_Ground_Tiles_75: -1377370572
+      4_Seasons_Ground_Tiles_76: 402198557
+      4_Seasons_Ground_Tiles_77: -1678563794
+      4_Seasons_Ground_Tiles_78: 1638483956
+      4_Seasons_Ground_Tiles_79: 1599862587
+      4_Seasons_Ground_Tiles_8: -2111133818
+      4_Seasons_Ground_Tiles_80: -331906464
+      4_Seasons_Ground_Tiles_81: -633399178
+      4_Seasons_Ground_Tiles_82: 523727838
+      4_Seasons_Ground_Tiles_83: 1765300436
+      4_Seasons_Ground_Tiles_84: 596600760
+      4_Seasons_Ground_Tiles_85: 1050334393
+      4_Seasons_Ground_Tiles_86: 1875452860
+      4_Seasons_Ground_Tiles_87: -450698284
+      4_Seasons_Ground_Tiles_88: -1773163447
+      4_Seasons_Ground_Tiles_89: -1265125649
+      4_Seasons_Ground_Tiles_9: 1315480618
+      4_Seasons_Ground_Tiles_90: 1768459247
+      4_Seasons_Ground_Tiles_91: -898839937
+      4_Seasons_Ground_Tiles_92: -1806235129
+      4_Seasons_Ground_Tiles_93: -749382593
+      4_Seasons_Ground_Tiles_94: -1312794450
+      4_Seasons_Ground_Tiles_95: -1540373459
+      4_Seasons_Ground_Tiles_96: 1705239023
+      4_Seasons_Ground_Tiles_97: 1472221386
+      4_Seasons_Ground_Tiles_98: 70987211
+      4_Seasons_Ground_Tiles_99: 1041039885
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

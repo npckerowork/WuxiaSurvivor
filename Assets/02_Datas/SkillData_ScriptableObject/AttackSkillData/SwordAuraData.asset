@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
+  m_Name: SwordAuraData
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 21300000, guid: 3f2ae0cc986c1ce478ca79c46e100642, type: 3}
+  skillPrefab: {fileID: 8553680718405789436, guid: a24b144fda795184bb5ca04cf1b79111, type: 3}
+  skillName: SwordAura
+  skillDescription: "\uAC00\uC7A5 \uAC00\uAE4C\uC774 \uC788\uB294 \uC801\uC744 \uD5A5\uD574
+    \uAC80\uACA9\uC744 \uB0A0\uB9B0\uB2E4."
+  category: 0
+  maxLevel: 3
+  skillLevel: 1
+  attackType: 0
+  damage:
+  - 50
+  - 70
+  - 100

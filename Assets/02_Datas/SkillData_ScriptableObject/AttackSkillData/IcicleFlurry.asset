@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e0e814fb33d7c4993111475b0ed49f, type: 3}
+  m_Name: IcicleFlurry
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 21300000, guid: 69b4bad57cda6cf46a78c6949f4f7d4a, type: 3}
+  skillPrefab: {fileID: 9180203543205562114, guid: 11542cba0661dac449acba85078ac94c, type: 3}
+  skillName: IcicleFlurry
+  skillDescription: "\uBC14\uB77C\uBCF4\uB294 \uBC29\uD5A5\uC73C\uB85C \uC5BC\uC74C
+    \uD654\uC0B4\uC744 \uB0A0\uB9B0\uB2E4."
+  category: 0
+  maxLevel: 3
+  skillLevel: 1
+  attackType: 0
+  damage:
+  - 30
+  - 50
+  - 70
