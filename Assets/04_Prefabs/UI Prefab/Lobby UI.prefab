@@ -278,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c99173ec0baa254408caec269da8077a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 746e7a6a5a722954e9746a584bd9e554, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2095966f740ef74ca69043dc99541ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiTitle: {fileID: 7365346570028211420}
+  coinText: {fileID: 7365346570028211420}
   startButton: {fileID: 8910123835824338840}
   upgradeButton: {fileID: 322221145981276735}
   optionButton: {fileID: 5280956689757898759}
