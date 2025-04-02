@@ -7,31 +7,9 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timeText;
 
-    private IEnumerator timerCoroutine;
-
     public void InitUI()
     {
-        timerCoroutine = GameManager.Instance.StartTimer();
         GameManager.Instance.OnTimeChanged += UpdateTime;
-
-        // 메인 씬 변경 이벤트 할당
-        SceneLoader.Instance.AddAction(SceneType.Main, StartTimer);
-    }
-
-    /// <summary>
-    /// 타이머 시작
-    /// </summary>
-    public void StartTimer()
-    {
-        StartCoroutine(timerCoroutine);
-    }
-
-    /// <summary>
-    /// 타이머 종료
-    /// </summary>
-    public void EndTimer()
-    {
-        StopCoroutine(timerCoroutine);
     }
 
     /// <summary>
