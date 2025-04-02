@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public PlayerController Player { get; private set; }
-    public readonly List<GameObject> Enemies = new();
+    public readonly List<EnemyController> Enemies = new();
 
     public Coin GameCoin = new();
 
@@ -29,6 +29,7 @@ public class GameManager : Singleton<GameManager>
         SetDontDestroyOnLoad();
 
         GameCoin = new();
+
         Application.wantsToQuit += OnWantsToQuit;
         DOTween.SetTweensCapacity(200, 125);
 
@@ -47,6 +48,7 @@ public class GameManager : Singleton<GameManager>
     public void GameStart()
     {
         Player = FindAnyObjectByType<PlayerController>();
+        Player.OnDeath += GameDefeat;
 
         StartCoroutine(Spawning());
         StartCoroutine(StartTimer());
@@ -69,11 +71,15 @@ public class GameManager : Singleton<GameManager>
 
     public void GameDefeat()
     {
+        Debug.Log("게임 패배!");
+
         StopAllCoroutines();
     }
 
     public void GameVictory()
     {
+        Debug.Log("게임 승리!");
+
         StopAllCoroutines();
     }
 
@@ -105,7 +111,7 @@ public class GameManager : Singleton<GameManager>
 
             if (Enemies.Count < 100)
             {
-                Enemies.Add(GetRandomMonster(level));
+                Enemies.Add(GetRandomMonster(level).GetComponent<EnemyController>());
             }
 
             yield return level == 3 ? shortInterval : longInterval;
