@@ -1,8 +1,4 @@
-using Newtonsoft.Json;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UpgradeData
@@ -24,9 +20,9 @@ public class UpgradeData
 
         // 기본 데이터 캐싱
         upgradeDatas = new UpgradeScriptable[datalength];
-        foreach(UpgradeType type in Enum.GetValues(typeof(UpgradeType)))
+        foreach (UpgradeType type in Enum.GetValues(typeof(UpgradeType)))
         {
-            upgradeDatas[(int)type] = 
+            upgradeDatas[(int)type] =
                 Resources.Load<UpgradeScriptable>($"UpgradeData/{type.ToString()}");
         }
 

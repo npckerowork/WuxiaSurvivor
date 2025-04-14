@@ -16,7 +16,6 @@ public class IcicleFlurry : AttackSkillBase
     private void Start()
     {
         InvokeRepeating(nameof(ShootIceInDirections), 0, skillCoolDown);
-        Init();
         GameManager.Instance.Player.OnDeath += CancelInvoke; //플레이어가 죽었을때 invoke 중지
     }
 
@@ -63,5 +62,11 @@ public class IcicleFlurry : AttackSkillBase
 
             yield return new WaitForSeconds(projectileSpawndelayTime);
         }
+    }
+
+    public override void SkillLevelUp()
+    {
+        base.SkillLevelUp();
+        directionCount += 2;
     }
 }

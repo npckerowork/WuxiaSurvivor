@@ -66,7 +66,7 @@ public class AudioManager : Singleton<AudioManager>
     public void SetVolume(VolumeType type, float value)
     {
         volumes[(int)type] = value;
-        onVolumeChanged();
+        onVolumeChanged?.Invoke();
     }
 
     /// <summary>

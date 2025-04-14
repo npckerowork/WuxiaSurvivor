@@ -17,7 +17,4 @@ public class AttackSkillData : SkillData
     // 레벨에 따라서 바뀔 수 있게 배열로
     [SerializeField] protected float[] damage;
     public float[] Damage { get { return damage; } }
-    // 스킬 발동에 필요한 오브젝트 갯수
-    [SerializeField] private int[] objCount;
-    public int[] ObjCount { get { return objCount; } }
 }

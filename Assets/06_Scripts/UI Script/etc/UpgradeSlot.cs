@@ -38,7 +38,7 @@ public class UpgradeSlot : MonoBehaviour
 
     private void UpgradeButton()
     {
-        AudioManager.Instance.sfxController.PlayClip(SfxName.ButtonClick2);
+        AudioManager.Instance.sfxController.PlayClip(SfxName.ButtonClick);
 
         int useCoin = data.upgradePrices[typeIndex];
         if(DataManager.Instance.Coin.IsCanUse(useCoin))
@@ -60,8 +60,13 @@ public class UpgradeSlot : MonoBehaviour
 
             // slot 업데이트
             UpdateSlot();
+
+            // sfx
             AudioManager.Instance.sfxController.PlayClip(SfxName.TaskDone);
             return;
         }
+
+        // sfx
+        AudioManager.Instance.sfxController.PlayClip(SfxName.Error);
     }
 }

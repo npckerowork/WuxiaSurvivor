@@ -18,6 +18,7 @@ public class PlayerController : BaseController
 
         StatHandler = statHandler as PlayerStatHandler;
         StatHandler.SetData(Data);
+        StatHandler.ApplyUpgrade();
 
         Rigidbody = GetComponent<Rigidbody2D>();
         SkillHandler = GetComponent<PlayerSkillHandler>();

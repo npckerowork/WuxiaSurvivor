@@ -10,17 +10,18 @@ public class DataManager
             if (instance == null)
             {
                 instance = new DataManager();
+                LoadData();
             }
             return instance;
         }
     }
 
     private static DataManager instance = null;
-    private bool isLoaded = false;
+    private static bool isLoaded = false;
 
     private DataManager()
     {
-        LoadData();
+       
     }
 
     //저장할 데이터---------------------------
@@ -37,14 +38,14 @@ public class DataManager
     }
 
     //데이터 불러오기
-    public void LoadData()
+    public static void LoadData()
     {
-        if (!isLoaded) return;
+        if (isLoaded) return;
         if (!PlayerPrefs.HasKey(Define.SAVEDATA_KEY)) return; //저장키가 없다면
         isLoaded = true;
         string json = PlayerPrefs.GetString(Define.SAVEDATA_KEY);
         var saveData = JsonConvert.DeserializeObject<DataManager>(json);
-        JsonConvert.PopulateObject(json, this); // 싱글톤 인스턴스에 값만 덮어씀
+        JsonConvert.PopulateObject(json, instance); // 싱글톤 인스턴스에 값만 덮어씀
     }
 }
 

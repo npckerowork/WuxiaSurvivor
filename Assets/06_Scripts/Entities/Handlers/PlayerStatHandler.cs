@@ -20,11 +20,22 @@ public class PlayerStatHandler : StatHandler
 
     public Action<int> OnLevelUpEvent = delegate { }; //레벨업 할때 호출되는 이벤트
 
+    private void Start()
+    {
+        invincibilityTime = Define.INVINCIBILITY_TIME;
+    }
+
     public void SetData(PlayerData data)
     {
         MaxHP = data.MaxHP;
         hp = MaxHP;
         MoveSpeed = data.MoveSpeed;
+    }
+
+    public void ApplyUpgrade()
+    {
+        MaxHP *= DataManager.Instance.UpgradeData[UpgradeType.HP];
+        MoveSpeed *= DataManager.Instance.UpgradeData[UpgradeType.MoveSpeed];
     }
 
     public override void Damage(float damage)
@@ -56,12 +67,13 @@ public class PlayerStatHandler : StatHandler
     {
         exp += amount;
 
-        gameUI.Expbar.UpdateExp(exp, maxExp);
-
         while (exp >= maxExp) //넘친 경험치가 다음 레벨로 이월되도록 
         {
             exp -= maxExp;
             Level++;
+            AudioManager.Instance.sfxController.PlayClip(SfxName.LevelUp);
         }
+
+        gameUI.Expbar.UpdateExp(exp, maxExp, Level);
     }
 }

@@ -49,7 +49,7 @@ public class Projectile : MonoBehaviour
         startPosition = startPos;
         transform.position = startPosition;
         rigid.velocity = dir * speed;
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
+        transform.rotation = Quaternion.FromToRotation(Vector3.right, dir);
         usable = false;
     }
 

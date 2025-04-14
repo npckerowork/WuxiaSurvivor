@@ -18,7 +18,7 @@ public class PauseUI : BaseUI
         backButton.onClick.AddListener(HideUI);
         optionButton.onClick.AddListener(OnOption);
         lobbyButton.onClick.AddListener(OnLobby);
-        quitButton.onClick.AddListener(QuitGame);
+        quitButton.onClick.AddListener(() => Application.Quit());
     }
 
     /// <summary>
@@ -38,7 +38,7 @@ public class PauseUI : BaseUI
         base.HideUI();
         Time.timeScale = 1;
 
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public class PauseUI : BaseUI
     /// </summary>
     private void OnOption()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager[UIType.Option].ShowUI();
     }
@@ -56,7 +56,7 @@ public class PauseUI : BaseUI
     /// </summary>
     private void OnLobby()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
         uiManager.fade.FadeOut(EndFadeOut);
         AudioManager.Instance.bgmController.ChangeBGM(BgmName.LobbyBGM);
     }
@@ -71,18 +71,5 @@ public class PauseUI : BaseUI
         uiManager[UIType.Lobby].ShowUI();   
 
         SceneLoader.Instance.ChangeScene(SceneType.Lobby);
-    }
-
-    /// <summary>
-    /// 게임 종료
-    /// </summary>
-    private void QuitGame()
-    {
-        sfxController.PlayClip(SfxName.ButtonClick2);
-        Application.Quit();
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
     }
 }

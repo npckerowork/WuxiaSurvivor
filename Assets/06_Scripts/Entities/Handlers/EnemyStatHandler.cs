@@ -16,10 +16,17 @@ public class EnemyStatHandler : StatHandler
 
     public override void Damage(float damage)
     {
-        base.Damage(damage);
+        if (IsDead) return;
 
-        gameUI.DamageUI.OnDamage(damage, transform);
+        float upgradeDamage = damage * DataManager.Instance.UpgradeData[UpgradeType.Damage];
+        base.Damage(upgradeDamage);
+
+        // ==== UI / Effect / Sound ====
+        gameUI.DamageUI.OnDamage(upgradeDamage, transform);
         gameUI.HealthUI.UpdateHealthBar(transform, MaxHP, hp);
+        AudioManager.Instance.sfxController.RandomHitSFX(transform.position);
+        VFXManager.Instance.PlayVFX(EffectType.SparkPurple, transform.position);
+        // =============================
 
         if (IsDead)
         {

@@ -1,7 +1,10 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SFXController : MonoBehaviour
 {
@@ -11,7 +14,9 @@ public class SFXController : MonoBehaviour
     private AudioManager audioManager;
     private AudioSource audioSource;
     private AudioListener audioListener;
-    private HashSet<AudioClip> playingClips;
+
+    private Dictionary<AudioClip, AudioSource> audioSources;
+    private SfxName[] hitSfxNames;
 
     [Header("SFX Clips")]
     [SerializeField] private AudioClip[] clips;
@@ -23,7 +28,19 @@ public class SFXController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioListener = FindObjectOfType<AudioListener>();
 
-        playingClips = new HashSet<AudioClip>();
+        audioSources = new Dictionary<AudioClip, AudioSource>();
+
+        for(int i = 0; i < Enum.GetValues(typeof(SfxName)).Length; i++)
+        {
+            AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
+            audioSources.Add(clips[i], newAudioSource);
+
+            newAudioSource.clip = clips[i];
+            newAudioSource.playOnAwake = false;
+        }
+
+        hitSfxNames = new SfxName[]
+        { SfxName.Fight1, SfxName.Fight2, SfxName.Fight3, };
     }
 
     /// <summary>
@@ -36,7 +53,7 @@ public class SFXController : MonoBehaviour
         AudioClip clip = clips[(int)clipName];
 
         // null 예외처리
-        if (clip == null) 
+        if (clip == null)
             return;
 
         //  null 예외처리
@@ -45,26 +62,34 @@ public class SFXController : MonoBehaviour
 
         // 범위 밖
         float distance = Vector2.Distance(audioListener.transform.position, sfxPosition);
-        if (distance >= hearingRange) 
+        if (distance >= hearingRange)
             return;
 
-        // 이미 재생중인 클립 ( 중복 방지
-        // TODO: 재생중인 클립일때 재생된지 n초가 지났다면 멈추고 다시 실행시키기
-        if (playingClips.Contains(clip))
+        // 예외처리
+        if (!audioSources.TryGetValue(clip, out AudioSource audio))
             return;
-        
-        // 클립 재생
-        playingClips.Add(clip);
-        audioSource.PlayOneShot(clip, audioManager.GetVolume(VolumeType.Sfx));
 
-        // 클립 종료 코루틴
-        StartCoroutine(EndPlayingStatus(clip));
+        // 이미 재생중
+        if (audio.isPlaying)
+        {
+            // 실행된지 0.15초를 넘지못함 -> 재생 X
+            if (audio.time <= 0.15f)
+                return;
+
+            // 재생중인 클립 멈춤
+            audio.Stop();
+        }
+
+        // 사운드 조절 / 클립 재생
+        audio.volume = audioManager.GetVolume(VolumeType.Sfx);
+        audio.Play();
     }
 
-    private IEnumerator EndPlayingStatus(AudioClip clip)
+    public void RandomHitSFX(Vector2 sfxPosition = default)
     {
-        yield return new WaitForSeconds(clip.length);
-        playingClips.Remove(clip);
+        int clipLength = hitSfxNames.Length;
+        SfxName randomClip = hitSfxNames[Random.Range(0, clipLength)];
+        PlayClip(randomClip, sfxPosition);
     }
 
     private void OnDrawGizmos()

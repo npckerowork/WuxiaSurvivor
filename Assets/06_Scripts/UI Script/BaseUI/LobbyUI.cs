@@ -12,6 +12,7 @@ public class LobbyUI : BaseUI
     [SerializeField] private Button startButton;
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button optionButton;
+    [SerializeField] private Button exitButton;
     public override void InitUI(UIManager uiManager)
     {
         base.InitUI(uiManager);
@@ -19,6 +20,7 @@ public class LobbyUI : BaseUI
         startButton.onClick.AddListener(OnStart);
         upgradeButton.onClick.AddListener(OnUpgrade);
         optionButton.onClick.AddListener(OnOption);
+        exitButton.onClick.AddListener(() => Application.Quit());
 
         ShowUI();
         CoinUpdate(DataManager.Instance.Coin.Current); 
@@ -40,7 +42,7 @@ public class LobbyUI : BaseUI
     /// </summary>
     private void OnStart()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager.fade.FadeOut(HideUI);
         AudioManager.Instance.bgmController.ChangeBGM(BgmName.GameBGM);
@@ -51,7 +53,7 @@ public class LobbyUI : BaseUI
     /// </summary>
     private void OnUpgrade()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager[UIType.Upgrade].ShowUI();
     }
@@ -61,7 +63,7 @@ public class LobbyUI : BaseUI
     /// </summary>
     private void OnOption()
     {
-        sfxController.PlayClip(SfxName.ButtonClick2);
+        sfxController.PlayClip(SfxName.ButtonClick);
 
         uiManager[UIType.Option].ShowUI();
     }

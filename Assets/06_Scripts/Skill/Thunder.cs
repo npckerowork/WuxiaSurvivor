@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Thunder : AttackSkillBase, ICoolTimeCount
+public class Thunder : AttackSkillBase
 {
     [SerializeField] private BoxCollider2D boxCollider;
 
@@ -59,13 +59,9 @@ public class Thunder : AttackSkillBase, ICoolTimeCount
         }
     }
 
-    public bool CheckCoolTime()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void SkillLevelUp()
     {
         base.SkillLevelUp();
+        skillCooldown *= 0.7f;
     }
 }

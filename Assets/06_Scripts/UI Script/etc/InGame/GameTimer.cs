@@ -10,6 +10,8 @@ public class GameTimer : MonoBehaviour
     public void InitUI()
     {
         GameManager.Instance.OnTimeChanged += UpdateTime;
+        SceneLoader.Instance.AddAction(SceneType.Main,
+            () => timeText.text = "");
     }
 
     /// <summary>
@@ -17,9 +19,7 @@ public class GameTimer : MonoBehaviour
     /// </summary>
     private void UpdateTime()
     {
-        // TODO:
-        // GameManager timeLimit로 변경하기
-        int timeLimit = 300;
+        int timeLimit = GameManager.Instance.TimeLimit;
 
         int timeSecond = GameManager.Instance.currentTime;
 
